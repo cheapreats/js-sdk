@@ -24,6 +24,7 @@
     "apollo-client": "^2.2.8",
     "apollo-link-context": "^1.0.8",
     "apollo-link-http": "^1.5.4",
+    "axios": "^0.18.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
     "node-fetch": "^2.1.2"
