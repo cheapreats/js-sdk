@@ -3,7 +3,7 @@ const assert = require('assert');
 const TEST_GQL_ENDPOINT = 'https://cheapreats-qa-graphql.azurewebsites.net/graphql';
 
 
-describe('Link', () => {
+describe('ApolloLink', () => {
     describe('#constructor', () => {
         it('should set _url property', () => {
             const ApolloLink = require('../app/links/synchronouslinks/ApolloLink');
