@@ -52,6 +52,24 @@ class ApolloLink extends SynchronousLink {
     }
 
     /**
+     * Alias for run but automatically sets type as query
+     * @param config
+     * @returns {Promise<Object>}
+     */
+    query(config){
+        return this.run({...config, type: 'query'});
+    }
+
+    /**
+     * Alias for run, but automatically sets type as mutation
+     * @param config
+     * @returns {Promise<Object>}
+     */
+    mutate(config){
+        return this.run({...config, type: 'mutation'});
+    }
+
+    /**
      * Run a new apollo request
      * @param config
      * @returns {Promise<object>}
