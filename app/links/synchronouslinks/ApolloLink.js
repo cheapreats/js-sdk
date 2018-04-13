@@ -11,6 +11,7 @@ const ApolloClient = require('apollo-client').default;
 const ApolloInMemoryCache = require('apollo-cache-inmemory').InMemoryCache;
 const ApolloHttpLink = require('apollo-link-http').HttpLink;
 const gql = require('graphql-tag');
+const ApolloLinkContext = require('apollo-link-context');
 
 // Node.js does not support ES6 natively
 const fetch = require('node-fetch');
@@ -19,18 +20,35 @@ class ApolloLink extends SynchronousLink {
 
     /**
      * Construct a new ApolloLink
-     * @param url
+     * @param {string} url
+     * @param {object} config = {}
      */
-    constructor(url){
+    constructor(url, config = {}) {
         super(url);
+        this._headers = {};
+
         let cache = new ApolloInMemoryCache();
+
+        let link = new ApolloHttpLink({
+            uri: url,
+            fetch
+        });
+
+        if (config.headers) {
+            let headersLink = ApolloLinkContext.setContext(() => {
+                return {
+                    headers: config.headers
+                }
+            });
+            link = headersLink.concat(link);
+            this._headers = config.headers;
+        }
+
         this._client = new ApolloClient({
-            link: new ApolloHttpLink({
-                uri: url,
-                fetch
-            }),
+            link,
             cache
         });
+        this._link = link;
     }
 
     /**
@@ -38,11 +56,11 @@ class ApolloLink extends SynchronousLink {
      * @param config
      * @returns {Promise<object>}
      */
-    run(config){
+    run(config) {
         return new Promise((resolve, reject) => {
             const query = gql(config.query);
             // If the type is query, we call the query
-            if(config.type === 'query'){
+            if (config.type === 'query') {
                 this._client.query({
                     query,
                     variables: config.variables ? config.variables : {}
@@ -51,7 +69,7 @@ class ApolloLink extends SynchronousLink {
                 }).catch(e => {
                     reject(e);
                 })
-            // Otherwise, we call the mutation
+                // Otherwise, we call the mutation
             } else {
                 this._client.mutate({
                     mutation: query,
