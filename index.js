@@ -10,6 +10,6 @@ let app = new App();
 // Export a App instance
 module.exports = app;
 
-if(window){
+if(typeof window !== "undefined"){
     window.CE = app
 }
