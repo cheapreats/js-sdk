@@ -13,6 +13,7 @@ const Verify = require('./models/Verify');
 
 const GraphController = require('./controllers/GraphController');
 const CustomerController = require('./controllers/CustomerController');
+const OrderController = require('./controllers/OrderController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
@@ -27,6 +28,7 @@ class App {
 
         this._graphController = new GraphController(this._adaptor);
         this._customerController = new CustomerController(this);
+        this._orderController = new OrderController(this);
 
         this.Verify = new Verify({
             getVerificationCodeEndpoint: GET_VERIFICATION_CODE_ENDPOINT
@@ -39,7 +41,11 @@ class App {
         this.Customer = {
             create: this._customerController.create,
             authenticate: this._customerController.authenticate
-        }
+        };
+
+        this.Order = {
+            create: this._orderController.create
+        };
 
     }
 
