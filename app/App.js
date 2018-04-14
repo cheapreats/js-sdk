@@ -4,8 +4,11 @@
  * License: UNLICENSED
  */
 
-const GET_VERIFICATION_CODE_ENDPOINT = 'https://cheapreats-qa-graphql.azurewebsites.net/get_code';
-const APOLLO_ENDPOINT = 'https://cheapreats-qa-graphql.azurewebsites.net/graphql';
+const PRODUCTION_LINK = 'https://utsc-food.azurewebsites.net';
+const QA_LINK = 'https://cheapreats-graphql-qa.azurewebsites.net';
+
+const GET_VERIFICATION_CODE_ENDPOINT = '/get_code';
+const APOLLO_ENDPOINT = '/graphql';
 
 const ModelObserver = require('./observers/ModelObserver');
 
@@ -23,18 +26,17 @@ class App {
         this._modelObserver = new ModelObserver();
 
         this._adaptor = new CheaprEatsApolloAdaptor({
-            apolloEndpoint: APOLLO_ENDPOINT
+            apolloEndpoint: PRODUCTION_LINK + APOLLO_ENDPOINT
         });
 
+        this.Verify = new Verify({
+            getVerificationCodeEndpoint: PRODUCTION_LINK + GET_VERIFICATION_CODE_ENDPOINT
+        });
 
         this._graphController = new GraphController(this._adaptor);
         this._customerController = new CustomerController(this);
         this._vendorController = new VendorController(this);
         this._orderController = new OrderController(this);
-
-        this.Verify = new Verify({
-            getVerificationCodeEndpoint: GET_VERIFICATION_CODE_ENDPOINT
-        });
 
         this.Graph = {
             query: this._graphController.query
@@ -53,6 +55,21 @@ class App {
             create: this._orderController.create
         };
 
+    }
+
+    switchAdaptorMode(mode){
+        // TODO: Change REST to adaptor
+        if(mode === 'production'){
+            this._adaptor.setApolloEndpoint(PRODUCTION_LINK + APOLLO_ENDPOINT);
+            this.Verify = new Verify({
+                getVerificationCodeEndpoint: PRODUCTION_LINK + GET_VERIFICATION_CODE_ENDPOINT
+            });
+        } else {
+            this._adaptor.setApolloEndpoint(QA_LINK + APOLLO_ENDPOINT);
+            this.Verify = new Verify({
+                getVerificationCodeEndpoint: QA_LINK + GET_VERIFICATION_CODE_ENDPOINT
+            });
+        }
     }
 
     /**

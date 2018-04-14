@@ -21,6 +21,10 @@ class CheaprEatsApolloAdaptor extends Adaptor {
         });
     }
 
+    setApolloEndpoint(url){
+        this._apolloLink = new ApolloLink(url);
+    }
+
     query(query, variables = {}){
         return this._apolloLink.query({ query, variables });
     }
