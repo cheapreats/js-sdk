@@ -37,4 +37,4 @@ jobs:
       - run: npm test
       - run: npm run gulp build
       - store_artifacts:
-        path: build
+          path: build
