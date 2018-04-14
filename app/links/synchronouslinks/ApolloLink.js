@@ -46,7 +46,10 @@ class ApolloLink extends SynchronousLink {
 
         this._client = new ApolloClient({
             link,
-            cache
+            cache,
+            defaultOptions: {
+                queryPolicy: 'network-only'
+            }
         });
         this._link = link;
     }
