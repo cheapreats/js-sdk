@@ -57,7 +57,7 @@ class ApolloLink extends SynchronousLink {
      * @returns {Promise<Object>}
      */
     query(config){
-        return this.run({...config, type: 'query'});
+        return this.run(Object.assign(config, {type: 'query'}));
     }
 
     /**
@@ -66,7 +66,7 @@ class ApolloLink extends SynchronousLink {
      * @returns {Promise<Object>}
      */
     mutate(config){
-        return this.run({...config, type: 'mutation'});
+        return this.run(Object.assign(config, {type: 'mutation'}));
     }
 
     /**

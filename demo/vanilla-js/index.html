@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="../../build/ce.js"></script>
+    </head>
+    <body>
+        <h1>Phone Verification</h1>
+        <p>Country code: 1</p>
+        <input type="text" id="phone-number-input" placeholder="Enter your phone number" />
+        <button onclick="sendVerificationCode()">Get Verification Code</button>
+    </body>
+</html>
+
+<script>
+    function sendVerificationCode(){
+        var phoneNumber = document.getElementById("phone-number-input").value;
+
+        CE.Verify.getCode(phoneNumber, "1").then(function(){
+            alert("Verification code sent to " + phoneNumber);
+        }).catch(e => {
+            alert(JSON.stringify(e));
+        })
+    }
+
+    function fetchAllVendors(){
+        CE.Graph.query(`
+        query {
+            vendors {
+                name
+                menuItems {
+                    name
+                    price
+                }
+            }
+        }
+        `).then(data => {
+            console.log(data.vendors);
+        })
+    }
+
+    fetchAllVendors();
+</script>

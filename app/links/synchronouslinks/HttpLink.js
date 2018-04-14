@@ -23,7 +23,7 @@ class HttpLink extends SynchronousLink {
      * @returns {Promise<Object>}
      */
     get(config = {}){
-        return this.run({...config, method: 'get'});
+        return this.run(Object.assign(config, {method: 'get'}));
     }
 
     /**
@@ -32,7 +32,7 @@ class HttpLink extends SynchronousLink {
      * @returns {Promise<Object>}
      */
     post(config = {}){
-        return this.run({...config, method: 'post'});
+        return this.run(Object.assign(config, {method: 'post'}));
     }
 
     /**
@@ -41,7 +41,7 @@ class HttpLink extends SynchronousLink {
      * @returns {Promise<Object>}
      */
     put(config = {}){
-        return this.run({...config, method: 'put'});
+        return this.run(Object.assign(config, {method: 'put'}));
     }
 
     /**
@@ -50,7 +50,7 @@ class HttpLink extends SynchronousLink {
      * @returns {Promise<Object>}
      */
     delete(config = {}){
-        return this.run({...config, method: 'delete'});
+        return this.run(Object.assign(config, {method: 'delete'}));
     }
 
     /**

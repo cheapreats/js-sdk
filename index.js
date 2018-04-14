@@ -6,5 +6,10 @@
 
 const App = require('./app/App');
 
+let app = new App();
 // Export a App instance
-module.exports = new App();
+module.exports = app;
+
+if(window){
+    window.CE = app
+}
