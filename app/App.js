@@ -13,6 +13,7 @@ const Verify = require('./models/Verify');
 
 const GraphController = require('./controllers/GraphController');
 const CustomerController = require('./controllers/CustomerController');
+const VendorController = require('./controllers/VendorController');
 const OrderController = require('./controllers/OrderController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
@@ -28,6 +29,7 @@ class App {
 
         this._graphController = new GraphController(this._adaptor);
         this._customerController = new CustomerController(this);
+        this._vendorController = new VendorController(this);
         this._orderController = new OrderController(this);
 
         this.Verify = new Verify({
@@ -41,6 +43,10 @@ class App {
         this.Customer = {
             create: this._customerController.create,
             authenticate: this._customerController.authenticate
+        };
+
+        this.Vendor = {
+            authenticate: this._vendorController.authenticate
         };
 
         this.Order = {
