@@ -5,7 +5,7 @@
  */
 
 const PRODUCTION_LINK = 'https://utsc-food.azurewebsites.net';
-const QA_LINK = 'https://cheapreats-graphql-qa.azurewebsites.net';
+const QA_LINK = 'https://cheapreats-qa-graphql.azurewebsites.net';
 
 const GET_VERIFICATION_CODE_ENDPOINT = '/get_code';
 const APOLLO_ENDPOINT = '/graphql';
