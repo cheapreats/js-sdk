@@ -48,7 +48,9 @@ class ApolloLink extends SynchronousLink {
             link,
             cache,
             defaultOptions: {
-                queryPolicy: 'network-only'
+                query: {
+                    fetchPolicy: 'network-only'
+                }
             }
         });
         this._link = link;
