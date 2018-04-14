@@ -16,7 +16,6 @@ class User extends Model {
         this._id = -1;
         this._emailAddress = "";
     }
-
 }
 
 module.exports = User;

@@ -10,6 +10,8 @@ class Customer extends User {
     constructor(){
         super();
     }
+
+
 }
 
 module.exports = Customer;
