@@ -23,6 +23,7 @@ class CheaprEatsApolloAdaptor extends Adaptor {
 
     setApolloEndpoint(url){
         this._apolloLink = new ApolloLink(url);
+        this._config.apolloEndpoint = url;
     }
 
     query(query, variables = {}){
