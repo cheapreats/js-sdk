@@ -25,4 +25,4 @@ sudo apt-get install apt-transport-https
 sudo apt-get update && sudo apt-get install azure-cli
 
 echo "Pushing to Azure Blob Storage"
-az storage blob upload-batch --source . --destination "${AZURE_CONTAINER}" --pattern *.tar.gz*
+az storage blob upload-batch --source ~/repo --destination "${AZURE_CONTAINER}" --pattern *.tar.gz*
