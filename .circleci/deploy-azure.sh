@@ -22,4 +22,4 @@ sudo pip install --upgrade pip
 sudo pip install azure-cli
 
 echo "Pushing to Azure Blob Storage"
-az storage blob upload-batch --source . --destination "${AZURE_CONTAINER}" --pattern *.tar.gz*
+sudo az storage blob upload-batch --source . --destination "${AZURE_CONTAINER}" --pattern *.tar.gz*
