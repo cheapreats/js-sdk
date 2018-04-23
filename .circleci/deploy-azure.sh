@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-IFS=$'\n\t'
-DRAFT_ROOT="${BASH_SOURCE[0]%/*}/.."
-
-cd "$DRAFT_ROOT"
+cd "~/repo"
 
 # Skip on pull request builds
 if [[ -n "${CIRCLE_PR_NUMBER:-}" ]]; then
@@ -31,4 +28,4 @@ easy_install pyOpenSSL
 pip install --disable-pip-version-check --no-cache-dir azure-cli~=2.0
 
 echo "Pushing to Azure Blob Storage"
-az storage blob upload-batch --source ～/repo --destination "${AZURE_CONTAINER}" --pattern *.tar.gz*
+az storage blob upload-batch --source . --destination "${AZURE_CONTAINER}" --pattern *.tar.gz*
