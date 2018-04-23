@@ -38,6 +38,6 @@ jobs:
       - run: npm run gulp build
       - run:
           name: Deploy to Azure Blob
-          command: chmod +x ./.circleci/deploy-azure.sh && ./.circleci/deploy-azure.sh
+          command: chmod +x ./.circleci/deploy-azure.sh && sudo ./.circleci/deploy-azure.sh
       - store_artifacts:
           path: build
