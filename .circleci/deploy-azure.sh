@@ -10,7 +10,7 @@ if [[ -n "${CIRCLE_TAG:-}" ]]; then
 elif [[ "${CIRCLE_BRANCH:-}" == "master" ]]; then
   VERSION="canary"
 else
-  echo "skipping because this is neither a push to master or a pull request."
+  echo "skipping because this is neither a push to master or a pull request. ${CIRCLE_TAG} ${CIRCLE_BRANCH}"
   exit
 fi
 
