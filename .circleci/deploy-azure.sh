@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
 IFS=$'\n\t'
 DRAFT_ROOT="${BASH_SOURCE[0]%/*}/.."
 
