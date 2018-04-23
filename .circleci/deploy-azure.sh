@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Skip on pull request builds
 if [[ -n "${CIRCLE_PR_NUMBER:-}" ]]; then
