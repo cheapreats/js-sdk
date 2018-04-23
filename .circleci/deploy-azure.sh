@@ -5,10 +5,6 @@ if [[ -n "${CIRCLE_PR_NUMBER:-}" ]]; then
   exit
 fi
 
-: ${AZURE_CONTAINER:?"AZURE_CONTAINER environment variable is not set"}
-: ${AZURE_STORAGE_ACCOUNT:?"AZURE_STORAGE_ACCOUNT environment variable is not set"}
-: ${AZURE_STORAGE_KEY:?"AZURE_STORAGE_KEY environment variable is not set"}
-
 if [[ -n "${CIRCLE_TAG:-}" ]]; then
   VERSION="${CIRCLE_TAG}"
 elif [[ "${CIRCLE_BRANCH:-}" == "master" ]]; then
