@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-cd "~/repo"
-
 # Skip on pull request builds
 if [ -n "${CIRCLE_PR_NUMBER:-}" ]; then
   exit
@@ -14,7 +12,7 @@ fi
 VERSION=
 if [ -n "${CIRCLE_TAG:-}" ]; then
   VERSION="${CIRCLE_TAG}"
-elif [ "${CIRCLE_BRANCH:-}" == "master" ]; then
+elif (( "${CIRCLE_BRANCH:-}" == "master" )); then
   VERSION="canary"
 else
   echo "skipping because this is neither a push to master or a pull request."
