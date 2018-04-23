@@ -16,7 +16,7 @@ fi
 
 echo "Installing Azure components"
 # NOTE(bacongobbler): azure-cli needs a newer version of libffi/libssl. See https://github.com/Azure/azure-cli/issues/3720#issuecomment-350335381
-sudo apt-get update && sudo apt-get install -yq python3-pip libffi-dev libssl-dev
+sudo apt-get update && sudo apt-get install -yq python3-pip libffi-dev libssl-dev python-dev build-essential
 curl -L https://aka.ms/InstallAzureCli | bash
 
 echo "Pushing to Azure Blob Storage"
