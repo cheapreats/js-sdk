@@ -3,7 +3,7 @@
 cd "~/repo"
 
 # Skip on pull request builds
-if [[ -n "${CIRCLE_PR_NUMBER:-}" ]]; then
+if [ -n "${CIRCLE_PR_NUMBER:-}" ]; then
   exit
 fi
 
@@ -12,9 +12,9 @@ fi
 : ${AZURE_STORAGE_KEY:?"AZURE_STORAGE_KEY environment variable is not set"}
 
 VERSION=
-if [[ -n "${CIRCLE_TAG:-}" ]]; then
+if [ -n "${CIRCLE_TAG:-}" ]; then
   VERSION="${CIRCLE_TAG}"
-elif [[ "${CIRCLE_BRANCH:-}" == "master" ]]; then
+elif [ "${CIRCLE_BRANCH:-}" == "master" ]; then
   VERSION="canary"
 else
   echo "skipping because this is neither a push to master or a pull request."
