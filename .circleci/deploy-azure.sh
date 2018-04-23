@@ -24,7 +24,8 @@ curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo apt-get install apt-transport-https
 sudo apt-get update && sudo apt-get install azure-cli
 
-tar -czf "${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" --exclude="${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" .
+ARCHIVE_NAME="${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz"
+tar -czf "${ARCHIVE_NAME}" --exclude="${ARCHIVE_NAME}" .
 
 echo "Pushing to Azure Blob Storage"
-az storage blob upload --file "${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" --container-name "${AZURE_CONTAINER}" --name "${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" --debug
+az storage blob upload --file "${ARCHIVE_NAME}" --container-name "${AZURE_CONTAINER}" --name "${ARCHIVE_NAME}" --debug
