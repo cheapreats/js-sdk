@@ -27,4 +27,4 @@ sudo apt-get update && sudo apt-get install azure-cli
 tar -czf "${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" --exclude="${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" .
 
 echo "Pushing to Azure Blob Storage"
-az storage blob upload --file "~/${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" --container-name "${AZURE_CONTAINER}" --name "${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" --debug
+az storage blob upload --file "${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" --container-name "${AZURE_CONTAINER}" --name "${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz" --debug
