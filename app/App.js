@@ -59,7 +59,8 @@ class App {
         };
 
         this.Notification = {
-            apnsEnrollCustomer: this._notificationController.apnsEnrollCustomer
+            apnsEnrollCustomer: this._notificationController.apnsEnrollCustomer,
+            apnsRevokeCustomer: this._notificationController.apnsRevokeCustomer
         };
 
     }

@@ -5,6 +5,7 @@ class NotificationController {
     constructor(app){
         this.app = app;
         this.apnsEnrollCustomer = this.apnsEnrollCustomer.bind(this);
+        this.apnsRevokeCustomer = this.apnsRevokeCustomer.bind(this);
     }
 
     /**
@@ -45,6 +46,32 @@ class NotificationController {
                     reject(e);
                 })
         });
+    }
+
+    /**
+     * Revoke an iOS device
+     * @param apnsToken
+     * @returns {Promise<any>}
+     */
+    apnsRevokeCustomer(apnsToken){
+        const link = this.getHttpLink("/api/APNSRevokeCustomer");
+        return new Promise((resolve, reject) => {
+            link
+                .post({
+                    data: JSON.stringify({
+                        apnsToken
+                    }),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                })
+                .then(() => {
+                    resolve();
+                })
+                .catch(e => {
+                    reject(e);
+                })
+        })
     }
 
 }
