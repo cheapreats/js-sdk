@@ -4,12 +4,6 @@
  * License: UNLICENSED
  */
 
-const PRODUCTION_LINK = 'https://utsc-food.azurewebsites.net';
-const QA_LINK = 'https://cheapreats-qa-graphql.azurewebsites.net';
-
-const GET_VERIFICATION_CODE_ENDPOINT = '/get_code';
-const APOLLO_ENDPOINT = '/graphql';
-
 const ModelObserver = require('./observers/ModelObserver');
 
 const Verify = require('./models/Verify');
@@ -18,25 +12,34 @@ const GraphController = require('./controllers/GraphController');
 const CustomerController = require('./controllers/CustomerController');
 const VendorController = require('./controllers/VendorController');
 const OrderController = require('./controllers/OrderController');
+const NotificationController = require('./controllers/NotificationController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
+
+const config = {
+    endpoints: require('../config/endpoints')
+};
 
 class App {
     constructor(){
         this._modelObserver = new ModelObserver();
 
+        this._adaptorMode = 'production';
+        this._token = null;
+
         this._adaptor = new CheaprEatsApolloAdaptor({
-            apolloEndpoint: PRODUCTION_LINK + APOLLO_ENDPOINT
+            apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint.production
         });
 
         this.Verify = new Verify({
-            getVerificationCodeEndpoint: PRODUCTION_LINK + GET_VERIFICATION_CODE_ENDPOINT
+            getVerificationCodeEndpoint: this.getConfiguration().endpoints.verificationEndpoint.production
         });
 
         this._graphController = new GraphController(this._adaptor);
         this._customerController = new CustomerController(this);
         this._vendorController = new VendorController(this);
         this._orderController = new OrderController(this);
+        this._notificationController = new NotificationController(this);
 
         this.Graph = {
             query: this._graphController.query
@@ -55,21 +58,30 @@ class App {
             create: this._orderController.create
         };
 
+        this.Notification = {
+            apnsEnrollCustomer: this._notificationController.apnsEnrollCustomer
+        };
+
     }
 
     switchAdaptorMode(mode){
         // TODO: Change REST to adaptor
         if(mode === 'production'){
-            this._adaptor.setApolloEndpoint(PRODUCTION_LINK + APOLLO_ENDPOINT);
+            this._adaptor.setApolloEndpoint(this.getConfiguration().endpoints.apolloEndpoint.production);
             this.Verify = new Verify({
-                getVerificationCodeEndpoint: PRODUCTION_LINK + GET_VERIFICATION_CODE_ENDPOINT
+                getVerificationCodeEndpoint: this.getConfiguration().endpoints.verificationEndpoint.production
             });
         } else {
-            this._adaptor.setApolloEndpoint(QA_LINK + APOLLO_ENDPOINT);
+            this._adaptor.setApolloEndpoint(this.getConfiguration().endpoints.apolloEndpoint.qa);
             this.Verify = new Verify({
-                getVerificationCodeEndpoint: QA_LINK + GET_VERIFICATION_CODE_ENDPOINT
+                getVerificationCodeEndpoint: this.getConfiguration().endpoints.verificationEndpoint.qa
             });
         }
+        this._adaptorMode = mode;
+    }
+
+    getAdaptorMode(){
+        return this._adaptorMode;
     }
 
     /**
@@ -80,12 +92,25 @@ class App {
         return this._adaptor;
     }
 
+    getConfiguration(){
+        return config;
+    }
+
     /**
      * Set current authentication token
      * @param token
      */
     setAuthenticationToken(token){
+        this._token = token;
         this._adaptor.setAuthenticationToken(token);
+    }
+
+    /**
+     * Get current authentication token
+     * @returns {null|string}
+     */
+    getAuthenticationToken(){
+        return this._token;
     }
 
     /**
