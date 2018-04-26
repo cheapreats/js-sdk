@@ -47,7 +47,8 @@ class App {
 
         this.Customer = {
             create: this._customerController.create,
-            authenticate: this._customerController.authenticate
+            authenticate: this._customerController.authenticate,
+            addCreditCard: this._customerController.addCreditCard
         };
 
         this.Vendor = {

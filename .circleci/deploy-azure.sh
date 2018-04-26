@@ -25,7 +25,7 @@ sudo apt-get install apt-transport-https
 sudo apt-get update && sudo apt-get install azure-cli
 
 ARCHIVE_NAME="${CIRCLE_BRANCH}-${CIRCLE_BUILD_NUM}.tar.gz"
-tar -czf "${ARCHIVE_NAME}" --exclude="${ARCHIVE_NAME}" .
+tar -czf "${ARCHIVE_NAME}" --exclude="${ARCHIVE_NAME}" --exclude=".git" .
 
 echo "Pushing to Azure Blob Storage"
 az storage blob upload --file "${ARCHIVE_NAME}" --container-name "${AZURE_CONTAINER}" --name "${ARCHIVE_NAME}" --debug

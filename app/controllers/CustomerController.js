@@ -6,6 +6,7 @@ class CustomerController {
         this.app = app;
         this.create = this.create.bind(this);
         this.authenticate = this.authenticate.bind(this);
+        this.addCreditCard = this.addCreditCard.bind(this);
     }
 
     /**
@@ -81,6 +82,32 @@ class CustomerController {
                     reject(e);
                 })
             }
+        });
+    }
+
+    /**
+     * Add a new credit card to customer account
+     * @param lastFour
+     * @param type
+     * @param stripeToken
+     * @returns {Promise<any>}
+     */
+    addCreditCard(lastFour, type, stripeToken){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation addCreditCard ($lastFour: String!, $type: String!, $stripeToken: String!) {
+                    addCreditCard(lastFour: $lastFour, type: $type, stripeToken: $stripeToken) {
+                        id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                lastFour, type, stripeToken
+            }).then(result => {
+                resolve(result.addCreditCard.id);
+            }).catch(e => {
+                reject(e);
+            });
         });
     }
 
