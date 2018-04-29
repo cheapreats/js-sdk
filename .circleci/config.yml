@@ -36,6 +36,7 @@ jobs:
       # run tests!
       - run: npm test
       - run: npm run gulp build
+      - run: npm run build
       - run:
           name: Deploy to Azure Blob
           command: chmod +x ./.circleci/deploy-azure.sh && ./.circleci/deploy-azure.sh

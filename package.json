@@ -2,10 +2,11 @@
   "name": "cheapreats-node-sdk",
   "version": "1.0.0",
   "description": "CheaprEats Node.js SDK",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "build": "babel . -d lib --ignore node_modules"
   },
   "repository": {
     "type": "git",
