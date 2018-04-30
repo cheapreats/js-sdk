@@ -3,9 +3,9 @@ module.exports = {
         'production': 'https://utsc-food.azurewebsites.net/graphql',
         'qa': 'https://cheapreatsmainapi-test.azurewebsites.net/graphql'
     },
-    verificationEndpoint: {
-        'production': 'https://utsc-food.azurewebsites.net/get_code',
-        'qa': 'https://cheapreatsmainapi-test.azurewebsites.net/get_code'
+    restEndpoint: {
+        'production': 'https://utsc-food.azurewebsites.net',
+        'qa': 'https://cheapreatsmainapi-test.azurewebsites.net'
     },
     notificationEndpoint: {
         'production': 'https://func-notification-services-qa.cheapreats.com',

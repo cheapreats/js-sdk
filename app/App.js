@@ -6,13 +6,12 @@
 
 const ModelObserver = require('./observers/ModelObserver');
 
-const Verify = require('./models/Verify');
-
 const GraphController = require('./controllers/GraphController');
 const CustomerController = require('./controllers/CustomerController');
 const VendorController = require('./controllers/VendorController');
 const OrderController = require('./controllers/OrderController');
 const NotificationController = require('./controllers/NotificationController');
+const TwilioController = require('./controllers/TwilioController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
@@ -31,15 +30,17 @@ class App {
             apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint.production
         });
 
-        this.Verify = new Verify({
-            getVerificationCodeEndpoint: this.getConfiguration().endpoints.verificationEndpoint.production
-        });
-
         this._graphController = new GraphController(this._adaptor);
         this._customerController = new CustomerController(this);
         this._vendorController = new VendorController(this);
         this._orderController = new OrderController(this);
         this._notificationController = new NotificationController(this);
+        this._twilioController = new TwilioController(this);
+
+        this.Verify = {
+            getCode: this._twilioController.getCode,
+            canVerify: this._twilioController.canVerify
+        };
 
         this.Graph = {
             query: this._graphController.query
@@ -70,14 +71,8 @@ class App {
         // TODO: Change REST to adaptor
         if(mode === 'production'){
             this._adaptor.setApolloEndpoint(this.getConfiguration().endpoints.apolloEndpoint.production);
-            this.Verify = new Verify({
-                getVerificationCodeEndpoint: this.getConfiguration().endpoints.verificationEndpoint.production
-            });
         } else {
             this._adaptor.setApolloEndpoint(this.getConfiguration().endpoints.apolloEndpoint.qa);
-            this.Verify = new Verify({
-                getVerificationCodeEndpoint: this.getConfiguration().endpoints.verificationEndpoint.qa
-            });
         }
         this._adaptorMode = mode;
     }
