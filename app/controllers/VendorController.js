@@ -2,6 +2,41 @@ class VendorController {
     constructor(app){
         this.app = app;
         this.authenticate = this.authenticate.bind(this);
+        this.create = this.create.bind(this);
+    }
+
+
+    /**
+     * Create a new vendor, return vendor ID if successful
+     * @param name
+     * @param emailAddress
+     * @param phoneNumber
+     * @param location
+     * @param openHours
+     * @param lastCallHours
+     * @param password
+     * @param businessPhoneNumber
+     * @param firstName
+     * @param lastName
+     * @returns {Promise<any>}
+     */
+    create(name, emailAddress, phoneNumber, location, openHours, lastCallHours, password, businessPhoneNumber, firstName, lastName){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation addCustomerMutation ($name: String!, $emailAddress: String!, $phoneNumber: String!, $location: String!, $openHours: String!, $lastCallHours: String!, $password: String!, $businessPhoneNumber: String!, $firstName: String!, $lastName: String!) {
+                    addVendor(name: $name, emailAddress: $emailAddress, phoneNumber: $phoneNumber, location: $location, openHours: $openHours, lastCallHours: $lastCallHours, password: $password, businessPhoneNumber: $businessPhoneNumber, firstName: $firstName, lastName: $lastName) {
+                        id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                name, emailAddress, phoneNumber, location, openHours, lastCallHours, password, businessPhoneNumber, firstName, lastName
+            }).then(result => {
+                resolve(result.addVendor.id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
     }
 
 

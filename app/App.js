@@ -12,6 +12,9 @@ const VendorController = require('./controllers/VendorController');
 const OrderController = require('./controllers/OrderController');
 const NotificationController = require('./controllers/NotificationController');
 const TwilioController = require('./controllers/TwilioController');
+const MenuItemController = require('./controllers/MenuItemController');
+const ToppingItemController = require('./controllers/ToppingItemController');
+const ComboItemController = require('./controllers/ComboItemController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
@@ -36,6 +39,9 @@ class App {
         this._orderController = new OrderController(this);
         this._notificationController = new NotificationController(this);
         this._twilioController = new TwilioController(this);
+        this._menuItemController = new MenuItemController(this);
+        this._toppingItemController = new ToppingItemController(this);
+        this._comboItemController = new ComboItemController(this);
 
         this.Verify = {
             getCode: this._twilioController.getCode,
@@ -53,7 +59,8 @@ class App {
         };
 
         this.Vendor = {
-            authenticate: this._vendorController.authenticate
+            authenticate: this._vendorController.authenticate,
+            create: this._vendorController.create
         };
 
         this.Order = {
@@ -64,6 +71,23 @@ class App {
             apnsEnrollCustomer: this._notificationController.apnsEnrollCustomer,
             apnsRevokeCustomer: this._notificationController.apnsRevokeCustomer
         };
+
+        this.MenuItem = {
+            add: this._menuItemController.add,
+            update: this._menuItemController.update,
+            delete: this._menuItemController.delete
+        };
+
+        this.ToppingItem = {
+            add: this._toppingItemController.add,
+            update: this._toppingItemController.update,
+            delete: this._toppingItemController.delete
+        };
+
+        this.ComboItem = {
+            add: this._comboItemController.add,
+            delete: this._comboItemController.delete
+        }
 
     }
 
