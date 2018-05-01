@@ -39,11 +39,12 @@ class MenuItemController {
      * @param id
      * @param name
      * @param remainingQuantity
+     * @param price
      * @param availableUntil
      * @param toppingItems
      * @returns {Promise<any>}
      */
-    update(id, name = null, remainingQuantity = null, availableUntil = null, toppingItems = null){
+    update(id, name = null, remainingQuantity = null, price = null, availableUntil = null, toppingItems = null){
         // updateMenuItem(id: Int!, name: String, remainingQuantity: Int, price: Int, availableUntil: Int, toppingItems: [ToppingItemInput]): MenuItem
         return new Promise((resolve, reject) => {
             let mutationString = `
