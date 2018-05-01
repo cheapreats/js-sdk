@@ -55,7 +55,7 @@ class MenuItemController {
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                id, name, remainingQuantity, availableUntil, toppingItems
+                id, name, remainingQuantity, price, availableUntil, toppingItems
             }).then(result => {
                 resolve(result.updateMenuItem.id);
             }).catch(e => {
