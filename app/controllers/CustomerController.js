@@ -120,13 +120,13 @@ class CustomerController {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation updateCreditCard ($stripeToken: String!) {
-                    addCreditCard(stripeToken: $stripeToken)
+                    updateCreditCard(stripeToken: $stripeToken)
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
                 stripeToken
             }).then(result => {
-                resolve(result.addCreditCard);
+                resolve(result.updateCreditCard);
             }).catch(e => {
                 reject(e);
             });
