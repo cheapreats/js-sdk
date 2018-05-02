@@ -7,6 +7,7 @@ class CustomerController {
         this.create = this.create.bind(this);
         this.authenticate = this.authenticate.bind(this);
         this.addCreditCard = this.addCreditCard.bind(this);
+        this.updateCreditCard = this.updateCreditCard.bind(this);
     }
 
     /**
