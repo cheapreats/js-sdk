@@ -13,7 +13,7 @@
     "url": "git+https://github.com/wolfbeacon/CheaprEats-Node-SDK.git"
   },
   "author": "CheaprEats",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/wolfbeacon/CheaprEats-Node-SDK/issues"
   },
@@ -39,6 +39,7 @@
     "axios": "^0.18.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
-    "node-fetch": "^2.1.2"
+    "node-fetch": "^2.1.2",
+    "stripe": "^5.8.0"
   }
 }

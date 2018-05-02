@@ -111,6 +111,28 @@ class CustomerController {
         });
     }
 
+    /**
+     * Update customer's default payment credit card
+     * @param stripeToken
+     * @returns {Promise<any>}
+     */
+    updateCreditCard(stripeToken){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation updateCreditCard ($stripeToken: String!) {
+                    addCreditCard(stripeToken: $stripeToken)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                stripeToken
+            }).then(result => {
+                resolve(result.addCreditCard);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
 
 }
 
