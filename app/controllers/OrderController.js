@@ -16,7 +16,7 @@ class OrderController {
     create(orderItems, orderComboItems, scheduledPickupTime, note = "", paymentMethod){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation addOrderMutation ($orderItems: [OrderItemInput]!, $orderComboItems: [OrderComboItemInput]!, $scheduledPickupTime: String!, $note: String!, paymentMethod: Int!) {
+                mutation addOrderMutation ($orderItems: [OrderItemInput]!, $orderComboItems: [OrderComboItemInput]!, $scheduledPickupTime: String!, $note: String!, $paymentMethod: Int!) {
                     addOrder(orderItems: $orderItems, orderComboItems: $orderComboItems, scheduledPickupTime: $scheduledPickupTime, note: $note, paymentMethod: $paymentMethod) {
                         id
                     }
