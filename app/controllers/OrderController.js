@@ -10,19 +10,20 @@ class OrderController {
      * @param orderComboItems
      * @param scheduledPickupTime
      * @param note
+     * @param paymentMethod
      * @returns {Promise<any>}
      */
-    create(orderItems, orderComboItems, scheduledPickupTime, note = ""){
+    create(orderItems, orderComboItems, scheduledPickupTime, note = "", paymentMethod){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation addOrderMutation ($orderItems: [OrderItemInput]!, $orderComboItems: [OrderComboItemInput]!, $scheduledPickupTime: String!, $note: String!) {
-                    addOrder(orderItems: $orderItems, orderComboItems: $orderComboItems, scheduledPickupTime: $scheduledPickupTime, note: $note) {
+                mutation addOrderMutation ($orderItems: [OrderItemInput]!, $orderComboItems: [OrderComboItemInput]!, $scheduledPickupTime: String!, $note: String!, paymentMethod: Int!) {
+                    addOrder(orderItems: $orderItems, orderComboItems: $orderComboItems, scheduledPickupTime: $scheduledPickupTime, note: $note, paymentMethod: $paymentMethod) {
                         id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                orderItems, orderComboItems, scheduledPickupTime, note
+                orderItems, orderComboItems, scheduledPickupTime, note, paymentMethod
             }).then(result => {
                 resolve(result.addOrder.id);
             }).catch(e => {
