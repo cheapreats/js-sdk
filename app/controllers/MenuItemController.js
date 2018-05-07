@@ -13,9 +13,10 @@ class MenuItemController {
      * @param price
      * @param availableUntil
      * @param toppingItems
+     * @param metaData
      * @returns {Promise<any>}
      */
-    add(name, quantity, price, availableUntil, toppingItems = []){
+    add(name, quantity, price, availableUntil, toppingItems = [], metaData = {}){
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation addMenuItemMutation ($name: String!, $quantity: Int!, $price: Int!, $availableUntil: Int!, $toppingItems: [ToppingItemInput]) {
