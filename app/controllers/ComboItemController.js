@@ -20,7 +20,7 @@ class ComboItemController {
         // addComboItem(name: String!, discount: Int!, availableFrom: String, availableUntil: String, menuItems: [ComboItemInput]!, recurringType: Int, dayOfWeek: String): ComboItem
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation addComboItemMutation ($name: String!, $discount: Int!, availableFrom: String!, availableUntil: String!, menuItems: [ComboItemInput]!, recurringType: Int, dayOfWeek: String) {
+                mutation addComboItemMutation ($name: String!, $discount: Int!, $availableFrom: String!, $availableUntil: String!, $menuItems: [ComboItemInput]!, $recurringType: Int, $dayOfWeek: String) {
                     addComboItem(name: $name, discount: $discount, availableFrom: $availableFrom, availableUntil: $availableUntil, menuItems: $menuItems, recurringType: $recurringType, dayOfWeek: $dayOfWeek) {
                         id
                     }
