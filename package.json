@@ -1,10 +1,10 @@
 {
   "name": "cheapreats-node-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CheaprEats Node.js SDK",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "npm -v",
     "gulp": "gulp",
     "build": "babel . -d lib --ignore node_modules"
   },
