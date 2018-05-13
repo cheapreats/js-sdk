@@ -3,6 +3,7 @@ class OrderController {
         this.app = app;
         this.create = this.create.bind(this);
         this.cancel = this.cancel.bind(this);
+        this.beginPreparing = this.beginPreparing.bind(this);
     }
 
     /**
@@ -50,6 +51,31 @@ class OrderController {
             `;
             this.app.getAdaptor().mutate(mutationString, {
                 id, reason
+            }).then(result => {
+                resolve(result);
+            }).catch(e => {
+                reject(e);
+            })
+        })
+    }
+
+    /**
+     * Set a order as preparing with estimated time
+     * @param id
+     * @param estimatedTime
+     * @returns {Promise<any>}
+     */
+    beginPreparing(id, estimatedTime){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation setAsPreparingMutation ($id: Int!, $estimatedTime: Int!){
+                    setAsPreparing(id: $id, estimatedTime: $estimatedTime){
+                        id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, estimatedTime
             }).then(result => {
                 resolve(result);
             }).catch(e => {
