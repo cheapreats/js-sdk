@@ -65,7 +65,8 @@ class App {
         };
 
         this.Order = {
-            create: this._orderController.create
+            create: this._orderController.create,
+            cancel: this._orderController.cancel
         };
 
         this.Notification = {
