@@ -68,7 +68,8 @@ class App {
             create: this._orderController.create,
             cancel: this._orderController.cancel,
             beginPreparing: this._orderController.beginPreparing,
-            prepared: this._orderController.prepared
+            prepared: this._orderController.prepared,
+            pickedUp: this._orderController.pickedUp
         };
 
         this.Notification = {

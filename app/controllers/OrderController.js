@@ -5,6 +5,7 @@ class OrderController {
         this.cancel = this.cancel.bind(this);
         this.beginPreparing = this.beginPreparing.bind(this);
         this.prepared = this.prepared.bind(this);
+        this.pickedUp = this.pickedUp.bind(this);
     }
 
     /**
@@ -95,6 +96,25 @@ class OrderController {
             let mutationString = `
                 mutation setOrderAsPreparedMutation ($id: Int!){
                     setOrderAsPrepared(id: $id){
+                        id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id
+            }).then(result => {
+                resolve(result);
+            }).catch(e => {
+                reject(e);
+            })
+        })
+    }
+
+    pickedUp(id){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation setOrderAsPickedUpMutation ($id: Int!){
+                    setOrderAsPickedUp(id: $id){
                         id
                     }
                 }
