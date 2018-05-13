@@ -68,8 +68,8 @@ class OrderController {
     beginPreparing(id, estimatedTime){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation setAsPreparingMutation ($id: Int!, $estimatedTime: Int!){
-                    setAsPreparing(id: $id, estimatedTime: $estimatedTime){
+                mutation setOrderAsPreparingMutation ($id: Int!, $estimatedTime: Int!){
+                    setOrderAsPreparing(id: $id, estimatedTime: $estimatedTime){
                         id
                     }
                 }
