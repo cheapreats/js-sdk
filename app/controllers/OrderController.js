@@ -31,6 +31,31 @@ class OrderController {
             });
         });
     }
+
+    /**
+     * Cancel a order, must be authenticated as vendor
+     * @param id
+     * @param reason
+     * @returns {Promise<any>}
+     */
+    cancel(id, reason){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation cancelOrderMutation ($id: Int!, $reason: String!){
+                    cancelOrder(id: $id, reason: $reason){
+                        id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, reason
+            }).then(result => {
+                resolve(result);
+            }).catch(e => {
+                reject(e);
+            })
+        })
+    }
 }
 
 module.exports = OrderController;
