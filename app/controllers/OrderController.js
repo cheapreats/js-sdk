@@ -2,6 +2,7 @@ class OrderController {
     constructor(app){
         this.app = app;
         this.create = this.create.bind(this);
+        this.cancel = this.cancel.bind(this);
     }
 
     /**
