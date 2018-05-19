@@ -8,7 +8,7 @@ module.exports = {
         'qa': 'https://cheapreatsmainapi-test.azurewebsites.net'
     },
     notificationEndpoint: {
-        'production': 'https://cheapreatsnotificationservicesbetaroundone.azurewebsites.net',
+        'production': 'https://cheapreatsnotificationbetaroundone.azurewebsites.net',
         'qa': 'https://func-notification-services-qa.cheapreats.com'
     }
 };
