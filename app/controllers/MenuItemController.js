@@ -19,8 +19,8 @@ class MenuItemController {
     add(name, quantity, price, availableUntil, toppingItems = [], metaData = {}){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation addMenuItemMutation ($name: String!, $quantity: Int!, $price: Int!, $availableUntil: Int!, $toppingItems: [ToppingItemInput]) {
-                    addMenuItem(name: $name, quantity: $quantity, price: $price, availableUntil: $availableUntil, toppingItems: $toppingItems) {
+                mutation addMenuItemMutation ($name: String!, $quantity: Int!, $price: Int!, $availableUntil: Int!, $toppingItems: [ToppingItemInput], $metaData: MenuItemMetaDataInput) {
+                    addMenuItem(name: $name, quantity: $quantity, price: $price, availableUntil: $availableUntil, toppingItems: $toppingItems, metaData: $metaData ) {
                         id
                     }
                 }
@@ -43,14 +43,15 @@ class MenuItemController {
      * @param price
      * @param availableUntil
      * @param toppingItems
+     * @param metaData
      * @returns {Promise<any>}
      */
-    update(id, name = null, remainingQuantity = null, price = null, availableUntil = null, toppingItems = null){
+    update(id, name = null, remainingQuantity = null, price = null, availableUntil = null, toppingItems = null, metaData = null){
         // updateMenuItem(id: Int!, name: String, remainingQuantity: Int, price: Int, availableUntil: Int, toppingItems: [ToppingItemInput]): MenuItem
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation updateMenuItemMutation ($id: Int!, $name: String, $remainingQuantity: Int, $price: Int, $availableUntil: Int, $toppingItems: [ToppingItemInput]) {
-                    updateMenuItem(id: $id, name: $name, remainingQuantity: $remainingQuantity, price: $price, availableUntil: $availableUntil, toppingItems: $toppingItems) {
+                mutation updateMenuItemMutation ($id: Int!, $name: String, $remainingQuantity: Int, $price: Int, $availableUntil: Int, $toppingItems: [ToppingItemInput], $metaData: MenuItemMetaDataInput) {
+                    updateMenuItem(id: $id, name: $name, remainingQuantity: $remainingQuantity, price: $price, availableUntil: $availableUntil, toppingItems: $toppingItems, metaData: $metaData) {
                         id
                     }
                 }
