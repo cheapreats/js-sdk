@@ -15,6 +15,7 @@ const TwilioController = require('./controllers/TwilioController');
 const MenuItemController = require('./controllers/MenuItemController');
 const ToppingItemController = require('./controllers/ToppingItemController');
 const ComboItemController = require('./controllers/ComboItemController');
+const HeadOfficeController = require('./controllers/HeadOfficeController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
@@ -42,6 +43,7 @@ class App {
         this._menuItemController = new MenuItemController(this);
         this._toppingItemController = new ToppingItemController(this);
         this._comboItemController = new ComboItemController(this);
+        this._headOfficeController = new HeadOfficeController(this);
 
         this.Verify = {
             getCode: this._twilioController.getCode,
@@ -92,7 +94,12 @@ class App {
         this.ComboItem = {
             add: this._comboItemController.add,
             delete: this._comboItemController.delete
-        }
+        };
+
+        this.HeadOffice = {
+            create: this._headOfficeController.create,
+            update: this._headOfficeController.update
+        };
 
     }
 
