@@ -1,7 +1,7 @@
 module.exports = {
     apolloEndpoint: {
-        'production': 'https://cheapreatsbetaroundoneapi.azurewebsites.net/graphql',
-        'qa': 'https://cheapreatsmainapi-test.azurewebsites.net/graphql'
+        'production': 'https://api.azurewebsites.net/graphql',
+        'qa': 'https://api.azurewebsites.net/graphql'
     },
     restEndpoint: {
         'production': 'https://cheapreatsbetaroundoneapi.azurewebsites.net',
