@@ -3,6 +3,7 @@ class HeadOfficeController {
         this.app = app;
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     /**
@@ -52,6 +53,28 @@ class HeadOfficeController {
                 reject(e);
             });
         });
+    }
+
+    /**
+     * Delete a HeadOffice instance
+     * @param id
+     * @returns {Promise<any>}
+     */
+    delete(id){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation deleteHeadOffice ($id: String!) {
+                    deleteHeadOffice(id: $id)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id
+            }).then(result => {
+                resolve(result.deleteHeadOffice);
+            }).catch(e => {
+                reject(e);
+            });
+        })
     }
 }
 

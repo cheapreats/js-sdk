@@ -7,14 +7,6 @@
 const ModelObserver = require('./observers/ModelObserver');
 
 const GraphController = require('./controllers/GraphController');
-const CustomerController = require('./controllers/CustomerController');
-const VendorController = require('./controllers/VendorController');
-const OrderController = require('./controllers/OrderController');
-const NotificationController = require('./controllers/NotificationController');
-const TwilioController = require('./controllers/TwilioController');
-const MenuItemController = require('./controllers/MenuItemController');
-const ToppingItemController = require('./controllers/ToppingItemController');
-const ComboItemController = require('./controllers/ComboItemController');
 const HeadOfficeController = require('./controllers/HeadOfficeController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
@@ -35,66 +27,13 @@ class App {
         });
 
         this._graphController = new GraphController(this._adaptor);
-        this._customerController = new CustomerController(this);
-        this._vendorController = new VendorController(this);
-        this._orderController = new OrderController(this);
-        this._notificationController = new NotificationController(this);
-        this._twilioController = new TwilioController(this);
-        this._menuItemController = new MenuItemController(this);
-        this._toppingItemController = new ToppingItemController(this);
-        this._comboItemController = new ComboItemController(this);
         this._headOfficeController = new HeadOfficeController(this);
 
-        this.Verify = {
-            getCode: this._twilioController.getCode,
-            canVerify: this._twilioController.canVerify
-        };
 
         this.Graph = {
             query: this._graphController.query
         };
 
-        this.Customer = {
-            create: this._customerController.create,
-            authenticate: this._customerController.authenticate,
-            addCreditCard: this._customerController.addCreditCard,
-            updateCreditCard: this._customerController.updateCreditCard
-        };
-
-        this.Vendor = {
-            authenticate: this._vendorController.authenticate,
-            create: this._vendorController.create
-        };
-
-        this.Order = {
-            create: this._orderController.create,
-            cancel: this._orderController.cancel,
-            beginPreparing: this._orderController.beginPreparing,
-            prepared: this._orderController.prepared,
-            pickedUp: this._orderController.pickedUp
-        };
-
-        this.Notification = {
-            apnsEnrollCustomer: this._notificationController.apnsEnrollCustomer,
-            apnsRevokeCustomer: this._notificationController.apnsRevokeCustomer
-        };
-
-        this.MenuItem = {
-            add: this._menuItemController.add,
-            update: this._menuItemController.update,
-            delete: this._menuItemController.delete
-        };
-
-        this.ToppingItem = {
-            add: this._toppingItemController.add,
-            update: this._toppingItemController.update,
-            delete: this._toppingItemController.delete
-        };
-
-        this.ComboItem = {
-            add: this._comboItemController.add,
-            delete: this._comboItemController.delete
-        };
 
         this.HeadOffice = {
             create: this._headOfficeController.create,
