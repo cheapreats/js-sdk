@@ -46,15 +46,15 @@ class App {
         this._validationController = new ValidationController(this);
 
         this.Category = {
-          create: this._categoryController
+          create: this._categoryController.create
         };
 
         this.Customer = {
-          create: this._customerController
+          create: this._customerController.create
         };
 
         this.CustomerToken = {
-          create: this._customerTokenController
+          create: this._customerTokenController.create
         };
 
         this.Employee = {
@@ -64,7 +64,7 @@ class App {
         };
 
         this.EmployeeToken = {
-          create: this._employeeTokenController
+          create: this._employeeTokenController.create
         };
 
         this.Graph = {

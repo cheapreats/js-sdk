@@ -1,5 +1,3 @@
-const Customer = require('../models/user/Customer');
-
 class CustomerController {
     constructor(app){
         this.app = app;
