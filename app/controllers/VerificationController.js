@@ -4,6 +4,7 @@ class VerificationController {
     constructor(app){
         this.app = app;
         this.sendSms = this.sendSms.bind(this);
+        this.checkSms = this.checkSms.bind(this);
     }
 
     getHttpLink(append = ""){
@@ -23,6 +24,32 @@ class VerificationController {
            })
                .then((data) => {
                    resolve(data.data.request_id);
+               })
+               .catch(e => {
+                   reject(e);
+               })
+        });
+    }
+
+    /**
+     * Checks SMS verification code
+     * @param request_id
+     * @param code
+     * @param number
+     * @returns {Promise<any>}
+     */
+    checkSms(request_id, code, number){
+        return new Promise((resolve, reject) => {
+           let link = this.getHttpLink("/sms/check");
+           link.post({
+               data: { request_id, code, number }
+           })
+               .then((data) => {
+                if(data.data.status === "ok"){
+                    resolve(data.data.status);
+                } else {
+                    reject();
+                }
                })
                .catch(e => {
                    reject(e);

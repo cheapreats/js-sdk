@@ -51,7 +51,8 @@ class App {
         };
 
         this.Verification = {
-            sendSms: this._verificationController.sendSms
+            sendSms: this._verificationController.sendSms,
+            checkSms: this._verificationController.checkSms
         };
 
     }
