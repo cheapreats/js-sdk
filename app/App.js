@@ -8,6 +8,8 @@ const ModelObserver = require('./observers/ModelObserver');
 
 const GraphController = require('./controllers/GraphController');
 const HeadOfficeController = require('./controllers/HeadOfficeController');
+const VendorController = require('./controllers/VendorController');
+const VerificationController = require('./controllers/VerificationController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
@@ -28,6 +30,8 @@ class App {
 
         this._graphController = new GraphController(this._adaptor);
         this._headOfficeController = new HeadOfficeController(this);
+        this._vendorController = new VendorController(this);
+        this._verificationController = new VerificationController(this);
 
 
         this.Graph = {
@@ -37,7 +41,17 @@ class App {
 
         this.HeadOffice = {
             create: this._headOfficeController.create,
-            update: this._headOfficeController.update
+            update: this._headOfficeController.update,
+            delete: this._headOfficeController.delete
+        };
+
+        this.Vendor = {
+            create: this._vendorController.create,
+            update: this._vendorController.update
+        };
+
+        this.Verification = {
+            sendSms: this._verificationController.sendSms
         };
 
     }
