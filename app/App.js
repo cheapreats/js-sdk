@@ -6,6 +6,11 @@
 
 const ModelObserver = require('./observers/ModelObserver');
 
+const CategoryController = require('./controllers/CategoryController');
+const CustomerController = require('./controllers/CustomerController');
+const CustomerTokenController = require('./controllers/CustomerTokenController');
+const EmployeeController = require('./controllers/EmployeeController');
+const EmployeeTokenController = require('./controllers/EmployeeTokenController');
 const GraphController = require('./controllers/GraphController');
 const HeadOfficeController = require('./controllers/HeadOfficeController');
 const VendorController = require('./controllers/VendorController');
@@ -28,11 +33,37 @@ class App {
             apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint.production
         });
 
+        this._categoryController = new CategoryController(this);
+        this._customerController = new CustomerController(this);
+        this._customerTokenController = new CustomerTokenController(this);
+        this._employeeController = new EmployeeController(this);
+        this._employeeTokenController = new EmployeeTokenController(this);
         this._graphController = new GraphController(this._adaptor);
         this._headOfficeController = new HeadOfficeController(this);
         this._vendorController = new VendorController(this);
         this._verificationController = new VerificationController(this);
 
+        this.Category = {
+          create: this._categoryController
+        };
+
+        this.Customer = {
+          create: this._customerController
+        };
+
+        this.CustomerToken = {
+          create: this._customerTokenController
+        };
+
+        this.Employee = {
+            create: this._employeeController.create,
+            update: this._employeeController.update,
+            delete: this._employeeController.delete
+        };
+
+        this.EmployeeToken = {
+          create: this._employeeTokenController
+        };
 
         this.Graph = {
             query: this._graphController.query

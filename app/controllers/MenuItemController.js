@@ -1,34 +1,29 @@
 class MenuItemController {
     constructor(app){
         this.app = app;
-        this.add = this.add.bind(this);
+        this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
     }
 
     /**
-     * Add a new menu item
-     * @param name
-     * @param quantity
-     * @param price
-     * @param availableUntil
-     * @param toppingItems
-     * @param metaData
+     * Create a new customer, return customer ID if successful
+     * @param customer
      * @returns {Promise<any>}
      */
-    add(name, quantity, price, availableUntil, toppingItems = [], metaData = {}){
+    create(menu_item){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation addMenuItemMutation ($name: String!, $quantity: Int!, $price: Int!, $availableUntil: Int!, $toppingItems: [ToppingItemInput], $metaData: MenuItemMetaDataInput) {
-                    addMenuItem(name: $name, quantity: $quantity, price: $price, availableUntil: $availableUntil, toppingItems: $toppingItems, metaData: $metaData ) {
-                        id
+                mutation CreateMenuItemMutation ($menu_item: CreateMenuItemInput!) {
+                    CreateMenuItem(menu_item: $menu_item) {
+                        _id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                name, quantity, price, availableUntil, toppingItems, metaData
+                menu_item
             }).then(result => {
-                resolve(result.addMenuItem.id);
+                resolve(result.createMenuItem._id);
             }).catch(e => {
                 reject(e);
             });

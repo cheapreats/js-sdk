@@ -1,36 +1,34 @@
-const Customer = require('../models/user/Customer');
-
-class CustomerController {
+class CategoryController {
     constructor(app){
         this.app = app;
         this.create = this.create.bind(this);
     }
 
+
     /**
-     * Create a new customer, return customer ID if successful
-     * @param customer
+     * Create a new category, return category ID if successful
+     * @param category
      * @returns {Promise<any>}
      */
-    create(customer){
+    create(category){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation createCustomerMutation ($customer: CreateCustomerInput!) {
-                    createCustomer(customer: $customer) {
+                mutation createEmployeeTokenMutation ($category: CreateCategoryInput) {
+                    createEmployeeToken(category: $category) {
                         _id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                customer
+                category
             }).then(result => {
-                resolve(result.createCustomer._id);
+                resolve(result.createCategoryMutation._id);
             }).catch(e => {
                 reject(e);
             });
         });
     }
 
-
 }
 
-module.exports = CustomerController;
+module.exports = CategoryController;
