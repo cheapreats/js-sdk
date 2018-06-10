@@ -15,6 +15,7 @@ const GraphController = require('./controllers/GraphController');
 const HeadOfficeController = require('./controllers/HeadOfficeController');
 const VendorController = require('./controllers/VendorController');
 const VerificationController = require('./controllers/VerificationController');
+const ValidationController = require('./controllers/ValidationController');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
@@ -42,6 +43,7 @@ class App {
         this._headOfficeController = new HeadOfficeController(this);
         this._vendorController = new VendorController(this);
         this._verificationController = new VerificationController(this);
+        this._validationController = new ValidationController(this);
 
         this.Category = {
           create: this._categoryController
@@ -84,6 +86,13 @@ class App {
         this.Verification = {
             sendSms: this._verificationController.sendSms,
             checkSms: this._verificationController.checkSms
+        };
+
+        this.Validation = {
+            Customer: {
+                signupEmail: this._validationController.customerSignupEmail,
+                signupPhone: this._validationController.customerSignupPhone
+            }
         };
 
     }

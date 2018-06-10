@@ -5,5 +5,8 @@ module.exports = {
     },
     verificationEndpoint: {
         'production': 'https://verification.cheapreats.com'
+    },
+    validationEndpoint: {
+        'production': 'https://validation.cheapreats.com'
     }
 };
