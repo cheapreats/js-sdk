@@ -18,6 +18,9 @@ class CustomerTokenController {
                 mutation createCustomerTokenMutation ($email_address: String!, $password: String!) {
                     createCustomerToken(email_address: $email_address, password: $password) {
                         _id
+                        body
+                        created_at
+                        updated_at
                     }
                 }
             `;
@@ -25,7 +28,7 @@ class CustomerTokenController {
                 email_address,
                 password
             }).then(result => {
-                resolve(result.createCustomerToken._id);
+                resolve(result.createCustomerToken);
             }).catch(e => {
                 reject(e);
             });
