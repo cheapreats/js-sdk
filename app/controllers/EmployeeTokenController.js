@@ -15,8 +15,8 @@ class EmployeeTokenController {
     create(vendor_id, username, password){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation createEmployeeTokenMutation ($vendor: String!, $username: String!, $password: String!) {
-                    createEmployeeToken(vendor: $vendor, username: $username, password: $password) {
+                mutation createEmployeeTokenMutation ($vendor_id: String!, $username: String!, $password: String!) {
+                    createEmployeeToken(vendor_id: $vendor, username: $username, password: $password) {
                         body
                     }
                 }
