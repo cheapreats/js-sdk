@@ -47,7 +47,7 @@ class OrderController {
             let mutationString = `
                 mutation cancelOrderMutation ($id: Int!, $reason: String!){
                     cancelOrder(id: $id, reason: $reason){
-                        id
+                        _id
                     }
                 }
             `;
