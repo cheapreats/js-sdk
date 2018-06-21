@@ -45,7 +45,7 @@ class OrderController {
     cancel(id, reason){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation cancelOrderMutation ($id: Int!, $reason: String!){
+                mutation cancelOrderMutation ($id: String!, $reason: String!){
                     cancelOrder(id: $id, reason: $reason){
                         _id
                     }

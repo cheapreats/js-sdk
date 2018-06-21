@@ -1,6 +1,6 @@
 {
   "name": "cheapreats-node-sdk",
-  "version": "1.0.24",
+  "version": "1.0.26",
   "description": "CheaprEats Node.js SDK",
   "main": "lib/index.js",
   "scripts": {
