@@ -13,8 +13,8 @@ class CategoryController {
     create(category){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation createEmployeeTokenMutation ($category: CreateCategoryInput) {
-                    createEmployeeToken(category: $category) {
+                mutation createCategoryMutation ($category: CreateCategoryInput) {
+                    createCategory(category: $category) {
                         _id
                     }
                 }
