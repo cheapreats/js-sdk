@@ -39,7 +39,7 @@ class VendorController {
     update(id, vendor){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation updateVendorMutation ($id: String!, $vendor: CreateVendorInput!) {
+                mutation updateVendorMutation ($id: String!, $vendor: UpdateVendorInput!) {
                     updateVendor(id: $id, vendor: $vendor) {
                         _id
                     }

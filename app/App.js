@@ -25,7 +25,7 @@ const config = {
 };
 
 class App {
-    constructor(){
+    constructor() {
         this._modelObserver = new ModelObserver();
 
         this._adaptorMode = 'production';
@@ -48,15 +48,18 @@ class App {
         this._orderController = new OrderController(this);
 
         this.Category = {
-          create: this._categoryController.create
+            create: this._categoryController.create
         };
 
         this.Customer = {
-          create: this._customerController.create
+            create: this._customerController.create,
+            enrollApnsToken: this._customerController.enrollApnsToken,
+            update: this._customerController.update,
+            updateCreditCard: this._customerController.updateCreditCard
         };
 
         this.CustomerToken = {
-          create: this._customerTokenController.create
+            create: this._customerTokenController.create
         };
 
         this.Employee = {
@@ -66,7 +69,7 @@ class App {
         };
 
         this.EmployeeToken = {
-          create: this._employeeTokenController.create
+            create: this._employeeTokenController.create
         };
 
         this.Graph = {
@@ -74,7 +77,10 @@ class App {
         };
 
         this.Order = {
-            cancel: this._orderController.cancel
+            cancel: this._orderController.cancel,
+            beginPreparing: this._orderController.beginPreparing,
+            prepared: this._orderController.prepared,
+            complete: this._orderController.complete
         };
 
         this.HeadOffice = {
@@ -102,9 +108,9 @@ class App {
 
     }
 
-    switchAdaptorMode(mode){
+    switchAdaptorMode(mode) {
         // TODO: Change REST to adaptor
-        if(mode === 'production'){
+        if (mode === 'production') {
             this._adaptor.setApolloEndpoint(this.getConfiguration().endpoints.apolloEndpoint.production);
         } else {
             this._adaptor.setApolloEndpoint(this.getConfiguration().endpoints.apolloEndpoint.qa);
@@ -112,7 +118,7 @@ class App {
         this._adaptorMode = mode;
     }
 
-    getAdaptorMode(){
+    getAdaptorMode() {
         return this._adaptorMode;
     }
 
@@ -124,7 +130,7 @@ class App {
         return this._adaptor;
     }
 
-    getConfiguration(){
+    getConfiguration() {
         return config;
     }
 
@@ -132,7 +138,7 @@ class App {
      * Set current authentication token
      * @param token
      */
-    setAuthenticationToken(token){
+    setAuthenticationToken(token) {
         this._token = token;
         this._adaptor.setAuthenticationToken(token);
     }
@@ -141,7 +147,7 @@ class App {
      * Get current authentication token
      * @returns {null|string}
      */
-    getAuthenticationToken(){
+    getAuthenticationToken() {
         return this._token;
     }
 
@@ -149,7 +155,7 @@ class App {
      * Get the ModelObserver instance
      * @returns {ModelObserver}
      */
-    getModelObserver(){
+    getModelObserver() {
         return this._modelObserver;
     }
 }

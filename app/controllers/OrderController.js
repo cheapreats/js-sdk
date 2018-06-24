@@ -5,7 +5,7 @@ class OrderController {
         this.cancel = this.cancel.bind(this);
         this.beginPreparing = this.beginPreparing.bind(this);
         this.prepared = this.prepared.bind(this);
-        this.pickedUp = this.pickedUp.bind(this);
+        this.complete = this.complete.bind(this);
     }
 
     /**
@@ -64,20 +64,20 @@ class OrderController {
     /**
      * Set a order as preparing with estimated time
      * @param id
-     * @param estimatedTime
+     * @param estimated_preparing_sec
      * @returns {Promise<any>}
      */
-    beginPreparing(id, estimatedTime){
+    beginPreparing(id, estimated_preparing_sec){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation setOrderAsPreparingMutation ($id: Int!, $estimatedTime: Int!){
-                    setOrderAsPreparing(id: $id, estimatedPreparingTime: $estimatedTime){
-                        id
+                mutation beginPreparingOrder($id: String!, $estimated_preparing_sec: Int!){
+                    beginPreparingOrder(id: $id, estimated_preparing_sec: $estimated_preparing_sec){
+                        _id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                id, estimatedTime
+                id, estimated_preparing_sec
             }).then(result => {
                 resolve(result);
             }).catch(e => {
@@ -94,9 +94,9 @@ class OrderController {
     prepared(id){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation setOrderAsPreparedMutation ($id: Int!){
-                    setOrderAsPrepared(id: $id){
-                        id
+                mutation preparedOrderMutation ($id: String!){
+                    preparedOrder (id: $id){
+                        _id
                     }
                 }
             `;
@@ -110,12 +110,17 @@ class OrderController {
         })
     }
 
-    pickedUp(id){
+    /**
+     * Complete an order
+     * @param id
+     * @returns {Promise<any>}
+     */
+    complete(id){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation setOrderAsPickedUpMutation ($id: Int!){
-                    setOrderAsPickedUp(id: $id){
-                        id
+                mutation completeOrderMutation ($id: String!){
+                    completeOrder(id: $id){
+                        _id
                     }
                 }
             `;
