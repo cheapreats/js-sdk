@@ -4,9 +4,9 @@ module.exports = {
         'qa': 'https://api.cheapreats.com/graphql'
     },
     verificationEndpoint: {
-        'production': 'https://verification.cheapreats.com'
+        'production': 'https://api.cheapreats.com/verification'
     },
     validationEndpoint: {
-        'production': 'https://validation.cheapreats.com'
+        'production': 'https://api.cheapreats.com/validation'
     }
 };
