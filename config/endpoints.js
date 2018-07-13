@@ -8,5 +8,9 @@ module.exports = {
     },
     validationEndpoint: {
         'production': 'https://api.cheapreats.com/validation'
+    },
+    imageEndpoint: {
+        'production': 'https://api.cheapreats.com/image',
+        'distribution': 'https://static.cheapreats.com'
     }
 };

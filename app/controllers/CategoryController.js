@@ -13,7 +13,7 @@ class CategoryController {
     create(category){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation createCategoryMutation ($category: CreateCategoryInput) {
+                mutation createCategoryMutation ($category: CreateCategoryInput!) {
                     createCategory(category: $category) {
                         _id
                     }
@@ -22,7 +22,7 @@ class CategoryController {
             this.app.getAdaptor().mutate(mutationString, {
                 category
             }).then(result => {
-                resolve(result.createCategoryMutation._id);
+                resolve(result.createCategory._id);
             }).catch(e => {
                 reject(e);
             });

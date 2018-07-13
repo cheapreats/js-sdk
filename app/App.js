@@ -17,6 +17,8 @@ const VendorController = require('./controllers/VendorController');
 const VerificationController = require('./controllers/VerificationController');
 const ValidationController = require('./controllers/ValidationController');
 const OrderController = require('./controllers/OrderController');
+const ImageController = require('./controllers/ImageController');
+
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
@@ -46,6 +48,7 @@ class App {
         this._verificationController = new VerificationController(this);
         this._validationController = new ValidationController(this);
         this._orderController = new OrderController(this);
+        this._imageController = new ImageController(this);
 
         this.Category = {
             create: this._categoryController.create
@@ -105,6 +108,11 @@ class App {
                 signupEmail: this._validationController.customerSignupEmail,
                 signupPhone: this._validationController.customerSignupPhone
             }
+        };
+
+        this.Image = {
+            upload: this._imageController.upload,
+            getLink: this._imageController.getLink
         };
 
     }
