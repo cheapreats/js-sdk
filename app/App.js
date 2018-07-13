@@ -51,7 +51,8 @@ class App {
         this._imageController = new ImageController(this);
 
         this.Category = {
-            create: this._categoryController.create
+            create: this._categoryController.create,
+            delete: this._categoryController.delete
         };
 
         this.Customer = {
