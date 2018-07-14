@@ -52,7 +52,8 @@ class App {
 
         this.Category = {
             create: this._categoryController.create,
-            delete: this._categoryController.delete
+            delete: this._categoryController.delete,
+            update: this._categoryController.update
         };
 
         this.Customer = {

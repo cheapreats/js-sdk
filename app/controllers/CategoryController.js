@@ -2,6 +2,7 @@ class CategoryController {
     constructor(app){
         this.app = app;
         this.create = this.create.bind(this);
+        this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
     }
 
@@ -50,6 +51,31 @@ class CategoryController {
                 reject(e);
             });
         });
+    }
+
+    /**
+     * Update category
+     * @param id
+     * @param category
+     * @returns {Promise<any>}
+     */
+    update(id, category){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation updateCategoryMutation ($id: String!, $category: UpdateCategoryInput!) {
+                    updateCategory(id: $id, category: $category) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, category
+            }).then(result => {
+                resolve(result.updateCategory._id);
+            }).catch(e => {
+                reject(e);
+            });
+        })
     }
 
 }
