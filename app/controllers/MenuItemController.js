@@ -7,15 +7,15 @@ class MenuItemController {
     }
 
     /**
-     * Create a new customer, return customer ID if successful
-     * @param customer
+     * Create a new MenuItem, returns MenuItem _id if successful
+     * @param menu_item
      * @returns {Promise<any>}
      */
     create(menu_item){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation CreateMenuItemMutation ($menu_item: CreateMenuItemInput!) {
-                    CreateMenuItem(menu_item: $menu_item) {
+                mutation createMenuItemMutation ($menu_item: CreateMenuItemInput!) {
+                    createMenuItem(menu_item: $menu_item) {
                         _id
                     }
                 }
@@ -31,30 +31,24 @@ class MenuItemController {
     }
 
     /**
-     * Update a menu item
+     * Update an existing MenuItem based on given ID/menu_item, returns _id if successful
      * @param id
-     * @param name
-     * @param remainingQuantity
-     * @param price
-     * @param availableUntil
-     * @param toppingItems
-     * @param metaData
+     * @param menu_item
      * @returns {Promise<any>}
      */
-    update(id, name = null, remainingQuantity = null, price = null, availableUntil = null, toppingItems = null, metaData = null){
-        // updateMenuItem(id: Int!, name: String, remainingQuantity: Int, price: Int, availableUntil: Int, toppingItems: [ToppingItemInput]): MenuItem
+    update(id, menu_item){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation updateMenuItemMutation ($id: Int!, $name: String, $remainingQuantity: Int, $price: Int, $availableUntil: Int, $toppingItems: [ToppingItemInput], $metaData: MenuItemMetaDataInput) {
-                    updateMenuItem(id: $id, name: $name, remainingQuantity: $remainingQuantity, price: $price, availableUntil: $availableUntil, toppingItems: $toppingItems, metaData: $metaData) {
-                        id
+                mutation updateMenuItemMutation ($id: String!, $menu_item: UpdateMenuItemInput!) {
+                    updateMenuItem(id: $id, menu_item: $menu_item) {
+                        _id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                id, name, remainingQuantity, price, availableUntil, toppingItems, metaData
+                id, menu_item
             }).then(result => {
-                resolve(result.updateMenuItem.id);
+                resolve(result.updateMenuItem._id);
             }).catch(e => {
                 reject(e);
             });
@@ -62,15 +56,14 @@ class MenuItemController {
     }
 
     /**
-     * Delete a menu item
+     * Delete a MenuItem
      * @param id
      * @returns {Promise<any>}
      */
     delete(id){
-        // deleteMenuItem(id: Int!): Int
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation deleteMenuItemMutation ($id: Int!) {
+                mutation deleteMenuItemMutation ($id: String!) {
                     deleteMenuItem(id: $id)
                 }
             `;
