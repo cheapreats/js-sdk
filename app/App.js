@@ -13,6 +13,7 @@ const EmployeeController = require('./controllers/EmployeeController');
 const EmployeeTokenController = require('./controllers/EmployeeTokenController');
 const GraphController = require('./controllers/GraphController');
 const HeadOfficeController = require('./controllers/HeadOfficeController');
+const MenuItemController = require('./controllers/MenuItemController');
 const VendorController = require('./controllers/VendorController');
 const VerificationController = require('./controllers/VerificationController');
 const ValidationController = require('./controllers/ValidationController');
@@ -44,6 +45,7 @@ class App {
         this._employeeTokenController = new EmployeeTokenController(this);
         this._graphController = new GraphController(this._adaptor);
         this._headOfficeController = new HeadOfficeController(this);
+        this._menuItemController = new MenuItemController(this);
         this._vendorController = new VendorController(this);
         this._verificationController = new VerificationController(this);
         this._validationController = new ValidationController(this);
@@ -80,6 +82,12 @@ class App {
         this.Graph = {
             query: this._graphController.query
         };
+
+        this.Menuitem = {
+            create: this._menuItemController.create,
+            update: this._menuItemController.update,
+            delete: this._menuItemController.delete
+        }
 
         this.Order = {
             create: this._orderController.create,
