@@ -83,11 +83,11 @@ class App {
             query: this._graphController.query
         };
 
-        this.Menuitem = {
+        this.MenuItem = {
             create: this._menuItemController.create,
             update: this._menuItemController.update,
             delete: this._menuItemController.delete
-        }
+        };
 
         this.Order = {
             create: this._orderController.create,
