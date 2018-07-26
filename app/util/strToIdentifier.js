@@ -3,7 +3,7 @@ module.exports = function(str){
     for(let i = 0; i < str.length; i++){
         if(str[i].match(/[A-Za-z]/)){
             result += str[i].toLowerCase();
-        } else if ((str[i] === '_' || str[i] === ' ' || || str[i] === '-') && result[result.length - 1] !== '_'){
+        } else if ((str[i] === '_' || str[i] === ' ' || str[i] === '-') && result[result.length - 1] !== '_'){
             result += '_';
         }
     }
