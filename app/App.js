@@ -117,6 +117,10 @@ class App {
             getLink: this._imageController.getLink
         };
 
+        this.Util = {
+            strToIdentifier: require('./util/strToIdentifier')
+        };
+
     }
 
     switchAdaptorMode(mode) {
