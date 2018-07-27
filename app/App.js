@@ -19,7 +19,7 @@ const VerificationController = require('./controllers/VerificationController');
 const ValidationController = require('./controllers/ValidationController');
 const OrderController = require('./controllers/OrderController');
 const ImageController = require('./controllers/ImageController');
-
+const strToIdentifier =  require('./util/strToIdentifier');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
@@ -126,7 +126,7 @@ class App {
         };
 
         this.Util = {
-            strToIdentifier: require('./util/strToIdentifier')
+            strToIdentifier: strToIdentifier
         };
 
     }

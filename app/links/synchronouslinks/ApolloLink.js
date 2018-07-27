@@ -14,7 +14,8 @@ const gql = require('graphql-tag');
 const ApolloLinkContext = require('apollo-link-context');
 
 // Node.js does not support ES6 natively
-const fetch = require('node-fetch');
+require('cross-fetch/polyfill');
+
 
 class ApolloLink extends SynchronousLink {
 

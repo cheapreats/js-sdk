@@ -1,6 +1,6 @@
 {
   "name": "cheapreats-node-sdk",
-  "version": "1.0.51",
+  "version": "1.0.58",
   "description": "CheaprEats Node.js SDK",
   "main": "lib/index.js",
   "scripts": {
@@ -19,27 +19,30 @@
   },
   "homepage": "https://github.com/wolfbeacon/CheaprEats-Node-SDK#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babelify": "^8.0.0",
-    "browserify": "^16.2.0",
-    "gulp": "^3.9.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "mocha": "^5.0.5",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.11.0"
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "babelify": "8.0.0",
+    "browserify": "16.2.0",
+    "gulp": "3.9.1",
+    "gulp-sourcemaps": "2.6.4",
+    "mocha": "5.0.5",
+    "vinyl-buffer": "1.0.1",
+    "vinyl-source-stream": "2.0.0",
+    "watchify": "3.11.0"
   },
   "dependencies": {
-    "apollo-cache-inmemory": "^1.1.12",
+    "apollo-cache-inmemory": "1.1.12",
     "apollo-client": "2.2.7",
-    "apollo-link-context": "^1.0.8",
-    "apollo-link-http": "^1.5.4",
-    "axios": "^0.18.0",
-    "graphql": "^0.13.2",
-    "graphql-tag": "^2.8.0",
-    "node-fetch": "^2.1.2",
-    "stripe": "^5.8.0"
+    "apollo-link-context": "1.0.8",
+    "apollo-link-http": "1.5.4",
+    "axios": "0.18.0",
+    "cross-fetch": "2.2.2",
+    "es6-promise": "4.2.4",
+    "graphql": "0.13.2",
+    "graphql-tag": "2.8.0",
+    "isomorphic-fetch": "2.2.1",
+    "node-fetch": "2.1.2",
+    "stripe": "5.8.0"
   }
 }
