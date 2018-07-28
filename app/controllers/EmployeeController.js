@@ -40,7 +40,7 @@ class EmployeeController {
     update(id, employee){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation updateEmployeeMutation ($id: String!, $employee: CreateEmployeeInput!) {
+                mutation updateEmployeeMutation ($id: String!, $employee: UpdateEmployeeInput!) {
                     updateEmployee(id: $id, employee: $employee) {
                         _id
                     }
