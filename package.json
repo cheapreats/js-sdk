@@ -1,6 +1,6 @@
 {
   "name": "cheapreats-node-sdk",
-  "version": "1.0.58",
+  "version": "1.0.59",
   "description": "CheaprEats Node.js SDK",
   "main": "lib/index.js",
   "scripts": {
@@ -37,12 +37,15 @@
     "apollo-link-context": "1.0.8",
     "apollo-link-http": "1.5.4",
     "axios": "0.18.0",
+    "colors": "^1.3.1",
     "cross-fetch": "2.2.2",
     "es6-promise": "4.2.4",
     "graphql": "0.13.2",
     "graphql-tag": "2.8.0",
     "isomorphic-fetch": "2.2.1",
+    "moment": "^2.22.2",
     "node-fetch": "2.1.2",
+    "readline-sync": "^1.4.9",
     "stripe": "5.8.0"
   }
 }
