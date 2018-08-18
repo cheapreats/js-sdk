@@ -1,6 +1,6 @@
 class GraphController {
-    constructor(adaptor){
-        this._adaptor = adaptor;
+    constructor(app){
+        this.app = app;
         this.query = this.query.bind(this);
     }
 
@@ -10,7 +10,7 @@ class GraphController {
      * @param variables
      */
     query(query, variables = {}){
-        return this._adaptor.query(query, variables);
+        return this.app.getAdaptor().query(query, variables);
     }
 }
 

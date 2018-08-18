@@ -4,8 +4,6 @@
  * License: UNLICENSED
  */
 
-const ModelObserver = require('./observers/ModelObserver');
-
 const CategoryController = require('./controllers/CategoryController');
 const CustomerController = require('./controllers/CustomerController');
 const CustomerTokenController = require('./controllers/CustomerTokenController');
@@ -23,15 +21,12 @@ const strToIdentifier =  require('./util/strToIdentifier');
 
 const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
 
-const config = {
+let config = {
     endpoints: require('../config/endpoints')
 };
 
 class App {
     constructor() {
-        this._modelObserver = new ModelObserver();
-
-        this._adaptorMode = 'production';
         this._token = null;
 
         this._adaptor = new CheaprEatsApolloAdaptor({
@@ -43,7 +38,7 @@ class App {
         this._customerTokenController = new CustomerTokenController(this);
         this._employeeController = new EmployeeController(this);
         this._employeeTokenController = new EmployeeTokenController(this);
-        this._graphController = new GraphController(this._adaptor);
+        this._graphController = new GraphController(this);
         this._headOfficeController = new HeadOfficeController(this);
         this._menuItemController = new MenuItemController(this);
         this._vendorController = new VendorController(this);
@@ -131,20 +126,6 @@ class App {
 
     }
 
-    switchAdaptorMode(mode) {
-        // TODO: Change REST to adaptor
-        if (mode === 'production') {
-            this._adaptor.setApolloEndpoint(this.getConfiguration().endpoints.apolloEndpoint.production);
-        } else {
-            this._adaptor.setApolloEndpoint(this.getConfiguration().endpoints.apolloEndpoint.qa);
-        }
-        this._adaptorMode = mode;
-    }
-
-    getAdaptorMode() {
-        return this._adaptorMode;
-    }
-
     /**
      * Get current network adaptor instance
      * @returns {CheaprEatsApolloAdaptor}
@@ -153,6 +134,10 @@ class App {
         return this._adaptor;
     }
 
+    /**
+     * Get Configuration
+     * @returns {{endpoints: ({apolloEndpoint: {production: string}, verificationEndpoint: {production: string}, validationEndpoint: {production: string}, imageEndpoint: {production: string, distribution: string}}|{apolloEndpoint, verificationEndpoint, validationEndpoint, imageEndpoint})}}
+     */
     getConfiguration() {
         return config;
     }
@@ -175,12 +160,49 @@ class App {
     }
 
     /**
-     * Get the ModelObserver instance
-     * @returns {ModelObserver}
+     * Set apolloEndpoint.production
+     * @param endpoint
      */
-    getModelObserver() {
-        return this._modelObserver;
+    setApolloEndpoint(endpoint) {
+        config.endpoints.apolloEndpoint.production = endpoint;
+        this._adaptor = new CheaprEatsApolloAdaptor({
+            apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint.production
+        });
     }
+
+    /**
+     * Set verificationEndpoint.production
+     * @param endpoint
+     */
+    setVerificationEndpoint(endpoint) {
+        config.endpoints.verificationEndpoint.production = endpoint;
+    }
+
+    /**
+     * Set validationEndpoint.production
+     * @param endpoint
+     */
+    setValidationEndpoint(endpoint) {
+        config.endpoints.validationEndpoint.production = endpoint;
+    }
+
+    /**
+     * Set imageEndpoint.production
+     * @param endpoint
+     */
+    setImageEndpoint(endpoint) {
+        config.endpoints.imageEndpoint.production = endpoint;
+    }
+
+    /**
+     * Set imageEndpoint.distribution
+     * @param endpoint
+     */
+    setImageDistributionEndpoint(endpoint) {
+        config.endpoints.imageEndpoint.distribution = endpoint;
+    }
+
+
 }
 
 module.exports = App;

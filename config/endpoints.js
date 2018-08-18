@@ -1,16 +1,15 @@
 module.exports = {
     apolloEndpoint: {
-        'production': 'https://api.cheapreats.com/graphql',
-        'qa': 'https://api.cheapreats.com/graphql'
+        'production': 'https://graphql-v1.cheapreats.com/graphql'
     },
     verificationEndpoint: {
-        'production': 'https://api.cheapreats.com/verification'
+        'production': 'https://ms-verification-v1.cheapreats.com'
     },
     validationEndpoint: {
-        'production': 'https://api.cheapreats.com/validation'
+        'production': 'https://ms-validation-v1.cheapreats.com'
     },
     imageEndpoint: {
-        'production': 'https://api.cheapreats.com/image',
+        'production': 'https://ms-image-v1.cheapreats.com',
         'distribution': 'https://static.cheapreats.com'
     }
 };
