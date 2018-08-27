@@ -130,7 +130,7 @@ class CustomerController {
     reloadWallet(id, amount, payment_method) {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation reloadCustomerWallet ($id: String!, $amount: Int!, payment_method: String!) {
+                mutation reloadCustomerWallet ($id: String!, $amount: Int!, $payment_method: String!) {
                     reloadCustomerWallet(id: $id, amount: $amount, payment_method: $payment_method) {
                         _id
                     }
