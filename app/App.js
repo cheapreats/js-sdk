@@ -57,7 +57,9 @@ class App {
             create: this._customerController.create,
             enrollApnsToken: this._customerController.enrollApnsToken,
             update: this._customerController.update,
-            updateCreditCard: this._customerController.updateCreditCard
+            updateCreditCard: this._customerController.updateCreditCard,
+            createWallet: this._customerController.createWallet,
+            reloadWallet: this._customerController.reloadWallet
         };
 
         this.CustomerToken = {

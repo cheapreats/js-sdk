@@ -5,6 +5,8 @@ class CustomerController {
         this.update = this.update.bind(this);
         this.updateCreditCard = this.updateCreditCard.bind(this);
         this.enrollApnsToken = this.enrollApnsToken.bind(this);
+        this.createWallet = this.createWallet.bind(this);
+        this.reloadWallet = this.reloadWallet.bind(this);
     }
 
     /**
@@ -100,6 +102,44 @@ class CustomerController {
                 id, token
             }).then(result => {
                 resolve(result.updateCustomerCreditCard);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    createWallet(id){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation createCustomerWallet ($id: String!) {
+                    createCustomerWallet(id: $id) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id
+            }).then(result => {
+                resolve(result.createCustomerWallet._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    reloadWallet(id, amount, payment_method) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation reloadCustomerWallet ($id: String!, $amount: Int!, payment_method: String!) {
+                    reloadCustomerWallet(id: $id, amount: $amount, payment_method: $payment_method) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, amount, payment_method
+            }).then(result => {
+                resolve(result.reloadCustomerWallet._id);
             }).catch(e => {
                 reject(e);
             });
