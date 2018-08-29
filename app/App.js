@@ -8,6 +8,7 @@
 const CategoryController = require('./controllers/CategoryController');
 const CustomerController = require('./controllers/CustomerController');
 const CustomerTokenController = require('./controllers/CustomerTokenController');
+const CouponController = require('./controllers/CouponController');
 const EmployeeController = require('./controllers/EmployeeController');
 const EmployeeTokenController = require('./controllers/EmployeeTokenController');
 const GraphController = require('./controllers/GraphController');
@@ -38,6 +39,7 @@ class App {
         this._categoryController = new CategoryController(this);
         this._customerController = new CustomerController(this);
         this._customerTokenController = new CustomerTokenController(this);
+        this._couponController = new CouponController(this);
         this._employeeController = new EmployeeController(this);
         this._employeeTokenController = new EmployeeTokenController(this);
         this._graphController = new GraphController(this);
@@ -67,6 +69,10 @@ class App {
 
         this.CustomerToken = {
             create: this._customerTokenController.create
+        };
+
+        this.Coupon = {
+            create: this._couponController.create
         };
 
         this.Employee = {
