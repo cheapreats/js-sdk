@@ -96,7 +96,9 @@ class App {
         };
 
         this.Modifier = {
-            create: this._modifierController.create
+            create: this._modifierController.create,
+            update: this._modifierController.update,
+            delete: this._modifierController.delete
         };
 
         this.Order = {
