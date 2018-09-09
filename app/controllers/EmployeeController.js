@@ -4,6 +4,8 @@ class EmployeeController {
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
+        this.enrollTerminalFcm = this.enrollTerminalFcm.bind(this);
+        this.revokeTerminalFcm = this.revokeTerminalFcm.bind(this);
     }
 
 
@@ -73,6 +75,53 @@ class EmployeeController {
                 id
             }).then(result => {
                 resolve(result.deleteEmployee);
+            }).catch(e => {
+                reject(e);
+            });
+        })
+    }
+
+    /**
+     * Enroll a new FCM token for terminal app
+     * @param id
+     * @param token
+     * @returns {Promise<any>}
+     */
+    enrollTerminalFcm(id, token) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation enrollEmployeeTerminalFcmToken ($id: String!, $token: String!) {
+                    enrollEmployeeTerminalFcmToken(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.enrollEmployeeTerminalFcmToken);
+            }).catch(e => {
+                reject(e);
+            });
+        })
+    }
+
+    /**
+     * Revoke a FCM token for terminal app
+     * @param token
+     * @returns {Promise<any>}
+     */
+    revokeTerminalFcm(token) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation revokeEmployeeTerminalFcmToken ($token: String!) {
+                    revokeEmployeeTerminalFcmToken(token: $token)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                token
+            }).then(result => {
+                resolve(result.revokeEmployeeTerminalFcmToken);
             }).catch(e => {
                 reject(e);
             });
