@@ -78,7 +78,9 @@ class App {
         this.Employee = {
             create: this._employeeController.create,
             update: this._employeeController.update,
-            delete: this._employeeController.delete
+            delete: this._employeeController.delete,
+            enrollTerminalFcm: this._employeeController.enrollTerminalFcm,
+            revokeTerminalFcm: this._employeeController.revokeTerminalFcm
         };
 
         this.EmployeeToken = {
