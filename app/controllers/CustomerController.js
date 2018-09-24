@@ -5,6 +5,9 @@ class CustomerController {
         this.update = this.update.bind(this);
         this.updateCreditCard = this.updateCreditCard.bind(this);
         this.enrollApnsToken = this.enrollApnsToken.bind(this);
+        this.revokeApnsToken = this.revokeApnsToken.bind(this);
+        this.enrollFcmToken = this.enrollFcmToken.bind(this);
+        this.revokeFcmToken = this.revokeFcmToken.bind(this);
         this.createWallet = this.createWallet.bind(this);
         this.reloadWallet = this.reloadWallet.bind(this);
     }
@@ -77,6 +80,81 @@ class CustomerController {
                 id, token
             }).then(result => {
                 resolve(result.enrollCustomerApnsToken);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Revoke an APNs token
+     * @param id
+     * @param token
+     * @returns {Promise<any>}
+     */
+    revokeApnsToken(id, token){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation revokeCustomerApnsTokenMutation ($id: String!, $token: String!) {
+                    revokeCustomerApnsToken(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.revokeCustomerApnsToken);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Enroll a new FCM token
+     * @param id
+     * @param token
+     * @returns {Promise<any>}
+     */
+    enrollFcmToken(id, token){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation enrollCustomerFcmTokenMutation ($id: String!, $token: String!) {
+                    enrollCustomerFcmToken(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.enrollCustomerFcmToken);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Revoke an FCM token
+     * @param id
+     * @param token
+     * @returns {Promise<any>}
+     */
+    revokeFcmToken(id, token){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation revokeCustomerFcmTokenMutation ($id: String!, $token: String!) {
+                    revokeCustomerFcmToken(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.revokeCustomerFcmToken);
             }).catch(e => {
                 reject(e);
             });
