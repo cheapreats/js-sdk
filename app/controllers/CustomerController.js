@@ -10,6 +10,8 @@ class CustomerController {
         this.revokeFcmToken = this.revokeFcmToken.bind(this);
         this.createWallet = this.createWallet.bind(this);
         this.reloadWallet = this.reloadWallet.bind(this);
+        this.sendPasswordResetCode = this.sendPasswordResetCode.bind(this);
+        this.resetPassword = this.resetPassword.bind(this);
     }
 
     /**
@@ -218,6 +220,42 @@ class CustomerController {
                 id, amount, payment_method
             }).then(result => {
                 resolve(result.reloadCustomerWallet._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    sendPasswordResetCode(email_address) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation sendCustomerPasswordResetCode ($email_address: String!) {
+                    sendCustomerPasswordResetCode(email_address: $email_address)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                email_address
+            }).then(result => {
+                resolve(result.sendCustomerPasswordResetCode);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    resetPassword(email_address, code, password) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation resetCustomerPassword ($email_address: String!, $code: String!, $password: String!) {
+                    resetCustomerPassword(email_address: $email_address, code: $code, password: $password) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                email_address, code, password
+            }).then(result => {
+                resolve(result.resetCustomerPassword._id);
             }).catch(e => {
                 reject(e);
             });

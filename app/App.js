@@ -67,7 +67,9 @@ class App {
             update: this._customerController.update,
             updateCreditCard: this._customerController.updateCreditCard,
             createWallet: this._customerController.createWallet,
-            reloadWallet: this._customerController.reloadWallet
+            reloadWallet: this._customerController.reloadWallet,
+            resetPassword: this._customerController.resetPassword,
+            sendPasswordResetCode: this._customerController.sendPasswordResetCode
         };
 
         this.CustomerToken = {
