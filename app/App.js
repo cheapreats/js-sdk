@@ -124,6 +124,7 @@ class App {
 
         this.Vendor = {
             create: this._vendorController.create,
+            createWithEmployee: this._vendorController.createWithEmployee,
             update: this._vendorController.update
         };
 
