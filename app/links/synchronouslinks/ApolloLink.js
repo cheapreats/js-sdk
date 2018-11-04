@@ -28,7 +28,9 @@ class ApolloLink extends SynchronousLink {
         super(url);
         this._headers = {};
 
-        let cache = new ApolloInMemoryCache();
+        let cache = new ApolloInMemoryCache({
+            dataIdFromObject: object => JSON.stringify(object)
+        });
 
         let link = new ApolloHttpLink({
             uri: url,
