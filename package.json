@@ -1,12 +1,13 @@
 {
   "name": "cheapreats-node-sdk",
-  "version": "1.1.15",
+  "version": "1.1.18",
   "description": "CheaprEats Node.js SDK",
   "main": "lib/index.js",
   "scripts": {
     "test": "npm -v",
     "gulp": "gulp",
-    "build": "babel . -d lib --ignore node_modules"
+    "build": "babel . -d lib --ignore node_modules",
+    "generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json --readme README.md"
   },
   "repository": {
     "type": "git",
@@ -26,24 +27,28 @@
     "browserify": "16.2.0",
     "gulp": "3.9.1",
     "gulp-sourcemaps": "2.6.4",
+    "jsdoc": "3.5.5",
+    "minami": "^1.2.3",
     "mocha": "5.0.5",
     "vinyl-buffer": "1.0.1",
     "vinyl-source-stream": "2.0.0",
     "watchify": "3.11.0"
   },
   "dependencies": {
-    "apollo-cache-inmemory": "1.1.12",
-    "apollo-client": "2.2.7",
+    "apollo-cache-inmemory": "1.3.0",
+    "apollo-client": "2.4.7",
     "apollo-link-context": "1.0.8",
     "apollo-link-http": "1.5.4",
+    "apollo-utilities": "1.0.22",
     "axios": "0.18.0",
-    "colors": "^1.3.1",
+    "colors": "1.3.1",
     "cross-fetch": "2.2.2",
     "es6-promise": "4.2.4",
     "graphql": "0.13.2",
     "graphql-tag": "2.8.0",
+    "graphql-anywhere": "4.1.23",
     "isomorphic-fetch": "2.2.1",
-    "moment": "^2.22.2",
+    "moment": "2.22.2",
     "node-fetch": "2.1.2",
     "readline-sync": "^1.4.9",
     "stripe": "5.8.0"

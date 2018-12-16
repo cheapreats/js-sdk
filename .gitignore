@@ -2,3 +2,5 @@
 node_modules
 build
 lib
+.DS_Store
+docs
