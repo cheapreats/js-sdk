@@ -15,7 +15,7 @@ class CheaprEatsApolloAdaptor extends Adaptor {
 
     /**
      * This function sets the authentication for an application to be authorized to make calls to CheaprEats API
-     * @param  {} token - The Authentication Token
+     * @param  {string} token - The Authentication Token
      */
     setAuthenticationToken(token){
         this._apolloLink = new ApolloLink(this._config.apolloEndpoint, {
@@ -26,7 +26,7 @@ class CheaprEatsApolloAdaptor extends Adaptor {
     }
 
     /**
-     * @param  {} url - The URL of the GraphQL API Microservice
+     * @param  {string} url - The URL of the GraphQL API Microservice
      */
     setApolloEndpoint(url){
         this._apolloLink = new ApolloLink(url);
@@ -34,7 +34,7 @@ class CheaprEatsApolloAdaptor extends Adaptor {
     }
 
     /**
-     * @param  {} query
+     * @param  {string} query
      * @param  {} variables={}
      */
     query(query, variables = {}){
@@ -42,7 +42,7 @@ class CheaprEatsApolloAdaptor extends Adaptor {
     }
 
     /**
-     * @param  {} query
+     * @param  {string} query
      * @param  {} variables={}
      */
     mutate(query, variables = {}){
