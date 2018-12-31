@@ -10,7 +10,7 @@ class NotificationController {
 
     /**
      * Get HttpLink appended with append
-     * @param append
+     * @param {string} append=""
      * @returns {HttpLink}
      */
     getHttpLink(append = ""){

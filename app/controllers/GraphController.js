@@ -6,8 +6,8 @@ class GraphController {
 
     /**
      * Query the graph
-     * @param query
-     * @param variables
+     * @param  {} query
+     * @param  {} variables={}
      */
     query(query, variables = {}){
         return this.app.getAdaptor().query(query, variables);

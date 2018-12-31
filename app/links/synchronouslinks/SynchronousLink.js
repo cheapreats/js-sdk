@@ -7,6 +7,10 @@
 const Link = require('../Link');
 
 class SynchronousLink extends Link {
+
+    /**
+     * @param  {} url
+     */
     constructor(url){
         super(url);
         this._type = "sync";

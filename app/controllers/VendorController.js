@@ -10,7 +10,7 @@ class VendorController {
     /**
      * TODO: Deprecate this method
      * Create a new vendor, return vendor ID if successful
-     * @param vendor
+     * @param {Object} vendor - The Vendor Object
      * @returns {Promise<any>}
      */
     create(vendor){
@@ -34,9 +34,9 @@ class VendorController {
     }
 
     /**
-     * Create a new vendor with employee
-     * @param vendor
-     * @returns {Promise<any>}
+     * Create a new Vendor Object with an Employee Object
+     * @param {Object} vendor - The Vendor Object
+     * @returns {Promise<any>} - The id of the Vendor Object
      */
     createWithEmployee(vendor){
         return new Promise((resolve, reject) => {
@@ -59,8 +59,8 @@ class VendorController {
 
     /**
      * Update a vendor
-     * @param id
-     * @param vendor
+     * @param {string} id - The id of the Vendor Object
+     * @param {Object} vendor - The Vendor Object
      * @returns {Promise<any>}
      */
     update(id, vendor){

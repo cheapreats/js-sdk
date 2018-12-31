@@ -8,11 +8,11 @@ class ToppingItemController {
 
     /**
      * Create a new topping item
-     * @param name
-     * @param quantity
-     * @param price
-     * @param availableUntil
-     * @returns {Promise<any>}
+     * @param {string} name - The name of the Topping Object
+     * @param {int} quantity - The amount of the Topping Object
+     * @param {int} price - The cost of the Topping Object
+     * @param {int} availableUntil - The length of time that this Topping Object is available
+     * @returns {Promise<any>} - The id of the Topping Object
      */
     add(name, quantity, price, availableUntil){
         // addToppingItem(name: String!, quantity: Int!, price: Int!, availableUntil: Int!): ToppingItem
@@ -36,12 +36,12 @@ class ToppingItemController {
 
     /**
      * Update a topping item
-     * @param id
-     * @param name
-     * @param remainingQuantity
-     * @param availableUntil
-     * @param toppingItems
-     * @returns {Promise<any>}
+     * @param {int} id - The id of the Topping Object
+     * @param {string} name=null - The name of the Topping Object
+     * @param {int} remainingQuantity=null - The amount of Toppings remaining
+     * @param {int} availableUntil=null - The length of time that this Topping Object is available
+     * @param toppingItems=null
+     * @returns {Promise<any>} - The id of the Topping Object
      */
     update(id, name = null, remainingQuantity = null, availableUntil = null, toppingItems = null){
         // updateToppingItem(id: Int!, name: String, remainingQuantity: Int, price: Int, availableUntil: Int): ToppingItem
@@ -65,7 +65,7 @@ class ToppingItemController {
 
     /**
      * Delete a topping item
-     * @param id
+     * @param {int} id - The id of the Topping Object
      * @returns {Promise<any>}
      */
     delete(id){

@@ -13,7 +13,7 @@ class ValidationController {
 
     /**
      * Check if an email can be used for customer account creation
-     * @param email
+     * @param email - An email
      * @returns {Promise<any>}
      */
     customerSignupEmail(email){
@@ -33,7 +33,7 @@ class ValidationController {
 
     /**
      * Check if a phone number can be used for customer account creation
-     * @param phone
+     * @param phone - The phone number to send the code to (Without Country Code & no spaces/special characters)
      * @returns {Promise<any>}
      */
     customerSignupPhone(phone){

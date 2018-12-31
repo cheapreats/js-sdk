@@ -7,14 +7,14 @@ class ComboItemController {
 
     /**
      * Create a new combo item
-     * @param name
-     * @param discount
-     * @param availableFrom
-     * @param availableUntil
-     * @param menuItems
-     * @param recurringType
-     * @param dayOfWeek
-     * @returns {Promise<any>}
+     * @param  {string} name - Name of Combo Item
+     * @param  {int} discount - Discount Applied to Original Value of Items
+     * @param  {string} availableFrom - Starting Date of Availability
+     * @param  {string} availableUntil - Ending Date of Availability
+     * @param  {Object} menuItems
+     * @param  {int} recurringType=null - Weekly, Monthly etc
+     * @param  {string} dayOfWeek=null - The days of the week in which the combo is active (Monday or Tuesday etc)
+     * @returns {Promise<any>} - Returns the id of the combo item object added
      */
     add(name, discount, availableFrom, availableUntil, menuItems, recurringType = null, dayOfWeek = null){
         // addComboItem(name: String!, discount: Int!, availableFrom: String, availableUntil: String, menuItems: [ComboItemInput]!, recurringType: Int, dayOfWeek: String): ComboItem
@@ -38,7 +38,7 @@ class ComboItemController {
 
     /**
      * Delete a combo item
-     * @param id
+     * @param {int} id - The unique identifier of the combo item object
      * @returns {Promise<any>}
      */
     delete(id){

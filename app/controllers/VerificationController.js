@@ -6,7 +6,9 @@ class VerificationController {
         this.sendSms = this.sendSms.bind(this);
         this.checkSms = this.checkSms.bind(this);
     }
-
+    /**
+     * @param {string} append=""
+     */
     getHttpLink(append = ""){
         return new HttpLink(this.app.getConfiguration().endpoints.verificationEndpoint.production + append);
     }

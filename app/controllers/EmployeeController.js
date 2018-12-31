@@ -11,8 +11,8 @@ class EmployeeController {
 
     /**
      * Create a new employee, return employee ID if successful
-     * @param employee
-     * @returns {Promise<any>}
+     * @param {Object} employee - The Employee Object
+     * @returns {Promise<any>} - The id of the Employee Object
      */
     create(employee){
         return new Promise((resolve, reject) => {
@@ -35,9 +35,9 @@ class EmployeeController {
 
     /**
      * Update a employee
-     * @param id
-     * @param employee
-     * @returns {Promise<any>}
+     * @param {string} id - The id of the Employee Object
+     * @param {Object} employee - The Employee Object
+     * @returns {Promise<any>} - The id of the Employee Object
      */
     update(id, employee){
         return new Promise((resolve, reject) => {
@@ -61,7 +61,7 @@ class EmployeeController {
 
     /**
      * Delete a Employee instance
-     * @param id
+     * @param {string} id - The id of the Employee Object
      * @returns {Promise<any>}
      */
     delete(id){
@@ -83,8 +83,8 @@ class EmployeeController {
 
     /**
      * Enroll a new FCM token for terminal app
-     * @param id
-     * @param token
+     * @param {string} id - The id of the Employee Object
+     * @param {string} token - The FCM token for the Terminal Mobile App
      * @returns {Promise<any>}
      */
     enrollTerminalFcm(id, token) {
@@ -108,7 +108,7 @@ class EmployeeController {
 
     /**
      * Revoke a FCM token for terminal app
-     * @param token
+     * @param {string} token - The FCM token for the Terminal Mobile App
      * @returns {Promise<any>}
      */
     revokeTerminalFcm(token) {
