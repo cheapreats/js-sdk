@@ -8,8 +8,8 @@ class HeadOfficeController {
 
     /**
      * Create a new HeadOffice
-     * @param identifier
-     * @returns {Promise<any>}
+     * @param {string} identifier - The identifier for the Head Office Object
+     * @returns {Promise<any>} - The id of the Head Office object
      */
     create(identifier){
         return new Promise((resolve, reject) => {
@@ -32,9 +32,9 @@ class HeadOfficeController {
 
     /**
      * Update a HeadOffice
-     * @param id
-     * @param identifier
-     * @returns {Promise<any>}
+     * @param {string} id - The id of the Head Office Object
+     * @param {string} identifier - The identifier for the Head Office Object
+     * @returns {Promise<any>} - The id of the Head Office object
      */
     update(id, identifier){
         return new Promise((resolve, reject) => {
@@ -57,7 +57,7 @@ class HeadOfficeController {
 
     /**
      * Delete a HeadOffice instance
-     * @param id
+     * @param {string} id - The id of the Head Office Object
      * @returns {Promise<any>}
      */
     delete(id){

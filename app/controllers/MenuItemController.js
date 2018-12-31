@@ -8,8 +8,8 @@ class MenuItemController {
 
     /**
      * Create a new MenuItem, returns MenuItem _id if successful
-     * @param menu_item
-     * @returns {Promise<any>}
+     * @param {Object} menu_item - The MenuItem object
+     * @returns {Promise<any>} - The id of the MenuItem object
      */
     create(menu_item){
         return new Promise((resolve, reject) => {
@@ -32,9 +32,9 @@ class MenuItemController {
 
     /**
      * Update an existing MenuItem based on given ID/menu_item, returns _id if successful
-     * @param id
-     * @param menu_item
-     * @returns {Promise<any>}
+     * @param {string} id - The id of the MenuItem Object
+     * @param {Object} menu_item - The MenuItem Object
+     * @returns {Promise<any>} - The id of the MenuItem object
      */
     update(id, menu_item){
         return new Promise((resolve, reject) => {
@@ -57,8 +57,8 @@ class MenuItemController {
 
     /**
      * Delete a MenuItem
-     * @param id
-     * @returns {Promise<any>}
+     * @param {string} id - The id of the MenuItem Object
+     * @returns {Promise<any>} - The id of the MenuItem object
      */
     delete(id){
         return new Promise((resolve, reject) => {

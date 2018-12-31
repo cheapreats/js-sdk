@@ -7,9 +7,9 @@ class EmployeeTokenController {
 
     /**
      * Create a new EmployeeToken, return EmployeeToken ID if successful
-     * @param vendor_id
-     * @param username
-     * @param password
+     * @param {string} vendor_id - The id of the Vendor this employee will be assigned to
+     * @param {string} username - The Username of the Employee
+     * @param {string} password - The password of the Employee
      * @returns {Promise<any>}
      */
     create(vendor_id, username, password){

@@ -9,7 +9,7 @@ class ImageController {
 
     /**
      * Get HttpLink appended with append
-     * @param append
+     * @param  {string} append=""
      * @returns {HttpLink}
      */
     getHttpLink(append = "") {
@@ -41,8 +41,8 @@ class ImageController {
 
     /**
      * Get an image link with size
-     * @param id
-     * @param size (100px, 300px, 600px or 1200px)
+     * @param {string} id
+     * @param {string} size (100px, 300px, 600px or 1200px)
      * @returns {string}
      */
     getLink(id, size) {

@@ -16,8 +16,8 @@ class CustomerController {
 
     /**
      * Create a new customer, return customer ID if successful
-     * @param customer
-     * @returns {Promise<any>}
+     * @param {Object} customer - The Customer object to be created
+     * @returns {Promise<any>} - The id of the Customer object that was created
      */
     create(customer){
         return new Promise((resolve, reject) => {
@@ -40,9 +40,9 @@ class CustomerController {
 
     /**
      * Update a customer
-     * @param id
-     * @param customer
-     * @returns {Promise<any>}
+     * @param {string} id - The id of the Customer object
+     * @param {Object} customer - The updated Customer object
+     * @returns {Promise<any>} - The id of the Customer Object that was updated
      */
     update(id, customer){
         return new Promise((resolve, reject) => {
@@ -56,7 +56,7 @@ class CustomerController {
             this.app.getAdaptor().mutate(mutationString, {
                 id, customer
             }).then(result => {
-                resolve(result.updateCustomer);
+                resolve(result.updateCustomer._id);
             }).catch(e => {
                 reject(e);
             });
@@ -65,8 +65,8 @@ class CustomerController {
 
     /**
      * Enroll a new APNs token
-     * @param id
-     * @param token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The APNS Token
      * @returns {Promise<any>}
      */
     enrollApnsToken(id, token){
@@ -90,8 +90,8 @@ class CustomerController {
 
     /**
      * Revoke an APNs token
-     * @param id
-     * @param token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The APNS Token
      * @returns {Promise<any>}
      */
     revokeApnsToken(id, token){
@@ -115,8 +115,8 @@ class CustomerController {
 
     /**
      * Enroll a new FCM token
-     * @param id
-     * @param token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The FCM Token
      * @returns {Promise<any>}
      */
     enrollFcmToken(id, token){
@@ -140,8 +140,8 @@ class CustomerController {
 
     /**
      * Revoke an FCM token
-     * @param id
-     * @param token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The FCM Token
      * @returns {Promise<any>}
      */
     revokeFcmToken(id, token){
@@ -165,8 +165,8 @@ class CustomerController {
 
     /**
      * Update a customer's credit card
-     * @param id
-     * @param token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The Stripe Token
      * @returns {Promise<any>}
      */
     updateCreditCard(id, token){
@@ -188,6 +188,10 @@ class CustomerController {
         });
     }
 
+    /**
+     * @param {string} id - The id of the Customer Object
+     * @returns {Promise<any>} - The id of the wallet that was created
+     */
     createWallet(id){
         return new Promise((resolve, reject) => {
             let mutationString = `
@@ -207,6 +211,12 @@ class CustomerController {
         });
     }
 
+    /**
+     * @param {string} id - The id of the Customer Object
+     * @param  {int} amount - The amount to load the wallet (in cents)
+     * @param  {string} payment_method - The selected payment method
+     * @returns {Promise<any>} - The id of the wallet that was reloaded
+     */
     reloadWallet(id, amount, payment_method) {
         return new Promise((resolve, reject) => {
             let mutationString = `
@@ -226,6 +236,9 @@ class CustomerController {
         });
     }
 
+    /**
+     * @param  {string} email_address - The email address of the customer
+     */
     sendPasswordResetCode(email_address) {
         return new Promise((resolve, reject) => {
             let mutationString = `
@@ -243,6 +256,11 @@ class CustomerController {
         });
     }
 
+    /**
+     * @param  {string} email_address - The email address of the customer
+     * @param  {string} code - Temporary Code for Password Resets
+     * @param  {string} password - The new password
+     */
     resetPassword(email_address, code, password) {
         return new Promise((resolve, reject) => {
             let mutationString = `

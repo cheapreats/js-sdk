@@ -8,8 +8,8 @@ class ModifierController {
 
     /**
      * Create a new Modifier
-     * @param modifier
-     * @returns {Promise<any>}
+     * @param {Object} modifier - The Modifier Object
+     * @returns {Promise<any>} - The id of the Modifier Object
      */
     create(modifier){
         return new Promise((resolve, reject) => {
@@ -32,9 +32,9 @@ class ModifierController {
 
     /**
      * Update an existing Modifier
-     * @param id
-     * @param modifier
-     * @returns {Promise<any>}
+     * @param {string} id - The id of the Modifier Object
+     * @param {Object} modifier - The Modifier Object
+     * @returns {Promise<any>} - The id of the Modifier Object
      */
     update(id, modifier) {
         return new Promise((resolve, reject) => {
@@ -57,7 +57,7 @@ class ModifierController {
 
     /**
      * Delete an existing Modifier
-     * @param id
+     * @param {string} id - The id of the Modifier Object
      * @returns {Promise<any>}
      */
     delete(id) {

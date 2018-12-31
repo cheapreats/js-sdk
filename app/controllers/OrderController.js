@@ -10,8 +10,8 @@ class OrderController {
 
     /**
      * Place a new order, you must be authenticated as a customer to use this
-     * @param order
-     * @returns {Promise<any>}
+     * @param {Object} order - The Order Object
+     * @returns {Promise<any>} - The id of the Order Object
      */
     create(order){
         return new Promise((resolve, reject) => {
@@ -34,8 +34,8 @@ class OrderController {
 
     /**
      * Cancel a order, must be authenticated as vendor
-     * @param id
-     * @param reason
+     * @param {string} id - The id of the Order Object
+     * @param {string} reason - Information related to why the order was cancelled
      * @returns {Promise<any>}
      */
     cancel(id, reason){
@@ -59,8 +59,8 @@ class OrderController {
 
     /**
      * Set a order as preparing with estimated time
-     * @param id
-     * @param estimated_preparing_sec
+     * @param {string} id - The id of the Order Object
+     * @param {int} estimated_preparing_sec - The amount of time the Order will take before it will be prepared
      * @returns {Promise<any>}
      */
     beginPreparing(id, estimated_preparing_sec){
@@ -84,7 +84,7 @@ class OrderController {
 
     /**
      * Set order as prepared
-     * @param id
+     * @param {string} id - The id of the Order Object
      * @returns {Promise<any>}
      */
     prepared(id){
@@ -108,7 +108,7 @@ class OrderController {
 
     /**
      * Complete an order
-     * @param id
+     * @param {string} id - The id of the Order Object
      * @returns {Promise<any>}
      */
     complete(id){

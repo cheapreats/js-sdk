@@ -15,7 +15,7 @@ class TwilioController {
 
     /**
      * Get HttpLink appended with append
-     * @param append
+     * @param {string} append=""
      * @returns {HttpLink}
      */
     getHttpLink(append = ""){
@@ -28,8 +28,8 @@ class TwilioController {
 
     /**
      * Get verification code sent to a phone
-     * @param phoneNumber
-     * @param countryCode
+     * @param phoneNumber - The phone number to send the code to (Without Country Code & no spaces/special characters)
+     * @param countryCode - The country code of the phone number (Ex: +1)
      * @returns {Promise<any>}
      */
     getCode(phoneNumber, countryCode){
@@ -50,7 +50,7 @@ class TwilioController {
 
     /**
      * Check if a phone number can be used to verify
-     * @param phoneNumber
+     * @param phoneNumber - The phone number to send the code to (Without Country Code & no spaces/special characters)
      * @returns {Promise<any>}
      */
     canVerify(phoneNumber){

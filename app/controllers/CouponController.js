@@ -6,7 +6,7 @@ class CouponController {
 
     /**
      * Create a new coupon, return coupon ID if successful
-     * @param category
+     * @param {Object} category - The Coupon Object
      * @returns {Promise<any>}
      */
     create(coupon){
