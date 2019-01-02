@@ -4,7 +4,9 @@
 
 CheaprEats Node.js SDK
 
-For detailed documentation, please visit [https://cheapreats.com/developer/docs/](https://cheapreats.com/developer/docs/)
+```
+$ npm install @cheapreats/sdk
+```
 
 ## Project Structure
 
