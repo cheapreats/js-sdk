@@ -1,5 +1,5 @@
 {
-  "name": "cheapreats-node-sdk",
+  "name": "@cheapreats/sdk",
   "version": "1.1.18",
   "description": "CheaprEats Node.js SDK",
   "main": "lib/index.js",
