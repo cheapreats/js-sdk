@@ -1,7 +1,7 @@
 {
   "name": "@cheapreats/sdk",
-  "version": "1.1.18",
-  "description": "CheaprEats Node.js SDK",
+  "version": "1.1.19",
+  "description": "CheaprEats JavaScript SDK",
   "main": "lib/index.js",
   "scripts": {
     "test": "npm -v",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wolfbeacon/CheaprEats-Node-SDK.git"
+    "url": "git+https://github.com/CheaprEats/js-sdk.git"
   },
   "author": "CheaprEats",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wolfbeacon/CheaprEats-Node-SDK/issues"
+    "url": "https://github.com/CheaprEats/js-sdk/issues"
   },
-  "homepage": "https://github.com/wolfbeacon/CheaprEats-Node-SDK#readme",
+  "homepage": "https://github.com/CheaprEats/js-sdk#readme",
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
