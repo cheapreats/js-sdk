@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>app/controllers/CustomerController.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Adaptor">Adaptor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Adaptor#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ApolloLink.html">ApolloLink</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ApolloLink.html#mutate">mutate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ApolloLink.html#query">query</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ApolloLink.html#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#App">App</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#getAdaptor">getAdaptor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#getAuthenticationToken">getAuthenticationToken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#getConfiguration">getConfiguration</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#setApolloEndpoint">setApolloEndpoint</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#setAuthenticationToken">setAuthenticationToken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#setImageDistributionEndpoint">setImageDistributionEndpoint</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#setImageEndpoint">setImageEndpoint</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#setValidationEndpoint">setValidationEndpoint</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#App#setVerificationEndpoint">setVerificationEndpoint</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Controller.html">Controller</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#.getInstance">getInstance</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#HttpLink">HttpLink</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#delete">delete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#post">post</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#put">put</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Link">Link</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Link#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Model">Model</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#addObserver">addObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#destroy">destroy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#notifyObservers">notifyObservers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#removeObserver">removeObserver</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ModelFactory.html">ModelFactory</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ModelObserver.html">ModelObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ModelObserver.html#addModel">addModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ModelObserver.html#removeModel">removeModel</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Observer">Observer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Observer#notify">notify</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#SynchronousLink">SynchronousLink</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#User">User</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">app/controllers/CustomerController.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>class CustomerController {
+    constructor(app){
+        this.app = app;
+        this.create = this.create.bind(this);
+        this.update = this.update.bind(this);
+        this.updateCreditCard = this.updateCreditCard.bind(this);
+        this.enrollApnsToken = this.enrollApnsToken.bind(this);
+        this.revokeApnsToken = this.revokeApnsToken.bind(this);
+        this.enrollFcmToken = this.enrollFcmToken.bind(this);
+        this.revokeFcmToken = this.revokeFcmToken.bind(this);
+        this.createWallet = this.createWallet.bind(this);
+        this.reloadWallet = this.reloadWallet.bind(this);
+        this.sendPasswordResetCode = this.sendPasswordResetCode.bind(this);
+        this.resetPassword = this.resetPassword.bind(this);
+    }
+
+    /**
+     * Create a new customer, return customer ID if successful
+     * @param {Object} customer - The Customer object to be created
+     * @returns {Promise&lt;any>} - The id of the Customer object that was created
+     */
+    create(customer){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation createCustomerMutation ($customer: CreateCustomerInput!) {
+                    createCustomer(customer: $customer) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                customer
+            }).then(result => {
+                resolve(result.createCustomer._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Update a customer
+     * @param {string} id - The id of the Customer object
+     * @param {Object} customer - The updated Customer object
+     * @returns {Promise&lt;any>} - The id of the Customer Object that was updated
+     */
+    update(id, customer){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation updateCustomerMutation ($id: String!, $customer: UpdateCustomerInput!) {
+                    updateCustomer(id: $id, customer: $customer) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, customer
+            }).then(result => {
+                resolve(result.updateCustomer._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Enroll a new APNs token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The APNS Token
+     * @returns {Promise&lt;any>}
+     */
+    enrollApnsToken(id, token){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation enrollCustomerApnsTokenMutation ($id: String!, $token: String!) {
+                    enrollCustomerApnsToken(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.enrollCustomerApnsToken);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Revoke an APNs token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The APNS Token
+     * @returns {Promise&lt;any>}
+     */
+    revokeApnsToken(id, token){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation revokeCustomerApnsTokenMutation ($id: String!, $token: String!) {
+                    revokeCustomerApnsToken(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.revokeCustomerApnsToken);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Enroll a new FCM token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The FCM Token
+     * @returns {Promise&lt;any>}
+     */
+    enrollFcmToken(id, token){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation enrollCustomerFcmTokenMutation ($id: String!, $token: String!) {
+                    enrollCustomerFcmToken(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.enrollCustomerFcmToken);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Revoke an FCM token
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The FCM Token
+     * @returns {Promise&lt;any>}
+     */
+    revokeFcmToken(id, token){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation revokeCustomerFcmTokenMutation ($id: String!, $token: String!) {
+                    revokeCustomerFcmToken(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.revokeCustomerFcmToken);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Update a customer's credit card
+     * @param {string} id - The id of the Customer Object
+     * @param {string} token - The Stripe Token
+     * @returns {Promise&lt;any>}
+     */
+    updateCreditCard(id, token){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation updateCustomerCreditCardMutation ($id: String!, $token: String!) {
+                    updateCustomerCreditCard(id: $id, token: $token) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, token
+            }).then(result => {
+                resolve(result.updateCustomerCreditCard);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * @param {string} id - The id of the Customer Object
+     * @returns {Promise&lt;any>} - The id of the wallet that was created
+     */
+    createWallet(id){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation createCustomerWallet ($id: String!) {
+                    createCustomerWallet(id: $id) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id
+            }).then(result => {
+                resolve(result.createCustomerWallet._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * @param {string} id - The id of the Customer Object
+     * @param  {int} amount - The amount to load the wallet (in cents)
+     * @param  {string} payment_method - The selected payment method
+     * @returns {Promise&lt;any>} - The id of the wallet that was reloaded
+     */
+    reloadWallet(id, amount, payment_method) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation reloadCustomerWallet ($id: String!, $amount: Int!, $payment_method: String!) {
+                    reloadCustomerWallet(id: $id, amount: $amount, payment_method: $payment_method) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, amount, payment_method
+            }).then(result => {
+                resolve(result.reloadCustomerWallet._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * @param  {string} email_address - The email address of the customer
+     */
+    sendPasswordResetCode(email_address) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation sendCustomerPasswordResetCode ($email_address: String!) {
+                    sendCustomerPasswordResetCode(email_address: $email_address)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                email_address
+            }).then(result => {
+                resolve(result.sendCustomerPasswordResetCode);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * @param  {string} email_address - The email address of the customer
+     * @param  {string} code - Temporary Code for Password Resets
+     * @param  {string} password - The new password
+     */
+    resetPassword(email_address, code, password) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation resetCustomerPassword ($email_address: String!, $code: String!, $password: String!) {
+                    resetCustomerPassword(email_address: $email_address, code: $code, password: $password) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                email_address, code, password
+            }).then(result => {
+                resolve(result.resetCustomerPassword._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+
+}
+
+module.exports = CustomerController;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jan 08 2019 15:48:57 GMT-0500 (Eastern Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

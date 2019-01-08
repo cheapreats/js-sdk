@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>App.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Adaptor">Adaptor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Adaptor#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ApolloLink.html">ApolloLink</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ApolloLink.html#mutate">mutate</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ApolloLink.html#query">query</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ApolloLink.html#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="App.html">App</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#getAdaptor">getAdaptor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#getAuthenticationToken">getAuthenticationToken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#getConfiguration">getConfiguration</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#setApolloEndpoint">setApolloEndpoint</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#setAuthenticationToken">setAuthenticationToken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#setImageDistributionEndpoint">setImageDistributionEndpoint</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#setImageEndpoint">setImageEndpoint</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#setValidationEndpoint">setValidationEndpoint</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="App.html#setVerificationEndpoint">setVerificationEndpoint</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CategoryController.html">CategoryController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CategoryController.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CategoryController.html#delete">delete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CategoryController.html#update">update</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ComboItemController.html">ComboItemController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ComboItemController.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ComboItemController.html#delete">delete</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Controller.html">Controller</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#.getInstance">getInstance</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CouponController.html">CouponController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CouponController.html#create">create</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CustomerController.html">CustomerController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#createWallet">createWallet</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#enrollApnsToken">enrollApnsToken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#enrollFcmToken">enrollFcmToken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#reloadWallet">reloadWallet</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#resetPassword">resetPassword</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#revokeApnsToken">revokeApnsToken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#revokeFcmToken">revokeFcmToken</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#sendPasswordResetCode">sendPasswordResetCode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#update">update</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerController.html#updateCreditCard">updateCreditCard</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CustomerTokenController.html">CustomerTokenController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CustomerTokenController.html#create">create</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="EmployeeController.html">EmployeeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="EmployeeController.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="EmployeeController.html#delete">delete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="EmployeeController.html#enrollTerminalFcm">enrollTerminalFcm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="EmployeeController.html#revokeTerminalFcm">revokeTerminalFcm</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="EmployeeController.html#update">update</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="EmployeeTokenController.html">EmployeeTokenController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="EmployeeTokenController.html#create">create</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="GraphController.html">GraphController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="GraphController.html#query">query</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="HeadOfficeController.html">HeadOfficeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HeadOfficeController.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HeadOfficeController.html#delete">delete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HeadOfficeController.html#update">update</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#HttpLink">HttpLink</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#delete">delete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#post">post</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#put">put</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#HttpLink#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ImageController.html">ImageController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ImageController.html#getHttpLink">getHttpLink</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ImageController.html#getLink">getLink</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ImageController.html#upload">upload</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Link">Link</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Link#run">run</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="MenuItemController.html">MenuItemController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MenuItemController.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MenuItemController.html#delete">delete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MenuItemController.html#update">update</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Model">Model</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#addObserver">addObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#destroy">destroy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#notifyObservers">notifyObservers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Model#removeObserver">removeObserver</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ModelFactory.html">ModelFactory</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ModelObserver.html">ModelObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ModelObserver.html#addModel">addModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ModelObserver.html#removeModel">removeModel</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ModifierController.html">ModifierController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ModifierController.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ModifierController.html#delete">delete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ModifierController.html#update">update</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="NotificationController.html">NotificationController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NotificationController.html#apnsEnrollCustomer">apnsEnrollCustomer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NotificationController.html#apnsRevokeCustomer">apnsRevokeCustomer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NotificationController.html#getHttpLink">getHttpLink</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Observer">Observer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Observer#notify">notify</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="OrderController.html">OrderController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OrderController.html#beginPreparing">beginPreparing</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OrderController.html#cancel">cancel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OrderController.html#complete">complete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OrderController.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OrderController.html#prepared">prepared</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#SynchronousLink">SynchronousLink</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ToppingItemController.html">ToppingItemController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ToppingItemController.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ToppingItemController.html#delete">delete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ToppingItemController.html#update">update</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="TwilioController.html">TwilioController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TwilioController.html#canVerify">canVerify</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TwilioController.html#getCode">getCode</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="TwilioController.html#getHttpLink">getHttpLink</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#User">User</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ValidationController.html">ValidationController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ValidationController.html#customerSignupEmail">customerSignupEmail</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ValidationController.html#customerSignupPhone">customerSignupPhone</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="VendorController.html">VendorController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="VendorController.html#create">create</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="VendorController.html#createWithEmployee">createWithEmployee</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="VendorController.html#update">update</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="VerificationController.html">VerificationController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="VerificationController.html#checkSms">checkSms</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="VerificationController.html#getHttpLink">getHttpLink</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="VerificationController.html#sendSms">sendSms</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">App.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const CategoryController = require('./controllers/CategoryController');
+const CustomerController = require('./controllers/CustomerController');
+const CustomerTokenController = require('./controllers/CustomerTokenController');
+const CouponController = require('./controllers/CouponController');
+const EmployeeController = require('./controllers/EmployeeController');
+const EmployeeTokenController = require('./controllers/EmployeeTokenController');
+const GraphController = require('./controllers/GraphController');
+const HeadOfficeController = require('./controllers/HeadOfficeController');
+const MenuItemController = require('./controllers/MenuItemController');
+const ModifierController = require('./controllers/ModifierController');
+const VendorController = require('./controllers/VendorController');
+const VerificationController = require('./controllers/VerificationController');
+const ValidationController = require('./controllers/ValidationController');
+const OrderController = require('./controllers/OrderController');
+const ImageController = require('./controllers/ImageController');
+const strToIdentifier =  require('./util/strToIdentifier');
+
+const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
+
+let config = {
+    endpoints: require('../config/endpoints')
+};
+
+/**
+ * Main entry point of the SDK
+ */
+class App {
+
+    /**
+     * Construct the App instance.
+     * @hideconstructor
+     */
+    constructor() {
+        this._token = null;
+
+        this._adaptor = new CheaprEatsApolloAdaptor({
+            apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint.production
+        });
+
+        this._categoryController = new CategoryController(this);
+        this._customerController = new CustomerController(this);
+        this._customerTokenController = new CustomerTokenController(this);
+        this._couponController = new CouponController(this);
+        this._employeeController = new EmployeeController(this);
+        this._employeeTokenController = new EmployeeTokenController(this);
+        this._graphController = new GraphController(this);
+        this._headOfficeController = new HeadOfficeController(this);
+        this._menuItemController = new MenuItemController(this);
+        this._modifierController = new ModifierController(this);
+        this._vendorController = new VendorController(this);
+        this._verificationController = new VerificationController(this);
+        this._validationController = new ValidationController(this);
+        this._orderController = new OrderController(this);
+        this._imageController = new ImageController(this);
+    }
+
+    /**
+     * Get category related methods.
+     * @returns {{create: CategoryController.create, delete: CategoryController.delete, update: CategoryController.update}}
+     */
+    get Category() {
+        return {
+            create: this._categoryController.create,
+            delete: this._categoryController.delete,
+            update: this._categoryController.update
+        };
+    }
+
+    /**
+     * Get customer related methods.
+     * @returns {{create: CustomerController.create, enrollApnsToken: CustomerController.enrollApnsToken, revokeApnsToken: CustomerController.revokeApnsToken, enrollFcmToken: CustomerController.enrollFcmToken, revokeFcmToken: CustomerController.revokeFcmToken, update: CustomerController.update, updateCreditCard: CustomerController.updateCreditCard, createWallet: CustomerController.createWallet, reloadWallet: CustomerController.reloadWallet, resetPassword: CustomerController.resetPassword, sendPasswordResetCode: CustomerController.sendPasswordResetCode}}
+     */
+    get Customer() {
+        return {
+            create: this._customerController.create,
+            enrollApnsToken: this._customerController.enrollApnsToken,
+            revokeApnsToken: this._customerController.revokeApnsToken,
+            enrollFcmToken: this._customerController.enrollFcmToken,
+            revokeFcmToken: this._customerController.revokeFcmToken,
+            update: this._customerController.update,
+            updateCreditCard: this._customerController.updateCreditCard,
+            createWallet: this._customerController.createWallet,
+            reloadWallet: this._customerController.reloadWallet,
+            resetPassword: this._customerController.resetPassword,
+            sendPasswordResetCode: this._customerController.sendPasswordResetCode
+        };
+    }
+
+    /**
+     * Get customer token related methods.
+     * @returns {{create: CustomerTokenController.create}}
+     */
+    get CustomerToken() {
+        return {
+            create: this._customerTokenController.create
+        };
+    }
+
+    /**
+     * Get coupon related methods.
+     * @returns {{create: CouponController.create}}
+     */
+    get Coupon() {
+        return {
+            create: this._couponController.create
+        };
+    }
+
+    /**
+     * Get employee related methods.
+     * @returns {{create: EmployeeController.create, update: EmployeeController.update, delete: EmployeeController.delete, enrollTerminalFcm: EmployeeController.enrollTerminalFcm, revokeTerminalFcm: EmployeeController.revokeTerminalFcm}}
+     */
+    get Employee() {
+        return {
+            create: this._employeeController.create,
+            update: this._employeeController.update,
+            delete: this._employeeController.delete,
+            enrollTerminalFcm: this._employeeController.enrollTerminalFcm,
+            revokeTerminalFcm: this._employeeController.revokeTerminalFcm
+        };
+    }
+
+    /**
+     * Get employee token related methods.
+     * @returns {{create: EmployeeTokenController.create}}
+     */
+    get EmployeeToken() {
+        return {
+            create: this._employeeTokenController.create
+        };
+    }
+
+    /**
+     * Get graph related methods.
+     * @returns {{query: GraphController.query}}
+     */
+    get Graph() {
+        return {
+            query: this._graphController.query
+        };
+    }
+
+    /**
+     * Get menu item related methods.
+     * @returns {{create: MenuItemController.create, update: MenuItemController.update, delete: MenuItemController.delete}}
+     */
+    get MenuItem() {
+        return {
+            create: this._menuItemController.create,
+            update: this._menuItemController.update,
+            delete: this._menuItemController.delete
+        };
+    }
+
+    /**
+     * Get modifier related methods.
+     * @returns {{create: ModifierController.create, update: ModifierController.update, delete: ModifierController.delete}}
+     */
+    get Modifier() {
+        return {
+            create: this._modifierController.create,
+            update: this._modifierController.update,
+            delete: this._modifierController.delete
+        };
+    }
+
+    /**
+     * Get order related methods.
+     * @returns {{create: OrderController.create, cancel: OrderController.cancel, beginPreparing: OrderController.beginPreparing, prepared: OrderController.prepared, complete: OrderController.complete}}
+     */
+    get Order() {
+        return {
+            create: this._orderController.create,
+            cancel: this._orderController.cancel,
+            beginPreparing: this._orderController.beginPreparing,
+            prepared: this._orderController.prepared,
+            complete: this._orderController.complete
+        };
+    }
+
+    /**
+     * Get head office related methods.
+     * @returns {{create: HeadOfficeController.create, update: HeadOfficeController.update, delete: HeadOfficeController.delete}}
+     */
+    get HeadOffice() {
+        return {
+            create: this._headOfficeController.create,
+            update: this._headOfficeController.update,
+            delete: this._headOfficeController.delete
+        };
+    }
+
+    /**
+     * Get verification services methods.
+     * @returns {{sendSms: VerificationController.sendSms, checkSms: VerificationController.checkSms}}
+     */
+    get Verification() {
+        return {
+            sendSms: this._verificationController.sendSms,
+            checkSms: this._verificationController.checkSms
+        };
+    }
+
+    /**
+     * Get vendor related methods.
+     * @returns {{create: VendorController.create, createWithEmployee: VendorController.createWithEmployee, update: VendorController.update}}
+     */
+    get Vendor() {
+        return {
+            create: this._vendorController.create,
+            createWithEmployee: this._vendorController.createWithEmployee,
+            update: this._vendorController.update
+        };
+    }
+
+    /**
+     * Get validation services methods.
+     * @returns {{Customer: {signupEmail: ValidationController.customerSignupEmail, signupPhone: ValidationController.customerSignupPhone}}}
+     */
+    get Validation() {
+        return {
+            Customer: {
+                signupEmail: this._validationController.customerSignupEmail,
+                signupPhone: this._validationController.customerSignupPhone
+            }
+        };
+    }
+
+    /**
+     * Get image services methods.
+     * @returns {{upload: ImageController.upload, getLink: ImageController.getLink}}
+     */
+    get Image() {
+        return {
+            upload: this._imageController.upload,
+            getLink: this._imageController.getLink
+        };
+    }
+
+    /**
+     * Get utility methods.
+     * @returns {{strToIdentifier: (*|(function(): result))}}
+     */
+    get Util() {
+        return {
+            strToIdentifier
+        };
+    }
+
+    /**
+     * Get current network adaptor instance
+     * @returns {CheaprEatsApolloAdaptor}
+     */
+    getAdaptor() {
+        return this._adaptor;
+    }
+
+    /**
+     * Get Configuration
+     * @returns {{endpoints: ({apolloEndpoint: {production: string}, verificationEndpoint: {production: string}, validationEndpoint: {production: string}, imageEndpoint: {production: string, distribution: string}}|{apolloEndpoint, verificationEndpoint, validationEndpoint, imageEndpoint})}}
+     */
+    getConfiguration() {
+        return config;
+    }
+
+    /**
+     * Set current authentication token
+     * @param token
+     */
+    setAuthenticationToken(token) {
+        this._token = token;
+        this._adaptor.setAuthenticationToken(token);
+    }
+
+    /**
+     * Get current authentication token
+     * @returns {null|string}
+     */
+    getAuthenticationToken() {
+        return this._token;
+    }
+
+    /**
+     * Set apolloEndpoint.production
+     * @param endpoint
+     */
+    setApolloEndpoint(endpoint) {
+        config.endpoints.apolloEndpoint.production = endpoint;
+        this._adaptor = new CheaprEatsApolloAdaptor({
+            apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint.production
+        });
+    }
+
+    /**
+     * Set verificationEndpoint.production
+     * @param endpoint
+     */
+    setVerificationEndpoint(endpoint) {
+        config.endpoints.verificationEndpoint.production = endpoint;
+    }
+
+    /**
+     * Set validationEndpoint.production
+     * @param endpoint
+     */
+    setValidationEndpoint(endpoint) {
+        config.endpoints.validationEndpoint.production = endpoint;
+    }
+
+    /**
+     * Set imageEndpoint.production
+     * @param endpoint
+     */
+    setImageEndpoint(endpoint) {
+        config.endpoints.imageEndpoint.production = endpoint;
+    }
+
+    /**
+     * Set imageEndpoint.distribution
+     * @param endpoint
+     */
+    setImageDistributionEndpoint(endpoint) {
+        config.endpoints.imageEndpoint.distribution = endpoint;
+    }
+}
+
+module.exports = App;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jan 08 2019 16:07:06 GMT-0500 (Eastern Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
