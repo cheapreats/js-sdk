@@ -1,3 +1,6 @@
+/**
+ * Controller for the graph.
+ */
 class GraphController {
     constructor(app){
         this.app = app;

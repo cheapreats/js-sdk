@@ -1,10 +1,3 @@
-/**
- * The central controller
- * Author: Jun Zheng
- * Contributors: Mohammad Ismail
- * License: UNLICENSED
- */
-
 const CategoryController = require('./controllers/CategoryController');
 const CustomerController = require('./controllers/CustomerController');
 const CustomerTokenController = require('./controllers/CustomerTokenController');
@@ -28,7 +21,15 @@ let config = {
     endpoints: require('../config/endpoints')
 };
 
+/**
+ * Main entry point of the SDK
+ */
 class App {
+
+    /**
+     * Construct the App instance.
+     * @hideconstructor
+     */
     constructor() {
         this._token = null;
 
@@ -51,14 +52,26 @@ class App {
         this._validationController = new ValidationController(this);
         this._orderController = new OrderController(this);
         this._imageController = new ImageController(this);
+    }
 
-        this.Category = {
+    /**
+     * Get category related methods.
+     * @returns {{create: CategoryController.create, delete: CategoryController.delete, update: CategoryController.update}}
+     */
+    get Category() {
+        return {
             create: this._categoryController.create,
             delete: this._categoryController.delete,
             update: this._categoryController.update
         };
+    }
 
-        this.Customer = {
+    /**
+     * Get customer related methods.
+     * @returns {{create: CustomerController.create, enrollApnsToken: CustomerController.enrollApnsToken, revokeApnsToken: CustomerController.revokeApnsToken, enrollFcmToken: CustomerController.enrollFcmToken, revokeFcmToken: CustomerController.revokeFcmToken, update: CustomerController.update, updateCreditCard: CustomerController.updateCreditCard, createWallet: CustomerController.createWallet, reloadWallet: CustomerController.reloadWallet, resetPassword: CustomerController.resetPassword, sendPasswordResetCode: CustomerController.sendPasswordResetCode}}
+     */
+    get Customer() {
+        return {
             create: this._customerController.create,
             enrollApnsToken: this._customerController.enrollApnsToken,
             revokeApnsToken: this._customerController.revokeApnsToken,
@@ -71,84 +84,167 @@ class App {
             resetPassword: this._customerController.resetPassword,
             sendPasswordResetCode: this._customerController.sendPasswordResetCode
         };
+    }
 
-        this.CustomerToken = {
+    /**
+     * Get customer token related methods.
+     * @returns {{create: CustomerTokenController.create}}
+     */
+    get CustomerToken() {
+        return {
             create: this._customerTokenController.create
         };
+    }
 
-        this.Coupon = {
+    /**
+     * Get coupon related methods.
+     * @returns {{create: CouponController.create}}
+     */
+    get Coupon() {
+        return {
             create: this._couponController.create
         };
+    }
 
-        this.Employee = {
+    /**
+     * Get employee related methods.
+     * @returns {{create: EmployeeController.create, update: EmployeeController.update, delete: EmployeeController.delete, enrollTerminalFcm: EmployeeController.enrollTerminalFcm, revokeTerminalFcm: EmployeeController.revokeTerminalFcm}}
+     */
+    get Employee() {
+        return {
             create: this._employeeController.create,
             update: this._employeeController.update,
             delete: this._employeeController.delete,
             enrollTerminalFcm: this._employeeController.enrollTerminalFcm,
             revokeTerminalFcm: this._employeeController.revokeTerminalFcm
         };
+    }
 
-        this.EmployeeToken = {
+    /**
+     * Get employee token related methods.
+     * @returns {{create: EmployeeTokenController.create}}
+     */
+    get EmployeeToken() {
+        return {
             create: this._employeeTokenController.create
         };
+    }
 
-        this.Graph = {
+    /**
+     * Get graph related methods.
+     * @returns {{query: GraphController.query}}
+     */
+    get Graph() {
+        return {
             query: this._graphController.query
         };
+    }
 
-        this.MenuItem = {
+    /**
+     * Get menu item related methods.
+     * @returns {{create: MenuItemController.create, update: MenuItemController.update, delete: MenuItemController.delete}}
+     */
+    get MenuItem() {
+        return {
             create: this._menuItemController.create,
             update: this._menuItemController.update,
             delete: this._menuItemController.delete
         };
+    }
 
-        this.Modifier = {
+    /**
+     * Get modifier related methods.
+     * @returns {{create: ModifierController.create, update: ModifierController.update, delete: ModifierController.delete}}
+     */
+    get Modifier() {
+        return {
             create: this._modifierController.create,
             update: this._modifierController.update,
             delete: this._modifierController.delete
         };
+    }
 
-        this.Order = {
+    /**
+     * Get order related methods.
+     * @returns {{create: OrderController.create, cancel: OrderController.cancel, beginPreparing: OrderController.beginPreparing, prepared: OrderController.prepared, complete: OrderController.complete}}
+     */
+    get Order() {
+        return {
             create: this._orderController.create,
             cancel: this._orderController.cancel,
             beginPreparing: this._orderController.beginPreparing,
             prepared: this._orderController.prepared,
             complete: this._orderController.complete
         };
+    }
 
-        this.HeadOffice = {
+    /**
+     * Get head office related methods.
+     * @returns {{create: HeadOfficeController.create, update: HeadOfficeController.update, delete: HeadOfficeController.delete}}
+     */
+    get HeadOffice() {
+        return {
             create: this._headOfficeController.create,
             update: this._headOfficeController.update,
             delete: this._headOfficeController.delete
         };
+    }
 
-        this.Vendor = {
+    /**
+     * Get verification services methods.
+     * @returns {{sendSms: VerificationController.sendSms, checkSms: VerificationController.checkSms}}
+     */
+    get Verification() {
+        return {
+            sendSms: this._verificationController.sendSms,
+            checkSms: this._verificationController.checkSms
+        };
+    }
+
+    /**
+     * Get vendor related methods.
+     * @returns {{create: VendorController.create, createWithEmployee: VendorController.createWithEmployee, update: VendorController.update}}
+     */
+    get Vendor() {
+        return {
             create: this._vendorController.create,
             createWithEmployee: this._vendorController.createWithEmployee,
             update: this._vendorController.update
         };
+    }
 
-        this.Verification = {
-            sendSms: this._verificationController.sendSms,
-            checkSms: this._verificationController.checkSms
-        };
-
-        this.Validation = {
+    /**
+     * Get validation services methods.
+     * @returns {{Customer: {signupEmail: ValidationController.customerSignupEmail, signupPhone: ValidationController.customerSignupPhone}}}
+     */
+    get Validation() {
+        return {
             Customer: {
                 signupEmail: this._validationController.customerSignupEmail,
                 signupPhone: this._validationController.customerSignupPhone
             }
         };
+    }
 
-        this.Image = {
+    /**
+     * Get image services methods.
+     * @returns {{upload: ImageController.upload, getLink: ImageController.getLink}}
+     */
+    get Image() {
+        return {
             upload: this._imageController.upload,
             getLink: this._imageController.getLink
         };
+    }
 
-        this.Util = {
-            strToIdentifier: strToIdentifier
+    /**
+     * Get utility methods.
+     * @returns {{strToIdentifier: (*|(function(): result))}}
+     */
+    get Util() {
+        return {
+            strToIdentifier
         };
-
     }
 
     /**
@@ -226,8 +322,6 @@ class App {
     setImageDistributionEndpoint(endpoint) {
         config.endpoints.imageEndpoint.distribution = endpoint;
     }
-
-
 }
 
 module.exports = App;

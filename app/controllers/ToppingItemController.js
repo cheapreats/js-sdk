@@ -1,3 +1,6 @@
+/**
+ * Controller for topping items.
+ */
 class ToppingItemController {
     constructor(app){
         this.app = app;

@@ -1,3 +1,6 @@
+/**
+ * Controller for coupons.
+ */
 class CouponController {
     constructor(app){
         this.app = app;

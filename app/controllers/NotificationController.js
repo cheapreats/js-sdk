@@ -1,6 +1,8 @@
 const HttpLink = require('../links/synchronouslinks/HttpLink');
 
-
+/**
+ * Controller for notifications services.
+ */
 class NotificationController {
     constructor(app){
         this.app = app;

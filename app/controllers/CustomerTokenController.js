@@ -1,5 +1,6 @@
-const CustomerToken = require('../models/user/Customer');
-
+/**
+ * Controller for customer tokens.
+ */
 class CustomerTokenController {
     constructor(app){
         this.app = app;

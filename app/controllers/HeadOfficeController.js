@@ -1,3 +1,6 @@
+/**
+ * Controller for head offices.
+ */
 class HeadOfficeController {
     constructor(app){
         this.app = app;

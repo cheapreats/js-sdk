@@ -6,6 +6,9 @@
 
 const HttpLink = require('../links/synchronouslinks/HttpLink');
 
+/**
+ * Controller for twilio.
+ */
 class TwilioController {
     constructor(app){
         this.app = app;
