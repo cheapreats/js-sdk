@@ -1,5 +1,8 @@
 const HttpLink = require('../links/synchronouslinks/HttpLink');
 
+/**
+ * Controller for image services.
+ */
 class ImageController {
     constructor(app) {
         this.app = app;

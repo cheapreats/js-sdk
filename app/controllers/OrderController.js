@@ -1,3 +1,6 @@
+/**
+ * Controller for orders.
+ */
 class OrderController {
     constructor(app){
         this.app = app;

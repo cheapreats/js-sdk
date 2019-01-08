@@ -1,3 +1,6 @@
+/**
+ * Controller for vendors.
+ */
 class VendorController {
     constructor(app){
         this.app = app;

@@ -1,3 +1,6 @@
+/**
+ * Controller for combo items.
+ */
 class ComboItemController {
     constructor(app){
         this.app = app;

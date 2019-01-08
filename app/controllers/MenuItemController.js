@@ -1,3 +1,6 @@
+/**
+ * Controller for menu items.
+ */
 class MenuItemController {
     constructor(app){
         this.app = app;

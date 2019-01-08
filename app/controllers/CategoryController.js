@@ -1,3 +1,6 @@
+/**
+ * Controller for categories.
+ */
 class CategoryController {
     constructor(app){
         this.app = app;

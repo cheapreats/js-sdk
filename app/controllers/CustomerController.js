@@ -1,3 +1,6 @@
+/**
+ * Controller for customers.
+ */
 class CustomerController {
     constructor(app){
         this.app = app;

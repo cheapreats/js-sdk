@@ -1,3 +1,6 @@
+/**
+ * Controller for employee tokens.
+ */
 class EmployeeTokenController {
     constructor(app){
         this.app = app;

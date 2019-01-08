@@ -1,3 +1,6 @@
+/**
+ * Controller for employees.
+ */
 class EmployeeController {
     constructor(app){
         this.app = app;

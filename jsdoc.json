@@ -4,7 +4,7 @@
   },
   "source": {
     "include": ".",
-    "includePattern": ".js$",
+    "includePattern": "(app/)",
     "excludePattern": "(node_modules/|docs|build|lib|test)"
   },
   "plugins": [

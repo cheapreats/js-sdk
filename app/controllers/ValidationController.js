@@ -1,5 +1,8 @@
 const HttpLink = require('../links/synchronouslinks/HttpLink');
 
+/**
+ * Controller for validation services.
+ */
 class ValidationController {
     constructor(app){
         this.app = app;

@@ -1,3 +1,6 @@
+/**
+ * Controller for modifiers.
+ */
 class ModifierController {
     constructor(app){
         this.app = app;
