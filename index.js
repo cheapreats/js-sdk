@@ -4,7 +4,7 @@
  * License: UNLICENSED
  */
 
-const App = require('./app/App');
+const App = require('./src/app/App');
 
 let app = new App();
 // Export a App instance
