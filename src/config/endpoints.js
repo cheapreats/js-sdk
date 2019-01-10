@@ -1,5 +1,5 @@
 module.exports = {
-    apolloEndpoint: {
+    graphQLEndpoint: {
         'production': 'https://graphql-v1.cheapreats.com/graphql'
     },
     verificationEndpoint: {

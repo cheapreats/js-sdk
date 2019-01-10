@@ -5,12 +5,12 @@
  */
 
 const Adaptor = require('./Adaptor');
-const ApolloLink = require('../links/synchronouslinks/ApolloLink');
+const GraphQLLink = require('../links/synchronouslinks/GraphQLLink');
 
-class CheaprEatsApolloAdaptor extends Adaptor {
+class CheaprEatsGraphQLAdaptor extends Adaptor {
     constructor(config){
         super(config);
-        this._apolloLink = new ApolloLink(config.apolloEndpoint);
+        this._graphQLLink = new GraphQLLink(config.graphQLEndpoint);
     }
 
     /**
@@ -18,7 +18,7 @@ class CheaprEatsApolloAdaptor extends Adaptor {
      * @param  {string} token - The Authentication Token
      */
     setAuthenticationToken(token){
-        this._apolloLink = new ApolloLink(this._config.apolloEndpoint, {
+        this._graphQLLink = new GraphQLLink(this._config.graphQLEndpoint, {
             headers: {
                 authorization: token
             }
@@ -26,28 +26,28 @@ class CheaprEatsApolloAdaptor extends Adaptor {
     }
 
     /**
-     * @param  {string} url - The URL of the GraphQL API Microservice
+     * @param  {string} url - The URL of the GraphQL API
      */
-    setApolloEndpoint(url){
-        this._apolloLink = new ApolloLink(url);
-        this._config.apolloEndpoint = url;
+    setGraphQLEndpoint(url){
+        this._graphQLLink = new GraphQLLink(url);
+        this._config.graphQLEndpoint = url;
     }
 
     /**
      * @param  {string} query
-     * @param  {} variables={}
+     * @param  {object} variables = {}
      */
     query(query, variables = {}){
-        return this._apolloLink.query({ query, variables });
+        return this._graphQLLink.query({ query, variables });
     }
 
     /**
      * @param  {string} query
-     * @param  {} variables={}
+     * @param  {object} variables = {}
      */
     mutate(query, variables = {}){
-        return this._apolloLink.mutate({ query, variables });
+        return this._graphQLLink.mutate({ query, variables });
     }
 }
 
-module.exports = CheaprEatsApolloAdaptor;
+module.exports = CheaprEatsGraphQLAdaptor;

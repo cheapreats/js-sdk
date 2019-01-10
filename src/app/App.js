@@ -15,7 +15,7 @@ const OrderController = require('./controllers/OrderController');
 const ImageController = require('./controllers/ImageController');
 const strToIdentifier =  require('./util/strToIdentifier');
 
-const CheaprEatsApolloAdaptor = require('./adaptors/CheaprEatsApolloAdaptor');
+const CheaprEatsGraphQLAdaptor = require('./adaptors/CheaprEatsGraphQLAdaptor');
 
 let config = {
     endpoints: require('../config/endpoints')
@@ -33,8 +33,8 @@ class App {
     constructor() {
         this._token = null;
 
-        this._adaptor = new CheaprEatsApolloAdaptor({
-            apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint.production
+        this._adaptor = new CheaprEatsGraphQLAdaptor({
+            graphQLEndpoint: this.getConfiguration().endpoints.graphQLEndpoint.production
         });
 
         this._categoryController = new CategoryController(this);
@@ -249,7 +249,7 @@ class App {
 
     /**
      * Get current network adaptor instance
-     * @returns {CheaprEatsApolloAdaptor}
+     * @returns {CheaprEatsGraphQLAdaptor}
      */
     getAdaptor() {
         return this._adaptor;
@@ -257,7 +257,7 @@ class App {
 
     /**
      * Get Configuration
-     * @returns {{endpoints: ({apolloEndpoint: {production: string}, verificationEndpoint: {production: string}, validationEndpoint: {production: string}, imageEndpoint: {production: string, distribution: string}}|{apolloEndpoint, verificationEndpoint, validationEndpoint, imageEndpoint})}}
+     * @returns {{endpoints: ({graphQLEndpoint: {production: string}, verificationEndpoint: {production: string}, validationEndpoint: {production: string}, imageEndpoint: {production: string, distribution: string}}|{graphQLEndpoint, verificationEndpoint, validationEndpoint, imageEndpoint})}}
      */
     getConfiguration() {
         return config;
@@ -281,13 +281,24 @@ class App {
     }
 
     /**
-     * Set apolloEndpoint.production
+     * Set Apollo endpoint.
+     * WARNING: END OF LIFE
+     * Please use setGraphQLEndpointInstead
+     * @deprecated
      * @param endpoint
      */
     setApolloEndpoint(endpoint) {
-        config.endpoints.apolloEndpoint.production = endpoint;
-        this._adaptor = new CheaprEatsApolloAdaptor({
-            apolloEndpoint: this.getConfiguration().endpoints.apolloEndpoint.production
+        this.setGraphQLEndpoint(endpoint);
+    }
+
+    /**
+     * Set GraphQL endpoint.
+     * @param endpoint
+     */
+    setGraphQLEndpoint(endpoint) {
+        config.endpoints.graphQLEndpoint.production = endpoint;
+        this._adaptor = new CheaprEatsGraphQLAdaptor({
+            graphQLEndpoint: this.getConfiguration().endpoints.graphQLEndpoint.production
         });
     }
 
