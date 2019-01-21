@@ -235,7 +235,7 @@ class App {
         return {
             create: this._surveyController.create,
             delete: this._surveyController.delete,
-            createSurveyRepsonse: this._surveyController.createSurveyResponse
+            createSurveyResponse: this._surveyController.createSurveyResponse
         };
     }
 
