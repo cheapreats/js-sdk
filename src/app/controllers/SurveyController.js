@@ -63,7 +63,7 @@ class SurveyController {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation createSurveyResponse ($survey_id: String!, $survey_response: CreateSurveyResponseInput!) {
-                    createSurvey(survey_id: $survey_id, survey_response: $survey_response) {
+                    createSurveyResponse(survey_id: $survey_id, survey_response: $survey_response) {
                         _id
                     }
                 }
