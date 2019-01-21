@@ -11,6 +11,7 @@ const ModifierController = require('./controllers/ModifierController');
 const VendorController = require('./controllers/VendorController');
 const VerificationController = require('./controllers/VerificationController');
 const ValidationController = require('./controllers/ValidationController');
+const SurveyController = require('./controllers/SurveyController');
 const OrderController = require('./controllers/OrderController');
 const ImageController = require('./controllers/ImageController');
 const strToIdentifier =  require('./util/strToIdentifier');
@@ -50,6 +51,7 @@ class App {
         this._vendorController = new VendorController(this);
         this._verificationController = new VerificationController(this);
         this._validationController = new ValidationController(this);
+        this._surveyController = new SurveyController(this);
         this._orderController = new OrderController(this);
         this._imageController = new ImageController(this);
     }
@@ -223,6 +225,17 @@ class App {
                 signupEmail: this._validationController.customerSignupEmail,
                 signupPhone: this._validationController.customerSignupPhone
             }
+        };
+    }
+
+    /**
+     * Get survey related methods
+     */
+    get Survey() {
+        return {
+            create: this._surveyController.create,
+            delete: this._surveyController.delete,
+            createSurveyRepsonse: this._surveyController.createSurveyResponse
         };
     }
 
