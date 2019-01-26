@@ -198,8 +198,8 @@ class App {
      */
     get Verification() {
         return {
-            sendSms: this._verificationController.startVerificationSession,
-            checkSms: this._verificationController.checkVerificationSession
+            startVerificationSession: this._verificationController.startVerificationSession,
+            checkVerificationSession: this._verificationController.checkVerificationSession
         };
     }
 

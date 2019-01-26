@@ -43,7 +43,7 @@ class VerificationController {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation verifySmsVerificationSessionMutation ($uuid:String!, $verification_code:String!) {
-                    createSmsVerificationSession(uuid:$uuid, verification_code:$verification_code) {
+                    verifySmsVerificationSession(uuid:$uuid, verification_code:$verification_code) {
                         phone_number,
                         verified_status
                     }
