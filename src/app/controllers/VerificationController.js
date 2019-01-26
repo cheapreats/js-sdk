@@ -1,64 +1,61 @@
-const HttpLink = require('../links/synchronouslinks/HttpLink');
-
 /**
- * Controller for verification services.
+ * Controller for verification.
  */
 class VerificationController {
     constructor(app){
         this.app = app;
-        this.sendSms = this.sendSms.bind(this);
-        this.checkSms = this.checkSms.bind(this);
-    }
-    /**
-     * @param {string} append=""
-     */
-    getHttpLink(append = ""){
-        return new HttpLink(this.app.getConfiguration().endpoints.verificationEndpoint.production + append);
+        this.startVerificationSession = this.startVerificationSession.bind(this);
+        this.checkVerificationSession = this.checkVerificationSession.bind(this);
     }
 
     /**
-     * Send a verification SMS to number
-     * @param number
-     * @returns {Promise<any>}
+     * Start a new SMS verification Session
+     * @param {string} phone_number - The phone to be verified
+     * @returns {Promise<any>} - The uuid required to verify the verification code
      */
-    sendSms(number){
+    startVerificationSession(phone_number){
         return new Promise((resolve, reject) => {
-           let link = this.getHttpLink("/sms/send");
-           link.post({
-               data: { number }
-           })
-               .then((data) => {
-                   resolve(data.data.request_id);
-               })
-               .catch(e => {
-                   reject(e);
-               })
+            let mutationString = `
+                mutation createSmsVerificationSessionMutation ($phone_number:String!) {
+                    createSmsVerificationSession(phone_number:$phone_number) {
+                        uuid
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                phone_number
+            }).then(result => {
+                resolve(result);
+            }).catch(e => {
+                reject(e);
+            });
         });
     }
 
+
     /**
-     * Checks SMS verification code
-     * @param request_id
-     * @param code
-     * @param number
-     * @returns {Promise<any>}
+     * Verify an Phone number via code received
+     * @param {string} uuid - UUID of the verification request
+     * @param {string} verification_code - Verification code received on the device
+     * @returns {Promise<any>} - verification status along with the number corresponding to the UUID
      */
-    checkSms(request_id, code, number){
+    checkVerificationSession(uuid, verification_code){
         return new Promise((resolve, reject) => {
-           let link = this.getHttpLink("/sms/check");
-           link.post({
-               data: { request_id, code, number }
-           })
-               .then((data) => {
-                if(data.data.status === "ok"){
-                    resolve(data.data.status);
-                } else {
-                    reject();
+            let mutationString = `
+                mutation verifySmsVerificationSessionMutation ($uuid:String!, $verification_code:String!) {
+                    verifySmsVerificationSession(uuid:$uuid, verification_code:$verification_code) {
+                        phone_number,
+                        verified_status
+                    }
                 }
-               })
-               .catch(e => {
-                   reject(e);
-               })
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                uuid, verification_code
+            }).then(result => {
+                resolve(result);
+            }).catch(e => {
+                reject(e);
+            });
         });
     }
 }

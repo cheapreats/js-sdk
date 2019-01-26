@@ -194,12 +194,12 @@ class App {
 
     /**
      * Get verification services methods.
-     * @returns {{sendSms: VerificationController.sendSms, checkSms: VerificationController.checkSms}}
+     * @returns {{startVerificationSession: VerificationController.startVerificationSession, checkVerificationSession: VerificationController.checkVerificationSession}}
      */
     get Verification() {
         return {
-            sendSms: this._verificationController.sendSms,
-            checkSms: this._verificationController.checkSms
+            startVerificationSession: this._verificationController.startVerificationSession,
+            checkVerificationSession: this._verificationController.checkVerificationSession
         };
     }
 
