@@ -14,6 +14,7 @@ const ValidationController = require('./controllers/ValidationController');
 const SurveyController = require('./controllers/SurveyController');
 const OrderController = require('./controllers/OrderController');
 const ImageController = require('./controllers/ImageController');
+const PayoutController = require('./controllers/PayoutController');
 const strToIdentifier =  require('./util/strToIdentifier');
 
 const CheaprEatsGraphQLAdaptor = require('./adaptors/CheaprEatsGraphQLAdaptor');
@@ -54,6 +55,7 @@ class App {
         this._surveyController = new SurveyController(this);
         this._orderController = new OrderController(this);
         this._imageController = new ImageController(this);
+        this._payoutController = new PayoutController(this);
     }
 
     /**
@@ -258,6 +260,17 @@ class App {
         return {
             strToIdentifier
         };
+    }
+
+    /**
+     * Get payout methods.
+     * @returns {{request: PayoutController.request}}
+     * @constructor
+     */
+    get Payout() {
+        return {
+            request: this._payoutController.request
+        }
     }
 
     /**
