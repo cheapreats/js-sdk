@@ -236,7 +236,9 @@ class App {
     get Survey() {
         return {
             create: this._surveyController.create,
+            update: this._surveyController.update,
             delete: this._surveyController.delete,
+            release: this._surveyController.release,
             createSurveyResponse: this._surveyController.createSurveyResponse
         };
     }
