@@ -1,9 +1,11 @@
 class SurveyController {
     constructor(app){
         this.app = app;
-        this.create.bind(this);
-        this.delete.bind(this);
-        this.createSurveyResponse.bind(this);
+        this.create = this.create.bind(this);
+        this.delete = this.delete.bind(this);
+        this.update = this.update.bind(this);
+        this.release = this.release.bind(this);
+        this.createSurveyResponse = this.createSurveyResponse.bind(this);
     }
 
     /**
