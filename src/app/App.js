@@ -271,7 +271,9 @@ class App {
      */
     get Payout() {
         return {
-            request: this._payoutController.request
+            request: this._payoutController.request,
+            update: this._payoutController.update,
+            cancel: this._payoutController.cancel
         }
     }
 

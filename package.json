@@ -1,6 +1,6 @@
 {
   "name": "@cheapreats/sdk",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "CheaprEats JavaScript SDK",
   "main": "lib/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "homepage": "https://github.com/CheaprEats/js-sdk#readme",
   "devDependencies": {
     "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
+    "babel-core": "^6.26.3",
     "babel-preset-es2015": "6.24.1",
     "babelify": "8.0.0",
     "browserify": "^16.2.3",
