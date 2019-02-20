@@ -88,7 +88,9 @@ class SurveyController {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation ($id: String!) {
-                    releaseSurvey(id: $id)
+                    releaseSurvey(id: $id) {
+                        _id
+                    }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
