@@ -1,12 +1,12 @@
 {
   "name": "@cheapreats/sdk",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "CheaprEats JavaScript SDK",
   "main": "lib/index.js",
   "scripts": {
     "test": "npm -v",
     "gulp": "gulp",
-    "build": "babel . -d lib --ignore node_modules",
+    "build": "./package-sdk.sh",
     "generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json --readme README.md"
   },
   "repository": {
