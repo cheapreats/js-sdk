@@ -41,3 +41,9 @@ Then test
 ```CE.Verification.sendSms(12508574718)
 .then(verification_request_id => console.log("SMS Sent", verification_request_id))
 .catch(e => console.log(e));```
+
+## Publishing to NPM
+
+* `npm run build`
+* `npm publish`
+

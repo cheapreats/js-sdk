@@ -16,6 +16,7 @@ const OrderController = require('./controllers/OrderController');
 const ImageController = require('./controllers/ImageController');
 const PayoutController = require('./controllers/PayoutController');
 const strToIdentifier =  require('./util/strToIdentifier');
+let packageDotJson = require('../../package.json');
 
 const CheaprEatsGraphQLAdaptor = require('./adaptors/CheaprEatsGraphQLAdaptor');
 
@@ -308,6 +309,26 @@ class App {
      */
     getAuthenticationToken() {
         return this._token;
+    }
+
+    /**
+     * Determine if current SDK Version in compatible
+     * @returns {null|boolean}
+     */
+    isCompatible() {
+        const sdkVersion = packageDotJson.version;
+        let queryString = `
+            query {
+                is_sdk_version_supported(version:"${sdkVersion}")
+            }
+        `;
+        return new Promise((resolve, reject) => {
+            this.Graph.query(queryString).then(data => {
+                resolve(data.is_sdk_version_supported);
+            }).catch(e => {
+                reject(e);
+            });
+        });
     }
 
     /**
