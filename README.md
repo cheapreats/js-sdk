@@ -8,7 +8,13 @@ CheaprEats Node.js SDK
 $ npm install @cheapreats/sdk
 ```
 
-## Get Started
+## Using the Published Version
+
+```
+const CE = require('@cheapreats/sdk');
+```
+
+## Get Started Locally
 
 If you are using ES6 import, simply do:
 
@@ -40,10 +46,10 @@ Then test
 
 ```CE.Verification.sendSms(12508574718)
 .then(verification_request_id => console.log("SMS Sent", verification_request_id))
-.catch(e => console.log(e));```
+.catch(e => console.log(e));
+```
 
 ## Publishing to NPM
 
 * `npm run build`
 * `npm publish`
-
