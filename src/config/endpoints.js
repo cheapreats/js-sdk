@@ -10,6 +10,6 @@ module.exports = {
     },
     imageEndpoint: {
         'production': 'https://ms-image-v1.cheapreats.com',
-        'distribution': 'https://static.cheapreats.com'
+        'distribution': 'https://d319c30aylc65n.cloudfront.net'
     }
 };
