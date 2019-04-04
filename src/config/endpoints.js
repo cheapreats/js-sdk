@@ -1,6 +1,6 @@
 module.exports = {
     graphQLEndpoint: {
-        'production': 'https://graphql-v1.cheapreats.com/graphql'
+        'production': 'http://localhost:3000/graphql'
     },
     verificationEndpoint: {
         'production': 'https://ms-verification-v1.cheapreats.com'

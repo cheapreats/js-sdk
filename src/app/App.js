@@ -121,7 +121,8 @@ class App {
             update: this._employeeController.update,
             delete: this._employeeController.delete,
             enrollTerminalFcm: this._employeeController.enrollTerminalFcm,
-            revokeTerminalFcm: this._employeeController.revokeTerminalFcm
+            revokeTerminalFcm: this._employeeController.revokeTerminalFcm,
+            resetEmployeePassword: this._employeeController.resetEmployeePassword,
         };
     }
 

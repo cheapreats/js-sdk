@@ -9,6 +9,7 @@ class EmployeeController {
         this.delete = this.delete.bind(this);
         this.enrollTerminalFcm = this.enrollTerminalFcm.bind(this);
         this.revokeTerminalFcm = this.revokeTerminalFcm.bind(this);
+        this.resetEmployeePassword = this.resetEmployeePassword.bind(this);
     }
 
 
@@ -125,6 +126,31 @@ class EmployeeController {
                 token
             }).then(result => {
                 resolve(result.revokeEmployeeTerminalFcmToken);
+            }).catch(e => {
+                reject(e);
+            });
+        })
+    }
+    
+    /**
+     * Resets an employee password
+     * @param {string} id - Id of the employee
+     * @param {string} password - The new password to set
+     * @returns {Promise<any>}
+     */
+    resetEmployeePassword(id, password) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation resetEmployeePassword ($id: String!, $password:String!) {
+                    resetEmployeePassword(id: $id, password:$password) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, password
+            }).then(result => {
+                resolve(result.resetEmployeePassword._id);
             }).catch(e => {
                 reject(e);
             });

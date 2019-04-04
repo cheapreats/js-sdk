@@ -16,13 +16,6 @@ const CE = require('@cheapreats/sdk');
 
 ## Get Started Locally
 
-If you are using ES6 import, simply do:
-
-```javascript
-import CE from './index'
-```
-
-If you are using CommonJS modules, do:
 ```javascript
 const CE = require('./index');
 ```
@@ -44,7 +37,10 @@ Then declare the SDK as a variable
 
 Then test
 
-```CE.Verification.sendSms(12508574718)
+```
+CE.setAuthenticationToken('YOUR_TOKEN');
+
+CE.Verification.sendSms(12508574718)
 .then(verification_request_id => console.log("SMS Sent", verification_request_id))
 .catch(e => console.log(e));
 ```
