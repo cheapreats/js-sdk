@@ -15,6 +15,8 @@ class CustomerController {
         this.reloadWallet = this.reloadWallet.bind(this);
         this.sendPasswordResetCode = this.sendPasswordResetCode.bind(this);
         this.resetPassword = this.resetPassword.bind(this);
+        this.refundWallet = this.refundWallet.bind(this);
+        this.createWalletTransaction = this.createWalletTransaction.bind(this);
     }
 
     /**
@@ -282,8 +284,59 @@ class CustomerController {
             });
         });
     }
-
-
+    
+    /**
+     * @param {string} id - The id of the Customer
+     * @param  {int} vendor_id - ID of the Vendor issuing the refund
+     * @param  {string} amount - The amount to refund the wallet (in cents)
+     * @param  {string} order_id - Optional orderId selected payment method
+     * @returns {Promise<any>} - The id of the wallet that was reloaded
+     */
+    refundWallet(id, vendor_id, amount, order_id=null) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id:String!, $vendor_id:String!, $amount:Int!, $order_id:String) {
+                    refundCustomerWallet(id:$id, vendor_id:$vendor_id, amount:$amount, order_id:$order_id) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, vendor_id, amount, order_id
+            }).then(result => {
+                resolve(result.refundCustomerWallet._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+    
+    /**
+     * @param {string} id - The id of the Customer
+     * @param  {int} transaction_type - Transaction type, either 'reload' or 'purchase'
+     * @param  {string} amount - The amount in cents
+     * @param  {string} description - Optional description for transaction
+     * @returns {Promise<any>} - The id of the wallet that was reloaded
+     */
+    createWalletTransaction(id, transaction_type, amount, description=null) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id:String!, $transaction_type:String!, $amount:Int!, $description:String) {
+                    createCustomerWalletTransaction(id:$id, transaction_type:$transaction_type, amount:$amount, description:$description) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, transaction_type, amount, description
+            }).then(result => {
+                resolve(result.createCustomerWalletTransaction._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+    
 }
 
 module.exports = CustomerController;

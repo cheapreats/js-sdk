@@ -87,7 +87,9 @@ class App {
             createWallet: this._customerController.createWallet,
             reloadWallet: this._customerController.reloadWallet,
             resetPassword: this._customerController.resetPassword,
-            sendPasswordResetCode: this._customerController.sendPasswordResetCode
+            sendPasswordResetCode: this._customerController.sendPasswordResetCode,
+            refundWallet: this._customerController.refundWallet,
+            createWalletTransaction: this._customerController.createWalletTransaction
         };
     }
 
@@ -215,7 +217,8 @@ class App {
         return {
             create: this._vendorController.create,
             createWithEmployee: this._vendorController.createWithEmployee,
-            update: this._vendorController.update
+            update: this._vendorController.update,
+            updateAllMenuItemsStatus: this._vendorController.updateAllMenuItemsStatus
         };
     }
 

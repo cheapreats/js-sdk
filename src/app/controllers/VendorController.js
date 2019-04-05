@@ -7,6 +7,7 @@ class VendorController {
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.createWithEmployee = this.createWithEmployee.bind(this);
+        this.updateAllMenuItemsStatus = this.updateAllMenuItemsStatus.bind(this);
     }
 
 
@@ -84,7 +85,30 @@ class VendorController {
             });
         });
     }
-
+    
+    /**
+     * Update a vendor
+     * @param {string} vendor_id - The id of the Vendor Object
+     * @param {Object} status - Updated status of the items
+     * @returns {Promise<any>}
+     */
+    updateAllMenuItemsStatus(vendor_id, status){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($vendor_id: String!, $status: String!) {
+                    updateAllMenuItemsStatusForVendor(vendor_id: $vendor_id, status: $status)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                vendor_id, status
+            }).then(result => {
+                resolve(result.updateAllMenuItemsStatusForVendor);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+    
 }
 
 module.exports = VendorController;
