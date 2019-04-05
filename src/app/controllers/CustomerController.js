@@ -295,8 +295,8 @@ class CustomerController {
     refundWallet(id, vendor_id, amount, order_id=null) {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation ($id:String!, $vendor_id:String!, $amount:Int!, $order_id:String) {
-                    refundCustomerWallet(id:$id, vendor_id:$vendor_id, amount:$amount, order_id:$order_id) {
+                mutation ($id: String!, $vendor_id: String!, $amount: Int!, $order_id: String) {
+                    refundCustomerWallet(id: $id, vendor_id: $vendor_id, amount: $amount, order_id: $order_id) {
                         _id
                     }
                 }
@@ -321,8 +321,8 @@ class CustomerController {
     createWalletTransaction(id, transaction_type, amount, description=null) {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation ($id:String!, $transaction_type:String!, $amount:Int!, $description:String) {
-                    createCustomerWalletTransaction(id:$id, transaction_type:$transaction_type, amount:$amount, description:$description) {
+                mutation ($id: String!, $transaction_type: String!, $amount: Int!, $description: String) {
+                    createCustomerWalletTransaction(id: $id, transaction_type: $transaction_type, amount: $amount, description: $description) {
                         _id
                     }
                 }
