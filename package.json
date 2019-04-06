@@ -1,6 +1,6 @@
 {
   "name": "@cheapreats/sdk",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "description": "CheaprEats JavaScript SDK",
   "main": "lib/index.js",
   "scripts": {
@@ -47,6 +47,7 @@
     "moment": "2.22.2",
     "node-fetch": "2.1.2",
     "readline-sync": "^1.4.9",
-    "stripe": "5.8.0"
+    "stripe": "5.8.0",
+    "extend": "3.0.2"
   }
 }
