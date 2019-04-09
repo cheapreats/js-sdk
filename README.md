@@ -8,13 +8,15 @@ CheaprEats Node.js SDK
 $ npm install @cheapreats/sdk
 ```
 
-## Using the Published Version
+## Using the Published SDK Version
 
 ```
 const CE = require('@cheapreats/sdk');
 ```
 
-## Get Started Locally
+## Using the SDK Locally
+
+Locally importing is used typically while testing new SDK method implementations.
 
 ```javascript
 const CE = require('./index');
@@ -26,18 +28,12 @@ If you are using browser, link to `ce.js`, it will automatically populate `windo
 <script src="build/ce.js"></script>
 ```
 
-## Terminal Usage
-First run the local node server
-
-```node```
-
-Then declare the SDK as a variable
-
-```const CE = require('./index');``` or ```const CE = require("cheapreats-node-sdk")```
-
-Then test
+## Example Usage
 
 ```
+const CE = require('./index');
+// const CE = require("cheapreats-node-sdk")
+
 CE.setAuthenticationToken('YOUR_TOKEN');
 
 CE.Verification.sendSms(12508574718)

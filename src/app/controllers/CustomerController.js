@@ -243,16 +243,17 @@ class CustomerController {
 
     /**
      * @param  {string} email_address - The email address of the customer
+     * @param  {string} method - The method to receive the code on, either EMAIL (default) or SMS
      */
-    sendPasswordResetCode(email_address) {
+    sendPasswordResetCode(email_address, method = 'EMAIL') {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation sendCustomerPasswordResetCode ($email_address: String!) {
-                    sendCustomerPasswordResetCode(email_address: $email_address)
+                mutation sendCustomerPasswordResetCode ($email_address: String!, $method:CustomerPasswordResetCodeSendMethod) {
+                    sendCustomerPasswordResetCode(email_address: $email_address, method:$method)
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                email_address
+                email_address, method
             }).then(result => {
                 resolve(result.sendCustomerPasswordResetCode);
             }).catch(e => {
@@ -289,10 +290,10 @@ class CustomerController {
      * @param {string} id - The id of the Customer
      * @param  {int} vendor_id - ID of the Vendor issuing the refund
      * @param  {string} amount - The amount to refund the wallet (in cents)
-     * @param  {string} order_id - Optional orderId selected payment method
+     * @param  {String} order_id - Optional orderId selected payment method
      * @returns {Promise<any>} - The id of the wallet that was reloaded
      */
-    refundWallet(id, vendor_id, amount, order_id=null) {
+    refundWallet(id, vendor_id, amount, order_id = null) {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation ($id: String!, $vendor_id: String!, $amount: Int!, $order_id: String) {
