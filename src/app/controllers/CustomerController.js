@@ -248,7 +248,7 @@ class CustomerController {
     sendPasswordResetCode(email_address, method = 'EMAIL') {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation sendCustomerPasswordResetCode ($email_address: String!, $method:ResetCodeSendMethod) {
+                mutation sendCustomerPasswordResetCode ($email_address: String!, $method: ResetCodeSendMethod) {
                     sendCustomerPasswordResetCode(email_address: $email_address, method:$method)
                 }
             `;
