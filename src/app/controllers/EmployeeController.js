@@ -10,6 +10,7 @@ class EmployeeController {
         this.enrollTerminalFcm = this.enrollTerminalFcm.bind(this);
         this.revokeTerminalFcm = this.revokeTerminalFcm.bind(this);
         this.resetEmployeePassword = this.resetEmployeePassword.bind(this);
+        this.sendPasswordResetCode = this.sendPasswordResetCode.bind(this);
     }
 
 
@@ -135,26 +136,51 @@ class EmployeeController {
     /**
      * Resets an employee password
      * @param {string} id - Id of the employee
+     * @param {string} email_address - Email address of the employee
+     * @param {string} code - Reset code
      * @param {string} password - The new password to set
      * @returns {Promise<any>}
      */
-    resetEmployeePassword(id, password) {
+    resetEmployeePassword(id, email_address, code, password) {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation resetEmployeePassword ($id: String!, $password:String!) {
-                    resetEmployeePassword(id: $id, password:$password) {
+                mutation resetEmployeePassword ($id: String, $email_address:String, $code:String!, $password:String!) {
+                    resetEmployeePassword(id: $id, email_address: $email_address, code: $code, password: $password) {
                         _id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                id, password
+                id, email_address, code, password
             }).then(result => {
                 resolve(result.resetEmployeePassword._id);
             }).catch(e => {
                 reject(e);
             });
         })
+    }
+
+    /**
+     * Sends a password reset code to employee
+     * @param {string} email_address - Id of the employee
+     * @param {string} method - The new password to set
+     * @returns {Promise<any>}
+     */
+    sendPasswordResetCode(email_address, method = 'EMAIL') {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation sendEmployeePasswordResetCode ($email_address: String!, $method:ResetCodeSendMethod) {
+                    sendEmployeePasswordResetCode(email_address: $email_address, method:$method)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                email_address, method
+            }).then(result => {
+                resolve(result.sendEmployeePasswordResetCode);
+            }).catch(e => {
+                reject(e);
+            });
+        });
     }
 
 }
