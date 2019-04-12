@@ -157,6 +157,7 @@ class App {
         return {
             create: this._menuItemController.create,
             update: this._menuItemController.update,
+            batchUpdate: this._menuItemController.batchUpdate,
             delete: this._menuItemController.delete
         };
     }

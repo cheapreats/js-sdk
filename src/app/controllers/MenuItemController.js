@@ -59,6 +59,30 @@ class MenuItemController {
     }
 
     /**
+     * Batch update a list of menu items.
+     * @param menu_items List of BatchUpdateMenuItemsInput
+     * @returns {Promise<any>} List of menu items with _id field
+     */
+    batchUpdate(menu_items){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation batchUpdateMenuItems ($menu_items: [BatchUpdateMenuItemsInput]!) {
+                    batchUpdateMenuItems(menu_items: $menu_items) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                menu_items
+            }).then(result => {
+                resolve(result.batchUpdateMenuItems);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
      * Delete a MenuItem
      * @param {string} id - The id of the MenuItem Object
      * @returns {Promise<any>} - The id of the MenuItem object
