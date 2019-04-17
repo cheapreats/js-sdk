@@ -1,7 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94daf47b-a77d-47e7-bc2c-451bd7101b35" name="Default" comment="" />
+    <list default="true" id="94daf47b-a77d-47e7-bc2c-451bd7101b35" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/docs/App.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/App.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/App_Payout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CategoryController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ComboItemController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Controller.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CouponController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CustomerController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/CustomerTokenController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/EmployeeController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/EmployeeTokenController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/GraphController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/GraphQLLink.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/HeadOfficeController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ImageController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/MenuItemController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ModelFactory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ModelObserver.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ModifierController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/NotificationController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/OrderController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/PayoutController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ToppingItemController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/TwilioController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/ValidationController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/VendorController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/VerificationController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/adaptors_Adaptor.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/adaptors_CheaprEatsGraphQLAdaptor.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_CategoryController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_ComboItemController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_Controller.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_CouponController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_CustomerController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_CustomerTokenController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_EmployeeController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_EmployeeTokenController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_GraphController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_HeadOfficeController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_ImageController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_MenuItemController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_ModifierController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_NotificationController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_OrderController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_PayoutController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_SurveyController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_ToppingItemController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_TwilioController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_ValidationController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_VendorController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/controllers_VerificationController.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/factories_ModelFactory.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Bold-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Bold-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Bold-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-BoldItalic-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-BoldItalic-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-BoldItalic-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Italic-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Italic-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Italic-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Light-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Light-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Light-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-LightItalic-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-LightItalic-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-LightItalic-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Regular-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Regular-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Regular-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Semibold-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Semibold-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Semibold-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-Semibold-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-SemiboldItalic-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-SemiboldItalic-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-SemiboldItalic-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/fonts/OpenSans-SemiboldItalic-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/global.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/global.html#Adaptor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/global.html#HttpLink" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/global.html#Link" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/global.html#Model" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/global.html#Observer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/global.html#SynchronousLink" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/global.html#User" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/links_Link.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/links_synchronouslinks_GraphQLLink.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/links_synchronouslinks_HttpLink.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/links_synchronouslinks_SynchronousLink.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/models_Model.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/models_Verify.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/models_user_Customer.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/models_user_User.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/observers_ModelObserver.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/observers_Observer.js.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scripts/linenumber.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scripts/prettify/Apache-License-2.0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scripts/prettify/lang-css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scripts/prettify/prettify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/styles/jsdoc-default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/styles/prettify-jsdoc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/styles/prettify-tomorrow.css" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -12,7 +117,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -220,12 +335,12 @@
       <workItem from="1552491568987" duration="1537000" />
       <workItem from="1554401410404" duration="4405000" />
       <workItem from="1554496485039" duration="7469000" />
-      <workItem from="1555474572849" duration="289000" />
+      <workItem from="1555474572849" duration="638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35578000" />
+    <option name="totallyTimeSpent" value="35927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="741" extended-state="0" />
@@ -470,13 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" selection-start-line="5" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -488,6 +596,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="24" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PayoutController.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2584">
+          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
