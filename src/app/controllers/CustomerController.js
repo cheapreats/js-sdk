@@ -352,7 +352,7 @@ class CustomerController {
      * Add a favourite vendor for customer
      * @param {string} id - The id of the Customer
      * @param  {int} vendor_id - The id of the vendor
-     * @returns {Promise<any>} - The id of the wallet that was reloaded
+     * @returns {Promise<any>} - The id of customer whose favourite vendor was updated
      */
     addFavouriteVendor(id, vendor_id) {
         return new Promise((resolve, reject) => {
@@ -377,7 +377,7 @@ class CustomerController {
      * Remove a favourite vendor for customer
      * @param {string} id - The id of the Customer
      * @param  {int} vendor_id - The id of the vendor
-     * @returns {Promise<any>} - The id of the wallet that was reloaded
+     * @returns {Promise<any>} - The id of customer whose favourite vendor was updated
      */
     removeFavouriteVendor(id, vendor_id) {
         return new Promise((resolve, reject) => {
@@ -401,8 +401,8 @@ class CustomerController {
     /**
      * Add a favourite item for customer
      * @param {string} id - The id of the Customer
-     * @param  {int} item_id - The id of the vendor
-     * @returns {Promise<any>} - The id of the wallet that was reloaded
+     * @param  {int} item_id - The id of the item
+     * @returns {Promise<any>} - The id of customer whose favourite item was updated
      */
     addFavouriteItem(id, item_id) {
         return new Promise((resolve, reject) => {
@@ -426,8 +426,8 @@ class CustomerController {
     /**
      * Remove a favourite item for customer
      * @param {string} id - The id of the Customer
-     * @param  {int} item_id - The id of the vendor
-     * @returns {Promise<any>} - The id of the wallet that was reloaded
+     * @param  {int} item_id - The id of the item
+     * @returns {Promise<any>} - The id of customer whose favourite item was updated
      */
     removeFavouriteItem(id, item_id) {
         return new Promise((resolve, reject) => {
