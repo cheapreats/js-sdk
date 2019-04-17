@@ -17,6 +17,10 @@ class CustomerController {
         this.resetPassword = this.resetPassword.bind(this);
         this.refundWallet = this.refundWallet.bind(this);
         this.createWalletTransaction = this.createWalletTransaction.bind(this);
+        this.addFavouriteVendor = this.addFavouriteVendor.bind(this);
+        this.removeFavouriteVendor = this.removeFavouriteVendor.bind(this);
+        this.addFavouriteItem = this.addFavouriteItem.bind(this);
+        this.removeFavouriteItem = this.removeFavouriteItem.bind(this);
     }
 
     /**
@@ -194,6 +198,7 @@ class CustomerController {
     }
 
     /**
+     * Create Customer Wallet
      * @param {string} id - The id of the Customer Object
      * @returns {Promise<any>} - The id of the wallet that was created
      */
@@ -217,6 +222,7 @@ class CustomerController {
     }
 
     /**
+     * Reload customer wallet
      * @param {string} id - The id of the Customer Object
      * @param  {int} amount - The amount to load the wallet (in cents)
      * @param  {string} payment_method - The selected payment method
@@ -242,6 +248,7 @@ class CustomerController {
     }
 
     /**
+     * Send password reset code to customer
      * @param  {string} email_address - The email address of the customer
      * @param  {string} method - The method to receive the code on, either EMAIL (default) or SMS
      */
@@ -263,6 +270,7 @@ class CustomerController {
     }
 
     /**
+     * Reset Customer Password
      * @param  {string} email_address - The email address of the customer
      * @param  {string} code - Temporary Code for Password Resets
      * @param  {string} password - The new password
@@ -287,6 +295,7 @@ class CustomerController {
     }
     
     /**
+     * Refund customer wallet by vendor
      * @param {string} id - The id of the Customer
      * @param  {int} vendor_id - ID of the Vendor issuing the refund
      * @param  {string} amount - The amount to refund the wallet (in cents)
@@ -313,6 +322,7 @@ class CustomerController {
     }
     
     /**
+     * Create a wallet transaction for customer
      * @param {string} id - The id of the Customer
      * @param  {int} transaction_type - Transaction type, either 'reload' or 'purchase'
      * @param  {string} amount - The amount in cents
@@ -337,7 +347,107 @@ class CustomerController {
             });
         });
     }
-    
+
+    /**
+     * Add a favourite vendor for customer
+     * @param {string} id - The id of the Customer
+     * @param  {int} vendor_id - The id of the vendor
+     * @returns {Promise<any>} - The id of customer whose favourite vendor was updated
+     */
+    addFavouriteVendor(id, vendor_id) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!, $vendor_id: String!) {
+                    addFavouriteVendorForCustomer (id: $id, vendor_id: $vendor_id) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, vendor_id
+            }).then(result => {
+                resolve(result.addFavouriteVendorForCustomer._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Remove a favourite vendor for customer
+     * @param {string} id - The id of the Customer
+     * @param  {int} vendor_id - The id of the vendor
+     * @returns {Promise<any>} - The id of customer whose favourite vendor was updated
+     */
+    removeFavouriteVendor(id, vendor_id) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!, $vendor_id: String!) {
+                    removeFavouriteVendorForCustomer (id: $id, vendor_id: $vendor_id) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, vendor_id
+            }).then(result => {
+                resolve(result.removeFavouriteVendorForCustomer._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Add a favourite item for customer
+     * @param {string} id - The id of the Customer
+     * @param  {int} item_id - The id of the item
+     * @returns {Promise<any>} - The id of customer whose favourite item was updated
+     */
+    addFavouriteItem(id, item_id) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!, $item_id: String!) {
+                    addFavouriteItemForCustomer (id: $id, item_id: $item_id) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, item_id
+            }).then(result => {
+                resolve(result.addFavouriteItemForCustomer._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Remove a favourite item for customer
+     * @param {string} id - The id of the Customer
+     * @param  {int} item_id - The id of the item
+     * @returns {Promise<any>} - The id of customer whose favourite item was updated
+     */
+    removeFavouriteItem(id, item_id) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id:String!, $item_id:String!) {
+                    removeFavouriteItemForCustomer (id:$id, item_id:$item_id) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, item_id
+            }).then(result => {
+                resolve(result.removeFavouriteItemForCustomer._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
 }
 
 module.exports = CustomerController;
