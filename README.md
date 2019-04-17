@@ -1,6 +1,6 @@
 # CheaprEats Node.js SDK
 
-[![npm version](https://badge.fury.io/js/%40cheapreats%2Fsdk.svg)](https://badge.fury.io/js/%40cheapreats%2Fsdk)
+[![npm version](https://badge.fury.io/js/%40cheapreats%2Fsdk.svg)](https://badge.fury.io/js/%40cheapreats%2Fsdk) [![Documentation](https://img.shields.io/badge/docs-js--sdk.cheapreats.com-blue.svg)](https://js-sdk.cheapreats.com/)
 
 CheaprEats Node.js SDK
 
@@ -45,3 +45,4 @@ CE.Verification.sendSms(12508574718)
 
 * `npm run build`
 * `npm publish`
+* `npm run generate-docs` (Publishes docs)

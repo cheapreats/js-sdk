@@ -7,7 +7,7 @@
     "test": "npm -v",
     "gulp": "gulp",
     "build": "./package-sdk.sh",
-    "generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json --readme README.md"
+    "generate-docs": "./deploy-doc.sh"
   },
   "repository": {
     "type": "git",
