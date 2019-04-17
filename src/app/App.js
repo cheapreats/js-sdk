@@ -73,7 +73,7 @@ class App {
 
     /**
      * Get customer related methods.
-     * @returns {{create: CustomerController.create, enrollApnsToken: CustomerController.enrollApnsToken, revokeApnsToken: CustomerController.revokeApnsToken, enrollFcmToken: CustomerController.enrollFcmToken, revokeFcmToken: CustomerController.revokeFcmToken, update: CustomerController.update, updateCreditCard: CustomerController.updateCreditCard, createWallet: CustomerController.createWallet, reloadWallet: CustomerController.reloadWallet, resetPassword: CustomerController.resetPassword, sendPasswordResetCode: CustomerController.sendPasswordResetCode, refundWallet: CustomerController.refundWallet, createWalletTransaction:CustomerController.createWalletTransaction}}
+     * @returns {{create: CustomerController.create, enrollApnsToken: CustomerController.enrollApnsToken, revokeApnsToken: CustomerController.revokeApnsToken, enrollFcmToken: CustomerController.enrollFcmToken, revokeFcmToken: CustomerController.revokeFcmToken, update: CustomerController.update, updateCreditCard: CustomerController.updateCreditCard, createWallet: CustomerController.createWallet, reloadWallet: CustomerController.reloadWallet, resetPassword: CustomerController.resetPassword, sendPasswordResetCode: CustomerController.sendPasswordResetCode, refundWallet: CustomerController.refundWallet, createWalletTransaction:CustomerController.createWalletTransaction, addFavouriteVendor:CustomerController.addFavouriteVendor, removeFavouriteVendor:CustomerController.removeFavouriteVendor, addFavouriteItem:CustomerController.addFavouriteItem, removeFavouriteItem:CustomerController.removeFavouriteItem}}
      */
     get Customer() {
         return {
@@ -89,7 +89,11 @@ class App {
             resetPassword: this._customerController.resetPassword,
             sendPasswordResetCode: this._customerController.sendPasswordResetCode,
             refundWallet: this._customerController.refundWallet,
-            createWalletTransaction: this._customerController.createWalletTransaction
+            createWalletTransaction: this._customerController.createWalletTransaction,
+            addFavouriteVendor: this._customerController.addFavouriteVendor,
+            removeFavouriteVendor: this._customerController.removeFavouriteVendor,
+            addFavouriteItem: this._customerController.addFavouriteItem,
+            removeFavouriteItem: this._customerController.removeFavouriteItem
         };
     }
 
