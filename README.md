@@ -22,12 +22,6 @@ Locally importing is used typically while testing new SDK method implementations
 const CE = require('./index');
 ```
 
-If you are using browser, link to `ce.js`, it will automatically populate `window.CE`.
-
-```html
-<script src="build/ce.js"></script>
-```
-
 ## Example Usage
 
 ```
