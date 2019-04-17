@@ -3,8 +3,10 @@
 # Generate docs
 node_modules/.bin/jsdoc -c jsdoc.json --readme README.md
 sleep 1
-# Switch to docs branch
+# Switch to clean and updated docs branch
 git checkout gh-pages
+git clean -df
+git pull origin gh-pages
 # Overwrite docs
 yes | cp -rf docs/* ./
 sleep 1
