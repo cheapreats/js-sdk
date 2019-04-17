@@ -41,6 +41,8 @@ CE.Verification.sendSms(12508574718)
 .catch(e => console.log(e));
 ```
 
+An additional example can be found in the [/demo/vanilla-js](https://github.com/CheaprEats/js-sdk/tree/master/demo/vanilla-js) folder.
+
 ## Publishing to NPM
 
 * `npm run build`
