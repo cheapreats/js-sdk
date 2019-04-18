@@ -292,7 +292,7 @@ class App {
 
     /**
      * Get explore page methods.
-     * @returns {{replace: PayoutController.replace}}
+     * @returns {{replace: ExplorePageController.replace}}
      * @constructor
      */
     get ExplorePage() {
