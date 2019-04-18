@@ -15,6 +15,7 @@ const SurveyController = require('./controllers/SurveyController');
 const OrderController = require('./controllers/OrderController');
 const ImageController = require('./controllers/ImageController');
 const PayoutController = require('./controllers/PayoutController');
+const ExplorePageController = require('./controllers/ExplorePageController');
 const strToIdentifier =  require('./util/strToIdentifier');
 let packageDotJson = require('../../package.json');
 
@@ -57,6 +58,7 @@ class App {
         this._orderController = new OrderController(this);
         this._imageController = new ImageController(this);
         this._payoutController = new PayoutController(this);
+        this._explorePageController = new ExplorePageController(this);
     }
 
     /**
@@ -285,6 +287,17 @@ class App {
             request: this._payoutController.request,
             update: this._payoutController.update,
             cancel: this._payoutController.cancel
+        }
+    }
+
+    /**
+     * Get explore page methods.
+     * @returns {{replace: PayoutController.replace}}
+     * @constructor
+     */
+    get ExplorePage() {
+        return {
+            replace: this._explorePageController.replace
         }
     }
 
