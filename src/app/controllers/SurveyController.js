@@ -2,8 +2,9 @@ class SurveyController {
     constructor(app){
         this.app = app;
         this.create = this.create.bind(this);
-        this.delete = this.delete.bind(this);
         this.update = this.update.bind(this);
+        this.archive = this.archive.bind(this);
+        this.delete = this.delete.bind(this);
         this.release = this.release.bind(this);
         this.createSurveyResponse = this.createSurveyResponse.bind(this);
     }
@@ -71,7 +72,7 @@ class SurveyController {
             `;
             this.app.getAdaptor().mutate(mutationString, {
                 id
-            }).then(() => {
+            }).then((result) => {
                 resolve(result.archiveSurvey);
             }).catch(e => {
                 reject(e);
@@ -93,7 +94,7 @@ class SurveyController {
             `;
             this.app.getAdaptor().mutate(mutationString, {
                 id
-            }).then(() => {
+            }).then((result) => {
                 resolve(result.deleteSurvey);
             }).catch(e => {
                 reject(e);
