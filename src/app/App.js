@@ -245,11 +245,13 @@ class App {
 
     /**
      * Get survey related methods
+     * @returns {{create: SurveyController.create, update: SurveyController.update, archive: SurveyController.archive, delete: SurveyController.delete, release: SurveyController.release, createSurveyResponse: SurveyController.createSurveyResponse}}
      */
     get Survey() {
         return {
             create: this._surveyController.create,
             update: this._surveyController.update,
+            archive: this._surveyController.archive,
             delete: this._surveyController.delete,
             release: this._surveyController.release,
             createSurveyResponse: this._surveyController.createSurveyResponse
@@ -279,7 +281,7 @@ class App {
 
     /**
      * Get payout methods.
-     * @returns {{request: PayoutController.request}}
+     * @returns {{request: PayoutController.request, update: PayoutController.update, cancel: PayoutController.cancel, }}
      * @constructor
      */
     get Payout() {

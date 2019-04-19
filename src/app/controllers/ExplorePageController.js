@@ -9,11 +9,11 @@ class ExplorePageController {
 
     /**
      * Replace the explore page
-     * @param {[Object]} advertisements - List of Explore page Ads
-     * @param {[Object]} daily_deals - List of Explore page Daily Ads
-     * @param {[Object]} special_deals - List of Explore page Special Deals
-     * @param {[Object]} timely_deals - List of Explore page Timely Deals
-     * @returns {Promise<String>}
+     * @param {Object[]} advertisements - List of Explore page Ads
+     * @param {Object[]} daily_deals - List of Explore page Daily Ads
+     * @param {Object[]} special_deals - List of Explore page Special Deals
+     * @param {Object[]} timely_deals - List of Explore page Timely Deals
+     * @returns {Promise<String>} - Updated at
      */
     replace(advertisements, daily_deals, special_deals, timely_deals){
         return new Promise((resolve, reject) => {

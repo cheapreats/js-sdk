@@ -56,11 +56,33 @@ class SurveyController {
             });
         });
     }
+    
+    /**
+     * Archive a Survey
+     * @param {string} id - The id of the Survey Object
+     * @returns {Promise<String>} - Confirmation String
+     */
+    archive(id){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!) {
+                    archiveSurvey(id: $id)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id
+            }).then(() => {
+                resolve(result.archiveSurvey);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
 
     /**
      * Delete a Survey
      * @param {string} id - The id of the Survey Object
-     * @returns {Promise<any>} - The id of the Survey object
+     * @returns {Promise<String>} - Confirmation String
      */
     delete(id){
         return new Promise((resolve, reject) => {
@@ -72,7 +94,7 @@ class SurveyController {
             this.app.getAdaptor().mutate(mutationString, {
                 id
             }).then(() => {
-                resolve();
+                resolve(result.deleteSurvey);
             }).catch(e => {
                 reject(e);
             });
