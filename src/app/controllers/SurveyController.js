@@ -2,8 +2,9 @@ class SurveyController {
     constructor(app){
         this.app = app;
         this.create = this.create.bind(this);
-        this.delete = this.delete.bind(this);
         this.update = this.update.bind(this);
+        this.archive = this.archive.bind(this);
+        this.delete = this.delete.bind(this);
         this.release = this.release.bind(this);
         this.createSurveyResponse = this.createSurveyResponse.bind(this);
     }
@@ -56,11 +57,33 @@ class SurveyController {
             });
         });
     }
+    
+    /**
+     * Archive a Survey
+     * @param {string} id - The id of the Survey Object
+     * @returns {Promise<String>} - Confirmation String
+     */
+    archive(id){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!) {
+                    archiveSurvey(id: $id)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id
+            }).then((result) => {
+                resolve(result.archiveSurvey);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
 
     /**
      * Delete a Survey
      * @param {string} id - The id of the Survey Object
-     * @returns {Promise<any>} - The id of the Survey object
+     * @returns {Promise<String>} - Confirmation String
      */
     delete(id){
         return new Promise((resolve, reject) => {
@@ -71,8 +94,8 @@ class SurveyController {
             `;
             this.app.getAdaptor().mutate(mutationString, {
                 id
-            }).then(() => {
-                resolve();
+            }).then((result) => {
+                resolve(result.deleteSurvey);
             }).catch(e => {
                 reject(e);
             });
