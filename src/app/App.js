@@ -16,6 +16,7 @@ const OrderController = require('./controllers/OrderController');
 const ImageController = require('./controllers/ImageController');
 const PayoutController = require('./controllers/PayoutController');
 const ExplorePageController = require('./controllers/ExplorePageController');
+const FlashSaleController = require('./controllers/FlashSaleController');
 const strToIdentifier =  require('./util/strToIdentifier');
 let packageDotJson = require('../../package.json');
 
@@ -59,6 +60,7 @@ class App {
         this._imageController = new ImageController(this);
         this._payoutController = new PayoutController(this);
         this._explorePageController = new ExplorePageController(this);
+        this._flashSaleController = new FlashSaleController(this);
     }
 
     /**
@@ -300,6 +302,18 @@ class App {
     get ExplorePage() {
         return {
             replace: this._explorePageController.replace
+        }
+    }
+
+    /**
+     * Get flash sale methods.
+     * @returns {{create: FlashSaleController.create, update: FlashSaleController.update}}
+     * @constructor
+     */
+    get FlashSale() {
+        return {
+            create: this._flashSaleController.create,
+            update: this._flashSaleController.update
         }
     }
 
