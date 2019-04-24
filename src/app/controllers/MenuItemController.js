@@ -7,6 +7,7 @@ class MenuItemController {
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
+        this.batchUpdate = this.batchUpdate.bind(this);
     }
 
     /**
