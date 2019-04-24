@@ -1,3 +1,4 @@
+// ADD CONTROLLER IMPORTS BELOW
 const CategoryController = require('./controllers/CategoryController');
 const CustomerController = require('./controllers/CustomerController');
 const CustomerTokenController = require('./controllers/CustomerTokenController');
@@ -41,7 +42,7 @@ class App {
         this._adaptor = new CheaprEatsGraphQLAdaptor({
             graphQLEndpoint: this.getConfiguration().endpoints.graphQLEndpoint.production
         });
-
+        // ADD CONTROLLERS BELOW
         this._categoryController = new CategoryController(this);
         this._customerController = new CustomerController(this);
         this._customerTokenController = new CustomerTokenController(this);
@@ -62,6 +63,8 @@ class App {
         this._explorePageController = new ExplorePageController(this);
         this._flashSaleController = new FlashSaleController(this);
     }
+
+    // ADD GETTERS BELOW
 
     /**
      * Get category related methods.
