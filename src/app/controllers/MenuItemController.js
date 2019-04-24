@@ -11,6 +11,8 @@ class MenuItemController {
         this.batchUpdate = this.batchUpdate.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new MenuItem, returns MenuItem _id if successful
      * @param {Object} menu_item - The MenuItem object

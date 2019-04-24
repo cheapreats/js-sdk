@@ -9,6 +9,8 @@ class FlashSaleController {
         this.update = this.update.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new flash sale
      * @param {String} vendor_id - Vendor ID

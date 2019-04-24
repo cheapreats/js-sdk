@@ -8,6 +8,7 @@ class EmployeeTokenController {
         this.create = this.create.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new EmployeeToken, return EmployeeToken ID if successful

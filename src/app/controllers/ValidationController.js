@@ -15,6 +15,8 @@ class ValidationController {
         return new HttpLink(this.app.getConfiguration().endpoints.validationEndpoint.production + append);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Check if an email can be used for customer account creation
      * @param email - An email

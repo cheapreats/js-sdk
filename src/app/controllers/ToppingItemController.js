@@ -10,6 +10,8 @@ class ToppingItemController {
         this.delete = this.delete.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new topping item
      * @param {string} name - The name of the Topping Object

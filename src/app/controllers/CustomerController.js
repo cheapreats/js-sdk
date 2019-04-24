@@ -24,6 +24,8 @@ class CustomerController {
         this.removeFavouriteItem = this.removeFavouriteItem.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new customer, return customer ID if successful
      * @param {Object} customer - The Customer object to be created

@@ -10,6 +10,8 @@ class PayoutController {
         this.cancel = this.cancel.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new payout request
      * @param {String} vendor_id - Vendor ID

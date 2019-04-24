@@ -11,6 +11,7 @@ class VendorController {
         this.updateAllMenuItemsStatus = this.updateAllMenuItemsStatus.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
 
     /**
      * TODO: Deprecate this method

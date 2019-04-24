@@ -10,6 +10,8 @@ class HeadOfficeController {
         this.delete = this.delete.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new HeadOffice
      * @param {string} identifier - The identifier for the Head Office Object

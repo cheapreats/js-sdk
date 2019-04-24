@@ -14,6 +14,7 @@ class EmployeeController {
         this.sendPasswordResetCode = this.sendPasswordResetCode.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new employee, return employee ID if successful

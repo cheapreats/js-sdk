@@ -9,6 +9,8 @@ class ComboItemController {
         this.delete = this.delete.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new combo item
      * @param  {string} name - Name of Combo Item

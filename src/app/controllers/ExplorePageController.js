@@ -8,6 +8,8 @@ class ExplorePageController {
         this.replace = this.replace.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Replace the explore page
      * @param {Object[]} advertisements - List of Explore page Ads

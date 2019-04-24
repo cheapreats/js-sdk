@@ -8,6 +8,8 @@ class CouponController {
         this.create = this.create.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new coupon, return coupon ID if successful
      * @param {Object} category - The Coupon Object

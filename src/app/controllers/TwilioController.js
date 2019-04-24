@@ -30,6 +30,8 @@ class TwilioController {
         }
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Get verification code sent to a phone
      * @param phoneNumber - The phone number to send the code to (Without Country Code & no spaces/special characters)

@@ -10,6 +10,8 @@ class SurveyController {
         this.createSurveyResponse = this.createSurveyResponse.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new Survey and return the ID of the created object if successful
      * @param {Object} survey - The Survey Object

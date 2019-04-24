@@ -10,6 +10,8 @@ class ModifierController {
         this.delete = this.delete.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new Modifier
      * @param {Object} modifier - The Modifier Object

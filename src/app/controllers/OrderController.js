@@ -12,6 +12,8 @@ class OrderController {
         this.complete = this.complete.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Place a new order, you must be authenticated as a customer to use this
      * @param {Object} order - The Order Object

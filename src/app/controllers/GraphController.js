@@ -8,6 +8,8 @@ class GraphController {
         this.query = this.query.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Query the graph
      * @param  {} query

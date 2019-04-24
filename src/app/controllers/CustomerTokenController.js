@@ -8,6 +8,8 @@ class CustomerTokenController {
         this.create = this.create.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new CustomerToken, return CustomerToken ID if successful
      * @param {string} email_address - The email address of the Customer

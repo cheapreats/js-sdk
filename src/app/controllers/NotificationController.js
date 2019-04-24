@@ -12,6 +12,8 @@ class NotificationController {
         this.apnsRevokeCustomer = this.apnsRevokeCustomer.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Get HttpLink appended with append
      * @param {string} append=""

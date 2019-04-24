@@ -20,6 +20,8 @@ class ImageController {
         return new HttpLink(this.app.getConfiguration().endpoints.imageEndpoint.production + append);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Upload an new image
      * @param image - Image in base64 format

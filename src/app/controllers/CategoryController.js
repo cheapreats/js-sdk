@@ -10,6 +10,7 @@ class CategoryController {
         this.delete = this.delete.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new category, return category ID if successful

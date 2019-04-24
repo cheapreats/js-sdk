@@ -9,6 +9,8 @@ class VerificationController {
         this.checkVerificationSession = this.checkVerificationSession.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Start a new SMS verification Session
      * @param {string} phone_number - The phone to be verified
