@@ -4,6 +4,7 @@
 class VendorController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.createWithEmployee = this.createWithEmployee.bind(this);
@@ -85,7 +86,7 @@ class VendorController {
             });
         });
     }
-    
+
     /**
      * Update a vendor
      * @param {string} vendor_id - The id of the Vendor Object
@@ -108,7 +109,7 @@ class VendorController {
             });
         });
     }
-    
+
 }
 
 module.exports = VendorController;

@@ -4,6 +4,7 @@
 class ExplorePageController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.replace = this.replace.bind(this);
     }
 

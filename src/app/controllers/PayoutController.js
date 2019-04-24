@@ -4,6 +4,7 @@
 class PayoutController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.request = this.request.bind(this);
         this.update = this.update.bind(this);
         this.cancel = this.cancel.bind(this);

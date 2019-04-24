@@ -4,6 +4,7 @@
 class OrderController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
         this.cancel = this.cancel.bind(this);
         this.beginPreparing = this.beginPreparing.bind(this);

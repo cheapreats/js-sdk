@@ -6,6 +6,7 @@ const HttpLink = require('../links/synchronouslinks/HttpLink');
 class ImageController {
     constructor(app) {
         this.app = app;
+        // ADD BINDINGS BELOW
         this.upload = this.upload.bind(this);
         this.getLink = this.getLink.bind(this);
     }

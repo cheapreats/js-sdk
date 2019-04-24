@@ -4,6 +4,7 @@
 class EmployeeTokenController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
     }
 

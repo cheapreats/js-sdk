@@ -4,6 +4,7 @@
 class VerificationController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.startVerificationSession = this.startVerificationSession.bind(this);
         this.checkVerificationSession = this.checkVerificationSession.bind(this);
     }

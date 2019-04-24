@@ -6,6 +6,7 @@ const HttpLink = require('../links/synchronouslinks/HttpLink');
 class ValidationController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.customerSignupEmail = this.customerSignupEmail.bind(this);
         this.customerSignupPhone = this.customerSignupPhone.bind(this);
     }

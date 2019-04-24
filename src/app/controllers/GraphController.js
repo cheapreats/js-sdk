@@ -4,6 +4,7 @@
 class GraphController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.query = this.query.bind(this);
     }
 

@@ -12,6 +12,7 @@ const HttpLink = require('../links/synchronouslinks/HttpLink');
 class TwilioController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.getCode = this.getCode.bind(this);
         this.canVerify = this.canVerify.bind(this);
     }

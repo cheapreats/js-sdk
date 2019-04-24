@@ -4,6 +4,7 @@
 class ToppingItemController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.add = this.add.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
