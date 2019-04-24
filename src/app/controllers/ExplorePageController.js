@@ -4,8 +4,11 @@
 class ExplorePageController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.replace = this.replace.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Replace the explore page

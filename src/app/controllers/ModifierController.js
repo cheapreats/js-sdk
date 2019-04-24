@@ -4,10 +4,13 @@
 class ModifierController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new Modifier

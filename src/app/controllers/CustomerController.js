@@ -4,6 +4,7 @@
 class CustomerController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.updateCreditCard = this.updateCreditCard.bind(this);
@@ -22,6 +23,8 @@ class CustomerController {
         this.addFavouriteItem = this.addFavouriteItem.bind(this);
         this.removeFavouriteItem = this.removeFavouriteItem.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new customer, return customer ID if successful
@@ -293,7 +296,7 @@ class CustomerController {
             });
         });
     }
-    
+
     /**
      * Refund customer wallet by vendor
      * @param {string} id - The id of the Customer
@@ -320,7 +323,7 @@ class CustomerController {
             });
         });
     }
-    
+
     /**
      * Create a wallet transaction for customer
      * @param {string} id - The id of the Customer

@@ -6,6 +6,7 @@ const HttpLink = require('../links/synchronouslinks/HttpLink');
 class ImageController {
     constructor(app) {
         this.app = app;
+        // ADD BINDINGS BELOW
         this.upload = this.upload.bind(this);
         this.getLink = this.getLink.bind(this);
     }
@@ -18,6 +19,8 @@ class ImageController {
     getHttpLink(append = "") {
         return new HttpLink(this.app.getConfiguration().endpoints.imageEndpoint.production + append);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Upload an new image

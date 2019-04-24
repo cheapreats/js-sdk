@@ -4,8 +4,11 @@
 class CustomerTokenController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new CustomerToken, return CustomerToken ID if successful

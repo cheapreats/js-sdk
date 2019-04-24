@@ -4,8 +4,11 @@
 class CouponController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new coupon, return coupon ID if successful

@@ -6,6 +6,7 @@ const HttpLink = require('../links/synchronouslinks/HttpLink');
 class ValidationController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.customerSignupEmail = this.customerSignupEmail.bind(this);
         this.customerSignupPhone = this.customerSignupPhone.bind(this);
     }
@@ -13,6 +14,8 @@ class ValidationController {
     getHttpLink(append = ""){
         return new HttpLink(this.app.getConfiguration().endpoints.validationEndpoint.production + append);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Check if an email can be used for customer account creation

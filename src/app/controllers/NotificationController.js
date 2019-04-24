@@ -6,9 +6,13 @@ const HttpLink = require('../links/synchronouslinks/HttpLink');
 class NotificationController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
+        this.test = this.test.bind(this);
         this.apnsEnrollCustomer = this.apnsEnrollCustomer.bind(this);
         this.apnsRevokeCustomer = this.apnsRevokeCustomer.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Get HttpLink appended with append
@@ -22,6 +26,8 @@ class NotificationController {
             return new HttpLink(this.app.getConfiguration().endpoints.notificationEndpoint.qa + append);
         }
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Enroll a customer iOS device, authentication required

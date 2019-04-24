@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm -v",
     "gulp": "gulp",
+    "add:mutation": "node ./src/scripts/addMutation.js",
     "build": "./package-sdk.sh",
     "generate-docs": "./deploy-doc.sh"
   },

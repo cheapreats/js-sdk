@@ -12,6 +12,7 @@ const HttpLink = require('../links/synchronouslinks/HttpLink');
 class TwilioController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.getCode = this.getCode.bind(this);
         this.canVerify = this.canVerify.bind(this);
     }
@@ -28,6 +29,8 @@ class TwilioController {
             return new HttpLink(this.app.getConfiguration().endpoints.restEndpoint.qa + append);
         }
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Get verification code sent to a phone

@@ -4,9 +4,12 @@
 class ComboItemController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.add = this.add.bind(this);
         this.delete = this.delete.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new combo item

@@ -4,8 +4,11 @@
 class GraphController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.query = this.query.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Query the graph

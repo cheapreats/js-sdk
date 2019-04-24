@@ -4,12 +4,15 @@
 class OrderController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
         this.cancel = this.cancel.bind(this);
         this.beginPreparing = this.beginPreparing.bind(this);
         this.prepared = this.prepared.bind(this);
         this.complete = this.complete.bind(this);
     }
+
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Place a new order, you must be authenticated as a customer to use this

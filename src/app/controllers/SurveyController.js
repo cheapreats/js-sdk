@@ -1,6 +1,7 @@
 class SurveyController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.archive = this.archive.bind(this);
@@ -9,10 +10,12 @@ class SurveyController {
         this.createSurveyResponse = this.createSurveyResponse.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
+
     /**
      * Create a new Survey and return the ID of the created object if successful
      * @param {Object} survey - The Survey Object
-     * @returns {Promise<any>} 
+     * @returns {Promise<any>}
      */
     create(survey){
         return new Promise((resolve, reject) => {
@@ -57,7 +60,7 @@ class SurveyController {
             });
         });
     }
-    
+
     /**
      * Archive a Survey
      * @param {string} id - The id of the Survey Object

@@ -4,6 +4,7 @@
 class EmployeeController {
     constructor(app){
         this.app = app;
+        // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
@@ -13,6 +14,7 @@ class EmployeeController {
         this.sendPasswordResetCode = this.sendPasswordResetCode.bind(this);
     }
 
+    // ADD MUTATION METHODS BELOW
 
     /**
      * Create a new employee, return employee ID if successful
@@ -132,7 +134,7 @@ class EmployeeController {
             });
         })
     }
-    
+
     /**
      * Resets an employee password
      * @param {string} id - Id of the employee
