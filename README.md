@@ -35,6 +35,12 @@ CE.Verification.sendSms(12508574718)
 .catch(e => console.log(e));
 ```
 
+## Auto-generating code for New Mutation 
+
+The `npm run add:mutation <Object>.<methodName>` command auto-generates code for the *Object* and *methodName* passed.
+
+For example - `npm run add:mutation Category.batchArchive`
+
 ## Publishing to NPM
 
 * `npm run build`
