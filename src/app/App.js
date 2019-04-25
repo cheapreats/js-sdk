@@ -68,13 +68,14 @@ class App {
 
     /**
      * Get category related methods.
-     * @returns {{create: CategoryController.create, delete: CategoryController.delete, update: CategoryController.update}}
+     * @returns {{create: CategoryController.create, delete: CategoryController.delete, update: CategoryController.update, batchUpdate: CategoryController.batchUpdate}}
      */
     get Category() {
         return {
             create: this._categoryController.create,
             delete: this._categoryController.delete,
-            update: this._categoryController.update
+            update: this._categoryController.update,
+            batchUpdate: this._categoryController.batchUpdate
         };
     }
 

@@ -8,6 +8,7 @@ class CategoryController {
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.delete = this.delete.bind(this);
+        this.batchUpdate = this.batchUpdate.bind(this);
     }
 
     // ADD MUTATION METHODS BELOW
@@ -81,6 +82,30 @@ class CategoryController {
                 reject(e);
             });
         })
+    }
+
+    /**
+     * Batch update a list of categories.
+     * @param categories List of BatchUpdateCategoriesInput
+     * @returns {Promise<any>} List of categories with _id field
+     */
+    batchUpdate(categories){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($categories: [BatchUpdateCategoriesInput]!){
+                    batchUpdateCategories(categories: $categories) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                categories
+            }).then(result => {
+                resolve(result.batchUpdateCategories);
+            }).catch(e => {
+                reject(e);
+            });
+        });
     }
 
 }
