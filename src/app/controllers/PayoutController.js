@@ -18,7 +18,7 @@ class PayoutController {
      * @param {Boolean} dry - Dry run or not
      * @returns {Promise<{_id: string, total: number}>}
      */
-    request(vendor_id, dry = true){
+    request(vendor_id, dry = false){
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation ($vendor_id: String!, $dry: Boolean) {
