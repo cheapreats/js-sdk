@@ -15,21 +15,23 @@ class PayoutController {
     /**
      * Create a new payout request
      * @param {String} vendor_id - Vendor ID
-     * @returns {Promise<any>}
+     * @param {Boolean} dry - Dry run or not
+     * @returns {Promise<{_id: string, total: number}>}
      */
-    request(vendor_id){
+    request(vendor_id, dry = true){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation ($vendor_id: String!) {
-                    requestPayout(vendor_id: $vendor_id) {
+                mutation ($vendor_id: String!, $dry: Boolean) {
+                    requestPayout(vendor_id: $vendor_id, dry: $dry) {
                         _id
+                        total
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                vendor_id
+                vendor_id, dry
             }).then(result => {
-                resolve(result.requestPayout._id);
+                resolve(result.requestPayout);
             }).catch(e => {
                 reject(e);
             });
