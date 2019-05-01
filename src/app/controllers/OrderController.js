@@ -41,20 +41,21 @@ class OrderController {
     /**
      * Cancel a order, must be authenticated as vendor
      * @param {string} id - The id of the Order Object
-     * @param {string} reason - Information related to why the order was cancelled
+     * @param {string} reason - input type OrderCancellationReason enum indicating reason
+     * @param {String} description - Additional details on order cancellation
      * @returns {Promise<any>}
      */
-    cancel(id, reason){
+    cancel(id, reason, description = null) {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation cancelOrderMutation ($id: String!, $reason: String!){
-                    cancelOrder(id: $id, reason: $reason){
+                mutation cancelOrderMutation ($id: String!, $reason: OrderCancellationReason!, $description: String){
+                    cancelOrder(id: $id, reason: $reason, description: $description){
                         _id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                id, reason
+                id, reason, description
             }).then(result => {
                 resolve(result);
             }).catch(e => {
