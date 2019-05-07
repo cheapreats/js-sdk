@@ -19,6 +19,7 @@ const ImageController = require('./controllers/ImageController');
 const PayoutController = require('./controllers/PayoutController');
 const ExplorePageController = require('./controllers/ExplorePageController');
 const FlashSaleController = require('./controllers/FlashSaleController');
+const TipController = require('./controllers/TipController');
 const strToIdentifier =  require('./util/strToIdentifier');
 let packageDotJson = require('../../package.json');
 
@@ -64,6 +65,7 @@ class App {
         this._payoutController = new PayoutController(this);
         this._explorePageController = new ExplorePageController(this);
         this._flashSaleController = new FlashSaleController(this);
+        this._tipController = new TipController(this);
     }
 
     // ADD GETTERS BELOW
@@ -329,6 +331,17 @@ class App {
             create: this._flashSaleController.create,
             update: this._flashSaleController.update
         }
+    }
+
+    /**
+     * Get tip methods.
+     * @returns {{create: TipController.create}}
+     * @constructor
+     */
+    get Tip() {
+        return {
+            create: this._tipController.create,
+        };
     }
 
     /**
