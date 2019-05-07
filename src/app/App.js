@@ -1,4 +1,5 @@
 // ADD CONTROLLER IMPORTS BELOW
+const CartController = require('./controllers/CartController');
 const CategoryController = require('./controllers/CategoryController');
 const CustomerController = require('./controllers/CustomerController');
 const CustomerTokenController = require('./controllers/CustomerTokenController');
@@ -43,6 +44,7 @@ class App {
             graphQLEndpoint: this.getConfiguration().endpoints.graphQLEndpoint.production
         });
         // ADD CONTROLLERS BELOW
+        this._cartController = new CartController(this);
         this._categoryController = new CategoryController(this);
         this._customerController = new CustomerController(this);
         this._customerTokenController = new CustomerTokenController(this);
@@ -65,6 +67,14 @@ class App {
     }
 
     // ADD GETTERS BELOW
+        
+    get Cart() {
+        return {
+            removeItem: this._cartController.removeItem,
+            addItem: this._cartController.addItem,
+            create: this._cartController.create,
+        };
+    }
 
     /**
      * Get category related methods.
