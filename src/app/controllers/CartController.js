@@ -8,7 +8,13 @@ class CartController {
     }
     
     // ADD MUTATION METHODS BELOW
-    
+
+    /**
+     * Remove an item from currently active cart.
+     * @param cartId
+     * @param cartItemId
+     * @returns {Promise<any>}
+     */
     removeItem(cartId, cartItemId){
         return new Promise((resolve, reject) => {
             let mutationString = `
@@ -30,7 +36,13 @@ class CartController {
             });
         });
     }
-    
+
+    /**
+     * Add an new item to currently active cart.
+     * @param cartId
+     * @param item
+     * @returns {Promise<any>}
+     */
     addItem(cartId, item){
         return new Promise((resolve, reject) => {
             let mutationString = `
@@ -52,7 +64,13 @@ class CartController {
             });
         });
     }
-    
+
+    /**
+     * Create a new cart, remove all old carts.
+     * @param customerId
+     * @param vendorId
+     * @returns {Promise<any>}
+     */
     create(customerId, vendorId){
         return new Promise((resolve, reject) => {
             let mutationString = `
