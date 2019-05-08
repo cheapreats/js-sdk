@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>controllers/TwilioController.js - Documentation</title>
+    <title>controllers/TipController.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">controllers/TwilioController.js</h1>
+    <h1 class="page-title">controllers/TipController.js</h1>
     
 
     
@@ -39,88 +39,42 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Controller for all Twilio related endpoints
- * Author: Jun Zheng
- * License: UNLICENSED
- */
-
-const HttpLink = require('../links/synchronouslinks/HttpLink');
-
-/**
- * Controller for twilio.
- */
-class TwilioController {
-    constructor(app){
+            <pre class="prettyprint source linenums"><code>class TipController {
+    constructor(app) {
         this.app = app;
         // ADD BINDINGS BELOW
-        this.getCode = this.getCode.bind(this);
-        this.canVerify = this.canVerify.bind(this);
-    }
-
-    /**
-     * Get HttpLink appended with append
-     * @param {string} append=""
-     * @returns {HttpLink}
-     */
-    getHttpLink(append = ""){
-        if(this.app.getAdaptorMode() === 'production'){
-            return new HttpLink(this.app.getConfiguration().endpoints.restEndpoint.production + append);
-        } else {
-            return new HttpLink(this.app.getConfiguration().endpoints.restEndpoint.qa + append);
-        }
+        this.create = this.create.bind(this);
     }
 
     // ADD MUTATION METHODS BELOW
 
     /**
-     * Get verification code sent to a phone
-     * @param phoneNumber - The phone number to send the code to (Without Country Code &amp; no spaces/special characters)
-     * @param countryCode - The country code of the phone number (Ex: +1)
-     * @returns {Promise&lt;any>}
+     * Create a tip
+     * @param  {string} order_id - ID of the order tip is issued for
+     * @param  {int} amount - Tip amount in cents
+     * @returns {Promise&lt;String>} - Returns the id of the tip created
      */
-    getCode(phoneNumber, countryCode){
-        const link = this.getHttpLink("/get_code");
+    create(order_id, amount){
         return new Promise((resolve, reject) => {
-            link.post({
-                data: {
-                    phone_number: phoneNumber,
-                    country_code: countryCode
-                }
-            }).then(() => {
-                resolve(true);
+            let mutationString = `
+                mutation ($order_id:String!, $amount:Int!) {
+                    createTip(order_id:$order_id, amount:$amount) {
+                        _id,
+                    }
+                }             
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                order_id, amount
+            }).then((result) => {
+                resolve(result.createTip._id);
             }).catch(e => {
                 reject(e);
             });
         });
     }
-
-    /**
-     * Check if a phone number can be used to verify
-     * @param phoneNumber - The phone number to send the code to (Without Country Code &amp; no spaces/special characters)
-     * @returns {Promise&lt;any>}
-     */
-    canVerify(phoneNumber){
-        const link = this.getHttpLink("/can_verify");
-        return new Promise((resolve, reject) => {
-            link.post({
-                data: {
-                    phone_number: phoneNumber
-                }
-            }).then(data => {
-                if(data.data === "yes"){
-                    resolve(true);
-                } else {
-                    return Promise.reject();
-                }
-            }).catch(e => {
-                reject(e);
-            });
-        });
-    }
+    
 }
-
-module.exports = TwilioController;
+module.exports = TipController;
 </code></pre>
         </article>
     </section>

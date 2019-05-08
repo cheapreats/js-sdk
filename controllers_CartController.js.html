@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>controllers/TwilioController.js - Documentation</title>
+    <title>controllers/CartController.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">controllers/TwilioController.js</h1>
+    <h1 class="page-title">controllers/CartController.js</h1>
     
 
     
@@ -39,56 +39,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Controller for all Twilio related endpoints
- * Author: Jun Zheng
- * License: UNLICENSED
- */
-
-const HttpLink = require('../links/synchronouslinks/HttpLink');
-
-/**
- * Controller for twilio.
- */
-class TwilioController {
-    constructor(app){
+            <pre class="prettyprint source linenums"><code>class CartController {
+    constructor(app) {
         this.app = app;
         // ADD BINDINGS BELOW
-        this.getCode = this.getCode.bind(this);
-        this.canVerify = this.canVerify.bind(this);
+        this.removeItem = this.removeItem.bind(this);
+        this.addItem = this.addItem.bind(this);
+        this.create = this.create.bind(this);
     }
-
-    /**
-     * Get HttpLink appended with append
-     * @param {string} append=""
-     * @returns {HttpLink}
-     */
-    getHttpLink(append = ""){
-        if(this.app.getAdaptorMode() === 'production'){
-            return new HttpLink(this.app.getConfiguration().endpoints.restEndpoint.production + append);
-        } else {
-            return new HttpLink(this.app.getConfiguration().endpoints.restEndpoint.qa + append);
-        }
-    }
-
+    
     // ADD MUTATION METHODS BELOW
 
     /**
-     * Get verification code sent to a phone
-     * @param phoneNumber - The phone number to send the code to (Without Country Code &amp; no spaces/special characters)
-     * @param countryCode - The country code of the phone number (Ex: +1)
+     * Remove an item from currently active cart.
+     * @param cartId
+     * @param cartItemId
      * @returns {Promise&lt;any>}
      */
-    getCode(phoneNumber, countryCode){
-        const link = this.getHttpLink("/get_code");
+    removeItem(cartId, cartItemId){
         return new Promise((resolve, reject) => {
-            link.post({
-                data: {
-                    phone_number: phoneNumber,
-                    country_code: countryCode
+            let mutationString = `
+                mutation ($cartId: String!, $cartItemId: String!) {
+                    removeItemCart(
+                        cart_id: $cartId,
+                        cart_item_id: $cartItemId
+                    ) {
+                        _id
+                    }
                 }
-            }).then(() => {
-                resolve(true);
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                cartId, cartItemId
+            }).then((result) => {
+                resolve(result.removeItemCart);
             }).catch(e => {
                 reject(e);
             });
@@ -96,31 +79,63 @@ class TwilioController {
     }
 
     /**
-     * Check if a phone number can be used to verify
-     * @param phoneNumber - The phone number to send the code to (Without Country Code &amp; no spaces/special characters)
+     * Add an new item to currently active cart.
+     * @param cartId
+     * @param item
      * @returns {Promise&lt;any>}
      */
-    canVerify(phoneNumber){
-        const link = this.getHttpLink("/can_verify");
+    addItem(cartId, item){
         return new Promise((resolve, reject) => {
-            link.post({
-                data: {
-                    phone_number: phoneNumber
+            let mutationString = `
+                mutation ($cartId: String!, item: AddItemToCartInput!) {
+                    addItemCart(
+                        cart_id: $cartId,
+                        item: $item
+                    ) {
+                        _id
+                    }
                 }
-            }).then(data => {
-                if(data.data === "yes"){
-                    resolve(true);
-                } else {
-                    return Promise.reject();
-                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                cartId, item,
+            }).then((result) => {
+                resolve(result.addItemCart);
             }).catch(e => {
                 reject(e);
             });
         });
     }
-}
 
-module.exports = TwilioController;
+    /**
+     * Create a new cart, remove all old carts.
+     * @param customerId
+     * @param vendorId
+     * @returns {Promise&lt;any>}
+     */
+    create(customerId, vendorId){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($customerId: String!, $vendorId: String!) {
+                    createCart(
+                        customer_id: $customerId,
+                        vendor_id: $vendorId
+                    ) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                customerId, vendorId
+            }).then((result) => {
+                resolve(result.createCart);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+    
+}
+module.exports = CartController;
 </code></pre>
         </article>
     </section>
