@@ -24,7 +24,7 @@ class FlashSaleController {
     create(vendor_id, type, amount, items, start_at, end_at) {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation($vendor_id: String!, type: FlashSaleType!, amount: Int!, $items: [FlashSaleItemInput]!, $start_at: String!, $end_at: String!) {
+                mutation($vendor_id: String!, $type: FlashSaleType!, $amount: Int!, $items: [FlashSaleItemInput]!, $start_at: String!, $end_at: String!) {
                     createFlashSale(vendor_id: $vendor_id, type: $type, amount: $amount, items:$items, start_at:$start_at, end_at:$end_at) {
                         _id
                     }
