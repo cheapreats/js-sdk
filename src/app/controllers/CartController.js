@@ -46,7 +46,7 @@ class CartController {
     addItem(cartId, item){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation ($cartId: String!, item: AddItemToCartInput!) {
+                mutation ($cartId: String!, $item: AddItemToCartInput!) {
                     addItemCart(
                         cart_id: $cartId,
                         item: $item
