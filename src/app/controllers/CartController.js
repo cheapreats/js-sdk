@@ -19,7 +19,7 @@ class CartController {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation ($cartId: String!, $cartItemId: String!) {
-                    removeItemCart(
+                    removeItemFromCart(
                         cart_id: $cartId,
                         cart_item_id: $cartItemId
                     ) {
@@ -30,7 +30,7 @@ class CartController {
             this.app.getAdaptor().mutate(mutationString, {
                 cartId, cartItemId
             }).then((result) => {
-                resolve(result.removeItemCart);
+                resolve(result.removeItemFromCart);
             }).catch(e => {
                 reject(e);
             });
