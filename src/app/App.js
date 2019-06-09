@@ -72,6 +72,7 @@ class App {
         
     get Cart() {
         return {
+            delete: this._cartController.delete,
             removeItem: this._cartController.removeItem,
             addItem: this._cartController.addItem,
             create: this._cartController.create,

@@ -2,12 +2,35 @@ class CartController {
     constructor(app) {
         this.app = app;
         // ADD BINDINGS BELOW
+        this.delete = this.delete.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.addItem = this.addItem.bind(this);
         this.create = this.create.bind(this);
     }
     
     // ADD MUTATION METHODS BELOW
+
+    /**
+     * Delete a cart
+     * @param cartId
+     * @returns {Promise<any>}
+     */
+    delete(cartId){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($cartId: String!) {
+                    deleteCart(cart_id: $cartId)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                cartId
+            }).then((result) => {
+                resolve(result.deleteCart);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
 
     /**
      * Remove an item from currently active cart.
