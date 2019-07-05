@@ -53,7 +53,8 @@ class LoyaltyProgramController {
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                id, loyalty_program
+                id,
+                loyalty_program
             }).then(result => {
                 resolve(result.updateLoyaltyProgram._id);
             }).catch(e => {
