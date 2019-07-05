@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>controllers/FlashSaleController.js - Documentation</title>
+    <title>LoyaltyCardController - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,90 +29,1103 @@
 
 <div id="main">
     
-    <h1 class="page-title">controllers/FlashSaleController.js</h1>
+    <h1 class="page-title">LoyaltyCardController</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Controller related to flash sales
- */
-class FlashSaleController {
-    constructor(app) {
-        this.app    = app;
-        // ADD BINDINGS BELOW
-        this.create = this.create.bind(this);
-        this.update = this.update.bind(this);
-    }
+        <h2>
+        LoyaltyCardController
+        </h2>
+        
+            <div class="class-description"><p>Controller for loyalty cards.</p></div>
+        
+    
+</header>
 
-    // ADD MUTATION METHODS BELOW
+<article>
+    <div class="container-overview">
+    
+        
+<div class="section-method">
 
-    /**
-     * Create a new flash sale
-     * @param {String} vendor_id - Vendor ID
-     * @param {String} type - If the flash sale is on PERCENTAGE or DOLLAR basis
-     * @param {int} amount - Amount in cents to base the flash sale off of
-     * @param {Object[]} items - List of items included in Flash Sale
-     * @param {String} start_at - Start time for Flash Sale in ISO format
-     * @param {String} end_at - End time for Flash Sale in ISO format
-     * @returns {Promise&lt;any>}
-     */
-    create(vendor_id, type, amount, items, start_at, end_at) {
-        return new Promise((resolve, reject) => {
-            let mutationString = `
-                mutation($vendor_id: String!, $type: FlashSaleType!, $amount: Int!, $items: [FlashSaleItemInput]!, $start_at: String!, $end_at: String!) {
-                    createFlashSale(vendor_id: $vendor_id, type: $type, amount: $amount, items:$items, start_at:$start_at, end_at:$end_at) {
-                        _id
-                    }
-                }
-            `;
-            this.app.getAdaptor().mutate(mutationString, {
-                vendor_id, type, amount, items, start_at, end_at
-            }).then(result => {
-                resolve(result.createFlashSale._id);
-            }).catch(e => {
-                reject(e);
-            });
-        });
-    }
+    
+    <h2>Constructor</h2>
+    
 
-    /**
-     * Update existing flash sale
-     * @param {String} id - Flash Sale ID
-     * @param {Object[]} items - Updated List of items for Flash Sale
-     * @param {String} end_at - End time for Flash Sale in ISO format
-     * @returns {Promise&lt;any>}
-     */
-    update(id, items, end_at) {
-        return new Promise((resolve, reject) => {
-            let mutationString = `
-                mutation($id: String!, $items: [FlashSaleItemInput], $end_at: String) {
-                    updateFlashSale(id: $id, items:$items, end_at:$end_at) {
-                        _id
-                    }
-                }
-            `;
-            this.app.getAdaptor().mutate(mutationString, {
-                id, items, end_at
-            }).then(result => {
-                resolve(result.updateFlashSale._id);
-            }).catch(e => {
-                reject(e);
-            });
-        });
-    }
+    <h4 class="name" id="LoyaltyCardController"><span class="type-signature"></span>new LoyaltyCardController<span class="signature">()</span><span class="type-signature"></span></h4>
 
-}
+    
 
-module.exports = FlashSaleController;
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_LoyaltyCardController.js.html">controllers/LoyaltyCardController.js</a>, <a href="controllers_LoyaltyCardController.js.html#line4">line 4</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="awardPointsToLoyaltyCard"><span class="type-signature"></span>awardPointsToLoyaltyCard<span class="signature">(id, amount)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Award usable points to a loyalty card</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_LoyaltyCardController.js.html">controllers/LoyaltyCardController.js</a>, <a href="controllers_LoyaltyCardController.js.html#line48">line 48</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>ID of the loyalty card to which points are awarded</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Number of points to award to loyalty card</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise.&lt;any></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <ul>
+<li>The id of the LoyaltyTransaction</li>
+</ul>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="awardShareablePointsToLoyaltyCard"><span class="type-signature"></span>awardShareablePointsToLoyaltyCard<span class="signature">(id, amount)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Award shareable points to a loyalty card</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_LoyaltyCardController.js.html">controllers/LoyaltyCardController.js</a>, <a href="controllers_LoyaltyCardController.js.html#line73">line 73</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>ID of the loyalty card to which shareable points are awarded</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>amount</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Number of shareable points to award to loyalty card</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise.&lt;any></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <ul>
+<li>The id of the LoyaltyTransaction</li>
+</ul>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="createLoyaltyCardAndEnroll"><span class="type-signature"></span>createLoyaltyCardAndEnroll<span class="signature">(loyalty_card)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Create a new Loyalty Card, automatically enrolling user in the loyalty program</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_LoyaltyCardController.js.html">controllers/LoyaltyCardController.js</a>, <a href="controllers_LoyaltyCardController.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>loyalty_card</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The LoyaltyCard object input</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise.&lt;any></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <ul>
+<li>The id of the LoyaltyCard object</li>
+</ul>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="redeemLoyaltyPointsForCoupon"><span class="type-signature"></span>redeemLoyaltyPointsForCoupon<span class="signature">(loyalty_card_id, menu_item_id)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Redeem a coupon in exchange of loyalty points for a particular item redeemable in a vendor's loyalty program</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_LoyaltyCardController.js.html">controllers/LoyaltyCardController.js</a>, <a href="controllers_LoyaltyCardController.js.html#line128">line 128</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>loyalty_card_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The id of the Loyalty Card</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>menu_item_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The id of the Menu ID which must be a redeemable in the vendor's loyalty plan</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise.&lt;any></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <ul>
+<li>ID of the Coupon generated</li>
+</ul>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="shareLoyaltyPoints"><span class="type-signature"></span>shareLoyaltyPoints<span class="signature">(sender_customer_id, receiver_phone_number, loyalty_program_id, no_of_points_to_share)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Enable sharing of loyalty points from one loyalty card to another</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="controllers_LoyaltyCardController.js.html">controllers/LoyaltyCardController.js</a>, <a href="controllers_LoyaltyCardController.js.html#line100">line 100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>sender_customer_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>ID of the customer transferring loyalty points</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>receiver_phone_number</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Phone number of the receiver receiving the points</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loyalty_program_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>ID of the loyalty program in context of which points are shared</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>no_of_points_to_share</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Number of points to share</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise.&lt;any></code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <ul>
+<li>The id of the LoyaltyTransaction</li>
+</ul>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -122,7 +1135,7 @@ module.exports = FlashSaleController;
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jul 06 2019 00:16:18 GMT+0530 (India Standard Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jul 06 2019 00:16:19 GMT+0530 (India Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

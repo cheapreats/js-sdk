@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>controllers/FlashSaleController.js - Documentation</title>
+    <title>controllers/LoyaltyProgramController.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">controllers/FlashSaleController.js</h1>
+    <h1 class="page-title">controllers/LoyaltyProgramController.js</h1>
     
 
     
@@ -40,41 +40,64 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Controller related to flash sales
+ * Controller for loyalty programs.
  */
-class FlashSaleController {
-    constructor(app) {
-        this.app    = app;
+class LoyaltyProgramController {
+    constructor(app){
+        this.app = app;
         // ADD BINDINGS BELOW
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     // ADD MUTATION METHODS BELOW
 
     /**
-     * Create a new flash sale
-     * @param {String} vendor_id - Vendor ID
-     * @param {String} type - If the flash sale is on PERCENTAGE or DOLLAR basis
-     * @param {int} amount - Amount in cents to base the flash sale off of
-     * @param {Object[]} items - List of items included in Flash Sale
-     * @param {String} start_at - Start time for Flash Sale in ISO format
-     * @param {String} end_at - End time for Flash Sale in ISO format
-     * @returns {Promise&lt;any>}
+     * Create a new Loyalty Program, returns LoyaltyProgram _id if successful
+     * @param {Object} loyalty_program - The LoyaltyProgram object input
+     * @returns {Promise&lt;any>} - The id of the LoyaltyProgram object
      */
-    create(vendor_id, type, amount, items, start_at, end_at) {
+    create(loyalty_program){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation($vendor_id: String!, $type: FlashSaleType!, $amount: Int!, $items: [FlashSaleItemInput]!, $start_at: String!, $end_at: String!) {
-                    createFlashSale(vendor_id: $vendor_id, type: $type, amount: $amount, items:$items, start_at:$start_at, end_at:$end_at) {
+                mutation ($loyalty_program: CreateLoyaltyProgramInput!) {
+                    createLoyaltyProgram(loyalty_program: $loyalty_program) {
                         _id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                vendor_id, type, amount, items, start_at, end_at
+                loyalty_program
             }).then(result => {
-                resolve(result.createFlashSale._id);
+                resolve(result.createLoyaltyProgram._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+
+    /**
+     * Update an existing Loyalty Program, returns LoyaltyProgram _id if successful
+     * @param {Object} id - ID of the LoyaltyProgram object to update
+     * @param {Object} loyalty_program - The LoyaltyProgram update object input
+     * @returns {Promise&lt;any>} - The id of the LoyaltyProgram object
+     */
+    update(id, loyalty_program){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id:String!, $loyalty_program: UpdateLoyaltyProgramInput!) {
+                    updateLoyaltyProgram(id:$id, loyalty_program: $loyalty_program) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id,
+                loyalty_program
+            }).then(result => {
+                resolve(result.updateLoyaltyProgram._id);
             }).catch(e => {
                 reject(e);
             });
@@ -82,25 +105,21 @@ class FlashSaleController {
     }
 
     /**
-     * Update existing flash sale
-     * @param {String} id - Flash Sale ID
-     * @param {Object[]} items - Updated List of items for Flash Sale
-     * @param {String} end_at - End time for Flash Sale in ISO format
-     * @returns {Promise&lt;any>}
+     * Delete a Loyalty Program
+     * @param {string} id - The id of the Loyalty Program
+     * @returns {Promise&lt;any>} - Return string
      */
-    update(id, items, end_at) {
+    delete(id){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation($id: String!, $items: [FlashSaleItemInput], $end_at: String) {
-                    updateFlashSale(id: $id, items:$items, end_at:$end_at) {
-                        _id
-                    }
+                mutation ($id: String!) {
+                    deleteLoyaltyProgram(id: $id)
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                id, items, end_at
-            }).then(result => {
-                resolve(result.updateFlashSale._id);
+                id
+            }).then((result) => {
+                resolve(result.deleteLoyaltyProgram);
             }).catch(e => {
                 reject(e);
             });
@@ -109,7 +128,7 @@ class FlashSaleController {
 
 }
 
-module.exports = FlashSaleController;
+module.exports = LoyaltyProgramController;
 </code></pre>
         </article>
     </section>
