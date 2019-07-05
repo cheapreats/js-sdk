@@ -1,6 +1,6 @@
 const strToIdentifier          = require('./util/strToIdentifier');
 const CheaprEatsGraphQLAdaptor = require('./adaptors/CheaprEatsGraphQLAdaptor');
-let packageDotJson             = require('../../package.json');
+const packageDotJson             = require('../../package.json');
 
 // ADD CONTROLLER IMPORTS BELOW
 const CartController           = require('./controllers/CartController');

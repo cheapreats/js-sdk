@@ -107,7 +107,10 @@ class LoyaltyCardController {
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                sender_customer_id, receiver_phone_number, loyalty_program_id, no_of_points_to_share
+                sender_customer_id,
+                receiver_phone_number,
+                loyalty_program_id,
+                no_of_points_to_share
             }).then(result => {
                 resolve(result.shareLoyaltyPoints._id);
             }).catch(e => {
@@ -132,7 +135,8 @@ class LoyaltyCardController {
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                loyalty_card_id, menu_item_id
+                loyalty_card_id,
+                menu_item_id
             }).then((result) => {
                 resolve(result.redeemLoyaltyPointsForCoupon._id);
             }).catch(e => {
