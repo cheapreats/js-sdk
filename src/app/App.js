@@ -1,29 +1,33 @@
-// ADD CONTROLLER IMPORTS BELOW
-const CartController = require('./controllers/CartController');
-const CategoryController = require('./controllers/CategoryController');
-const CustomerController = require('./controllers/CustomerController');
-const CustomerTokenController = require('./controllers/CustomerTokenController');
-const CouponController = require('./controllers/CouponController');
-const EmployeeController = require('./controllers/EmployeeController');
-const EmployeeTokenController = require('./controllers/EmployeeTokenController');
-const GraphController = require('./controllers/GraphController');
-const HeadOfficeController = require('./controllers/HeadOfficeController');
-const MenuItemController = require('./controllers/MenuItemController');
-const ModifierController = require('./controllers/ModifierController');
-const VendorController = require('./controllers/VendorController');
-const VerificationController = require('./controllers/VerificationController');
-const ValidationController = require('./controllers/ValidationController');
-const SurveyController = require('./controllers/SurveyController');
-const OrderController = require('./controllers/OrderController');
-const ImageController = require('./controllers/ImageController');
-const PayoutController = require('./controllers/PayoutController');
-const ExplorePageController = require('./controllers/ExplorePageController');
-const FlashSaleController = require('./controllers/FlashSaleController');
-const TipController = require('./controllers/TipController');
-const strToIdentifier =  require('./util/strToIdentifier');
-let packageDotJson = require('../../package.json');
-
+const strToIdentifier          = require('./util/strToIdentifier');
 const CheaprEatsGraphQLAdaptor = require('./adaptors/CheaprEatsGraphQLAdaptor');
+const packageDotJson             = require('../../package.json');
+
+// ADD CONTROLLER IMPORTS BELOW
+const CartController           = require('./controllers/CartController');
+const CategoryController       = require('./controllers/CategoryController');
+const CustomerController       = require('./controllers/CustomerController');
+const CustomerTokenController  = require('./controllers/CustomerTokenController');
+const CouponController         = require('./controllers/CouponController');
+const EmployeeController       = require('./controllers/EmployeeController');
+const EmployeeTokenController  = require('./controllers/EmployeeTokenController');
+const GraphController          = require('./controllers/GraphController');
+const HeadOfficeController     = require('./controllers/HeadOfficeController');
+const MenuItemController       = require('./controllers/MenuItemController');
+const ModifierController       = require('./controllers/ModifierController');
+const VendorController         = require('./controllers/VendorController');
+const VerificationController   = require('./controllers/VerificationController');
+const ValidationController     = require('./controllers/ValidationController');
+const SurveyController         = require('./controllers/SurveyController');
+const OrderController          = require('./controllers/OrderController');
+const ImageController          = require('./controllers/ImageController');
+const PayoutController         = require('./controllers/PayoutController');
+const ExplorePageController    = require('./controllers/ExplorePageController');
+const FlashSaleController      = require('./controllers/FlashSaleController');
+const TipController            = require('./controllers/TipController');
+const LoyaltyProgramController = require('./controllers/LoyaltyProgramController');
+const LoyaltyCardController    = require('./controllers/LoyaltyCardController');
+const RedeemableItemController = require('./controllers/RedeemableItemController');
+
 
 let config = {
     endpoints: require('../config/endpoints')
@@ -41,35 +45,38 @@ class App {
     constructor() {
         this._token = null;
 
-        this._adaptor = new CheaprEatsGraphQLAdaptor({
+        this._adaptor                  = new CheaprEatsGraphQLAdaptor({
             graphQLEndpoint: this.getConfiguration().endpoints.graphQLEndpoint.production
         });
         // ADD CONTROLLERS BELOW
-        this._cartController = new CartController(this);
-        this._categoryController = new CategoryController(this);
-        this._customerController = new CustomerController(this);
-        this._customerTokenController = new CustomerTokenController(this);
-        this._couponController = new CouponController(this);
-        this._employeeController = new EmployeeController(this);
-        this._employeeTokenController = new EmployeeTokenController(this);
-        this._graphController = new GraphController(this);
-        this._headOfficeController = new HeadOfficeController(this);
-        this._menuItemController = new MenuItemController(this);
-        this._modifierController = new ModifierController(this);
-        this._vendorController = new VendorController(this);
-        this._verificationController = new VerificationController(this);
-        this._validationController = new ValidationController(this);
-        this._surveyController = new SurveyController(this);
-        this._orderController = new OrderController(this);
-        this._imageController = new ImageController(this);
-        this._payoutController = new PayoutController(this);
-        this._explorePageController = new ExplorePageController(this);
-        this._flashSaleController = new FlashSaleController(this);
-        this._tipController = new TipController(this);
+        this._cartController           = new CartController(this);
+        this._categoryController       = new CategoryController(this);
+        this._customerController       = new CustomerController(this);
+        this._customerTokenController  = new CustomerTokenController(this);
+        this._couponController         = new CouponController(this);
+        this._employeeController       = new EmployeeController(this);
+        this._employeeTokenController  = new EmployeeTokenController(this);
+        this._graphController          = new GraphController(this);
+        this._headOfficeController     = new HeadOfficeController(this);
+        this._menuItemController       = new MenuItemController(this);
+        this._modifierController       = new ModifierController(this);
+        this._vendorController         = new VendorController(this);
+        this._verificationController   = new VerificationController(this);
+        this._validationController     = new ValidationController(this);
+        this._surveyController         = new SurveyController(this);
+        this._orderController          = new OrderController(this);
+        this._imageController          = new ImageController(this);
+        this._payoutController         = new PayoutController(this);
+        this._explorePageController    = new ExplorePageController(this);
+        this._flashSaleController      = new FlashSaleController(this);
+        this._tipController            = new TipController(this);
+        this._loyaltyProgramController = new LoyaltyProgramController(this);
+        this._loyaltyCardController    = new LoyaltyCardController(this);
+        this._redeemableItemController = new RedeemableItemController(this);
     }
 
     // ADD GETTERS BELOW
-        
+
     get Cart() {
         return {
             delete: this._cartController.delete,
@@ -289,16 +296,6 @@ class App {
     }
 
     /**
-     * Get utility methods.
-     * @returns {{strToIdentifier: (*|(function(): result))}}
-     */
-    get Util() {
-        return {
-            strToIdentifier
-        };
-    }
-
-    /**
      * Get payout methods.
      * @returns {{request: PayoutController.request, update: PayoutController.update, cancel: PayoutController.cancel, }}
      * @constructor
@@ -346,6 +343,57 @@ class App {
     }
 
     /**
+     * Get loyalty program methods.
+     * @returns {{create: LoyaltyProgramController.create, update: LoyaltyProgramController.update, delete: LoyaltyProgramController.delete}}
+     * @constructor
+     */
+    get LoyaltyProgram() {
+        return {
+            create: this._loyaltyProgramController.create,
+            update: this._loyaltyProgramController.update,
+            delete: this._loyaltyProgramController.delete,
+        };
+    }
+
+    /**
+     * Get loyalty card methods.
+     * @returns {{createLoyaltyCardAndEnroll: LoyaltyCardController.createLoyaltyCardAndEnroll, awardPointsToLoyaltyCard: LoyaltyCardController.awardPointsToLoyaltyCard, awardShareablePointsToLoyaltyCard: LoyaltyCardController.awardShareablePointsToLoyaltyCard, shareLoyaltyPoints: LoyaltyCardController.shareLoyaltyPoints, redeemLoyaltyPointsForCoupon: LoyaltyCardController.redeemLoyaltyPointsForCoupon}}
+     * @constructor
+     */
+    get LoyaltyCard() {
+        return {
+            createLoyaltyCardAndEnroll: this._loyaltyCardController.createLoyaltyCardAndEnroll,
+            awardPointsToLoyaltyCard: this._loyaltyCardController.awardPointsToLoyaltyCard,
+            awardShareablePointsToLoyaltyCard: this._loyaltyCardController.awardShareablePointsToLoyaltyCard,
+            shareLoyaltyPoints: this._loyaltyCardController.shareLoyaltyPoints,
+            redeemLoyaltyPointsForCoupon: this._loyaltyCardController.redeemLoyaltyPointsForCoupon,
+        };
+    }
+
+    /**
+     * Get redeemable item methods.
+     * @returns {{create: RedeemableItemController.create, update: RedeemableItemController.update, delete: RedeemableItemController.delete}}
+     * @constructor
+     */
+    get RedeemableItem() {
+        return {
+            create: this._redeemableItemController.create,
+            update: this._redeemableItemController.update,
+            delete: this._redeemableItemController.delete,
+        };
+    }
+
+    /**
+     * Get utility methods.
+     * @returns {{strToIdentifier: (*|(function(): result))}}
+     */
+    get Util() {
+        return {
+            strToIdentifier
+        };
+    }
+
+    /**
      * Get current network adaptor instance
      * @returns {CheaprEatsGraphQLAdaptor}
      */
@@ -384,7 +432,7 @@ class App {
      */
     isCompatible() {
         const sdkVersion = packageDotJson.version;
-        let queryString = `
+        let queryString  = `
             query {
                 is_sdk_version_supported(version:"${sdkVersion}")
             }
@@ -415,7 +463,7 @@ class App {
      */
     setGraphQLEndpoint(endpoint) {
         config.endpoints.graphQLEndpoint.production = endpoint;
-        this._adaptor = new CheaprEatsGraphQLAdaptor({
+        this._adaptor                               = new CheaprEatsGraphQLAdaptor({
             graphQLEndpoint: this.getConfiguration().endpoints.graphQLEndpoint.production
         });
     }
