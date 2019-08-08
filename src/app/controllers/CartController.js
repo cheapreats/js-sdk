@@ -2,6 +2,8 @@ class CartController {
     constructor(app) {
         this.app = app;
         // ADD BINDINGS BELOW
+        this.removeCoupon = this.removeCoupon.bind(this);
+        this.applyCoupon = this.applyCoupon.bind(this);
         this.delete = this.delete.bind(this);
         this.removeItem = this.removeItem.bind(this);
         this.addItem = this.addItem.bind(this);
@@ -9,6 +11,44 @@ class CartController {
     }
     
     // ADD MUTATION METHODS BELOW
+    
+    removeCoupon(cartId, cartCouponId){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($cartId: String!, $cartCouponId: String!) {
+                    removeCouponFromCart(cart_id: $cartId, cart_coupon_id: $cartCouponId) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                cartId, cartCouponId
+            }).then((result) => {
+                resolve(result.removeCouponFromCart);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+    
+    applyCoupon(cartId, couponCode){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($cartId: String!, $couponCode: String!) {
+                    applyCouponToCart(cart_id: $cartId, coupon_code: $couponCode) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                cartId, couponCode
+            }).then((result) => {
+                resolve(result.applyCouponToCart);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
 
     /**
      * Delete a cart
