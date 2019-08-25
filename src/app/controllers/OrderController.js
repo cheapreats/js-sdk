@@ -31,7 +31,7 @@ class OrderController {
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                order
+                order, dry, clear_cart
             }).then(result => {
                 resolve(result.createOrder._id);
             }).catch(e => {
