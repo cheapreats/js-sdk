@@ -17,13 +17,15 @@ class OrderController {
     /**
      * Place a new order, you must be authenticated as a customer to use this
      * @param {Object} order - The Order Object
+     * @param {Boolean} [dry] - Indicator for dry order placement
+     * @param {Boolean} [clear_cart] - Indicator to clear all cart after order placement
      * @returns {Promise<any>} - The id of the Order Object
      */
-    create(order){
+    create(order, dry, clear_cart){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation createOrderMutation ($order: CreateOrderInput!) {
-                    createOrder(order: $order) {
+                mutation createOrderMutation ($order: CreateOrderInput!, $dry: Boolean, $clear_cart: Boolean) {
+                    createOrder(order: $order, dry: $dry, clear_cart: $clear_cart) {
                         _id
                     }
                 }
