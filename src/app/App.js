@@ -251,6 +251,8 @@ class App {
      */
     get Vendor() {
         return {
+            updateVendorApprovalStatus: this._vendorController.updateVendorApprovalStatus,
+            requestVendorApproval: this._vendorController.requestVendorApproval,
             create: this._vendorController.create,
             createWithEmployee: this._vendorController.createWithEmployee,
             update: this._vendorController.update,

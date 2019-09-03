@@ -5,6 +5,8 @@ class VendorController {
     constructor(app){
         this.app = app;
         // ADD BINDINGS BELOW
+        this.updateVendorApprovalStatus = this.updateVendorApprovalStatus.bind(this);
+        this.requestVendorApproval = this.requestVendorApproval.bind(this);
         this.create = this.create.bind(this);
         this.update = this.update.bind(this);
         this.createWithEmployee = this.createWithEmployee.bind(this);
@@ -12,6 +14,42 @@ class VendorController {
     }
 
     // ADD MUTATION METHODS BELOW
+
+    updateVendorApprovalStatus(id, is_approved){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!, $is_approved: Boolean!) {
+                    updateVendorApprovalStatus(id: $id, is_approved: $is_approved) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, is_approved
+            }).then((result) => {
+                resolve(result.updateVendorApprovalStatus._id);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    requestVendorApproval(id){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!) {
+                    requestVendorApproval(id: $id)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id
+            }).then((result) => {
+                resolve(result.requestVendorApproval);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
 
     /**
      * TODO: Deprecate this method
