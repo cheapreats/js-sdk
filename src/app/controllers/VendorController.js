@@ -17,8 +17,8 @@ class VendorController {
 
     /**
      * Update a vendor's approval status, this can only be called by master.
-     * @param id ID of the vendor.
-     * @param is_approved New approval status.
+     * @param {string} id ID of the vendor.
+     * @param {boolean} is_approved New approval status.
      * @returns {Promise<string>}
      */
     updateVendorApprovalStatus(id, is_approved){
@@ -42,7 +42,7 @@ class VendorController {
 
     /**
      * Request profile approval from administrators before publishing the store.
-     * @param id ID of the vendor.
+     * @param {string} id ID of the vendor.
      * @returns {Promise<any>}
      */
     requestVendorApproval(id){
