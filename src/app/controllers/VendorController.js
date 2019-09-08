@@ -18,20 +18,20 @@ class VendorController {
     /**
      * Update a vendor's approval status, this can only be called by master.
      * @param {string} id ID of the vendor.
-     * @param {boolean} is_approved New approval status.
+     * @param {string} approval_status New approval status, can be APPROVED, PENDING, NOT_APPROVED
      * @returns {Promise<string>}
      */
-    updateVendorApprovalStatus(id, is_approved){
+    updateVendorApprovalStatus(id, approval_status){
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation ($id: String!, $is_approved: Boolean!) {
-                    updateVendorApprovalStatus(id: $id, is_approved: $is_approved) {
+                mutation ($id: String!, $approval_status: VendorApprovalStatus!) {
+                    updateVendorApprovalStatus(id: $id, approval_status: $approval_status) {
                         _id
                     }
                 }
             `;
             this.app.getAdaptor().mutate(mutationString, {
-                id, is_approved
+                id, approval_status
             }).then((result) => {
                 resolve(result.updateVendorApprovalStatus._id);
             }).catch(e => {
