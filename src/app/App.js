@@ -251,6 +251,8 @@ class App {
      */
     get Vendor() {
         return {
+            deleteVendorTester: this._vendorController.deleteVendorTester,
+            addVendorTesterByEmailAddress: this._vendorController.addVendorTesterByEmailAddress,
             updateVendorApprovalStatus: this._vendorController.updateVendorApprovalStatus,
             requestVendorApproval: this._vendorController.requestVendorApproval,
             create: this._vendorController.create,
