@@ -1,6 +1,6 @@
 {
   "name": "@cheapreats/sdk",
-  "version": "1.9.15",
+  "version": "1.9.16",
   "description": "CheaprEats JavaScript SDK",
   "main": "lib/index.js",
   "scripts": {
