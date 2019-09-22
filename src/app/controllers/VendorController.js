@@ -42,7 +42,7 @@ class VendorController {
     /**
      * Add a new vendor tester by email address.
      * @param {string} id Vendor's ID.
-     * @param {string} email_address Email address to add as tester as.
+     * @param {string} email_address Customer's email address to add as a tester.
      * @returns {Promise<any>}
      */
     addVendorTesterByEmailAddress(id, email_address) {
