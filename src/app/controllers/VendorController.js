@@ -2,18 +2,67 @@
  * Controller for vendors.
  */
 class VendorController {
-    constructor(app){
-        this.app = app;
+    constructor(app) {
+        this.app                           = app;
         // ADD BINDINGS BELOW
-        this.updateVendorApprovalStatus = this.updateVendorApprovalStatus.bind(this);
-        this.requestVendorApproval = this.requestVendorApproval.bind(this);
-        this.create = this.create.bind(this);
-        this.update = this.update.bind(this);
-        this.createWithEmployee = this.createWithEmployee.bind(this);
-        this.updateAllMenuItemsStatus = this.updateAllMenuItemsStatus.bind(this);
+        this.deleteVendorTester            = this.deleteVendorTester.bind(this);
+        this.addVendorTesterByEmailAddress = this.addVendorTesterByEmailAddress.bind(this);
+        this.updateVendorApprovalStatus    = this.updateVendorApprovalStatus.bind(this);
+        this.requestVendorApproval         = this.requestVendorApproval.bind(this);
+        this.create                        = this.create.bind(this);
+        this.update                        = this.update.bind(this);
+        this.createWithEmployee            = this.createWithEmployee.bind(this);
+        this.updateAllMenuItemsStatus      = this.updateAllMenuItemsStatus.bind(this);
     }
 
     // ADD MUTATION METHODS BELOW
+
+    /**
+     * Delete a vendor tester by ID.
+     * @param id Vendor tester's ID.
+     * @returns {Promise<string>}
+     */
+    deleteVendorTester(id) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!) {
+                    deleteVendorTester(id: $id)
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id
+            }).then((result) => {
+                resolve(result.deleteVendorTester);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
+    /**
+     * Add a new vendor tester by email address.
+     * @param {string} id Vendor's ID.
+     * @param {string} email_address Email address to add as tester as.
+     * @returns {Promise<any>}
+     */
+    addVendorTesterByEmailAddress(id, email_address) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($id: String!, email_address: String!) {
+                    addVendorTesterByEmailAddress(id: $id, email_address: $email_address) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                id, email_address
+            }).then((result) => {
+                resolve(result.addVendorTesterByEmailAddress);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
 
     /**
      * Update a vendor's approval status, this can only be called by master.
@@ -21,7 +70,7 @@ class VendorController {
      * @param {string} approval_status New approval status, can be APPROVED, PENDING, NOT_APPROVED
      * @returns {Promise<string>}
      */
-    updateVendorApprovalStatus(id, approval_status){
+    updateVendorApprovalStatus(id, approval_status) {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation ($id: String!, $approval_status: VendorApprovalStatus!) {
@@ -45,7 +94,7 @@ class VendorController {
      * @param {string} id ID of the vendor.
      * @returns {Promise<any>}
      */
-    requestVendorApproval(id){
+    requestVendorApproval(id) {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation ($id: String!) {
@@ -68,7 +117,7 @@ class VendorController {
      * @param {Object} vendor - The Vendor Object
      * @returns {Promise<any>}
      */
-    create(vendor){
+    create(vendor) {
         console.warn("Vendor.create is deprecated, it is recommended for you to move to Vendor.createWithEmployee");
         return new Promise((resolve, reject) => {
             let mutationString = `
@@ -93,7 +142,7 @@ class VendorController {
      * @param {Object} vendor - The Vendor Object
      * @returns {Promise<any>} - The id of the Vendor Object
      */
-    createWithEmployee(vendor){
+    createWithEmployee(vendor) {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation createVendorWithEmployeeMutation($vendor: CreateVendorWithEmployeeInput!) {
@@ -118,7 +167,7 @@ class VendorController {
      * @param {Object} vendor - The Vendor Object
      * @returns {Promise<any>}
      */
-    update(id, vendor){
+    update(id, vendor) {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation updateVendorMutation ($id: String!, $vendor: UpdateVendorInput!) {
@@ -143,7 +192,7 @@ class VendorController {
      * @param {Object} status - Updated status of the items
      * @returns {Promise<any>}
      */
-    updateAllMenuItemsStatus(vendor_id, status){
+    updateAllMenuItemsStatus(vendor_id, status) {
         return new Promise((resolve, reject) => {
             let mutationString = `
                 mutation ($vendor_id: String!, $status: String!) {
