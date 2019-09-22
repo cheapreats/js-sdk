@@ -48,7 +48,7 @@ class VendorController {
     addVendorTesterByEmailAddress(id, email_address) {
         return new Promise((resolve, reject) => {
             let mutationString = `
-                mutation ($id: String!, email_address: String!) {
+                mutation ($id: String!, $email_address: String!) {
                     addVendorTesterByEmailAddress(id: $id, email_address: $email_address) {
                         _id
                     }
