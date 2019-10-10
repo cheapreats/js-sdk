@@ -1,8 +1,9 @@
 const strToIdentifier          = require('./util/strToIdentifier');
 const CheaprEatsGraphQLAdaptor = require('./adaptors/CheaprEatsGraphQLAdaptor');
-const packageDotJson             = require('../../package.json');
+const packageDotJson           = require('../../package.json');
 
 // ADD CONTROLLER IMPORTS BELOW
+const AuthorizationController  = require('./controllers/AuthorizationController');
 const CartController           = require('./controllers/CartController');
 const CategoryController       = require('./controllers/CategoryController');
 const CustomerController       = require('./controllers/CustomerController');
@@ -49,6 +50,7 @@ class App {
             graphQLEndpoint: this.getConfiguration().endpoints.graphQLEndpoint.production
         });
         // ADD CONTROLLERS BELOW
+        this._authorizationController  = new AuthorizationController(this);
         this._cartController           = new CartController(this);
         this._categoryController       = new CategoryController(this);
         this._customerController       = new CustomerController(this);
@@ -76,6 +78,12 @@ class App {
     }
 
     // ADD GETTERS BELOW
+
+    get Authorization() {
+        return {
+            getTokenScope: this._authorizationController.getTokenScope,
+        };
+    }
 
     get Cart() {
         return {
