@@ -12,7 +12,7 @@ class AuthorizationController {
     getTokenScope(token) {
         let queryString = `
             query {
-                auth_token_scope(token:"${token}")
+                auth_token_scope(token: "${token}")
             }
         `;
         return new Promise((resolve, reject) => {
