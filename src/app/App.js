@@ -262,7 +262,7 @@ class App {
             create: this._vendorController.create,
             createWithEmployee: this._vendorController.createWithEmployee,
             update: this._vendorController.update,
-            updateAllMenuItemsStatus: this._vendorController.updateAllMenuItemsStatus
+            updateAllMenuItemsStatus: this._vendorController.updateAllMenuItemsStatus,
             deleteVendorTester: this._vendorController.deleteVendorTester,
             addVendorTesterByEmailAddress: this._vendorController.addVendorTesterByEmailAddress,
             updateVendorApprovalStatus: this._vendorController.updateVendorApprovalStatus,
