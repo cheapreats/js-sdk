@@ -255,18 +255,18 @@ class App {
 
     /**
      * Get vendor related methods.
-     * @returns {{create: VendorController.create, createWithEmployee: VendorController.createWithEmployee, update: VendorController.update}}
+     * @returns {{create: VendorController.create, createWithEmployee: VendorController.createWithEmployee, update: VendorController.update, updateAllMenuItemsStatus: VendorController.updateAllMenuItemsStatus, deleteVendorTester: VendorController.deleteVendorTester, addVendorTesterByEmailAddress: VendorController.addVendorTesterByEmailAddress, updateVendorApprovalStatus: VendorController.updateVendorApprovalStatus, requestVendorApproval: VendorController.requestVendorApproval}}
      */
     get Vendor() {
         return {
+            create: this._vendorController.create,
+            createWithEmployee: this._vendorController.createWithEmployee,
+            update: this._vendorController.update,
+            updateAllMenuItemsStatus: this._vendorController.updateAllMenuItemsStatus,
             deleteVendorTester: this._vendorController.deleteVendorTester,
             addVendorTesterByEmailAddress: this._vendorController.addVendorTesterByEmailAddress,
             updateVendorApprovalStatus: this._vendorController.updateVendorApprovalStatus,
             requestVendorApproval: this._vendorController.requestVendorApproval,
-            create: this._vendorController.create,
-            createWithEmployee: this._vendorController.createWithEmployee,
-            update: this._vendorController.update,
-            updateAllMenuItemsStatus: this._vendorController.updateAllMenuItemsStatus
         };
     }
 
