@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>User - Documentation</title>
+    <title>controllers/AuthorizationController.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,133 +29,49 @@
 
 <div id="main">
     
-    <h1 class="page-title">User</h1>
+    <h1 class="page-title">controllers/AuthorizationController.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        User
-        </h2>
-        
-    
-</header>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>class AuthorizationController {
+    constructor(app) {
+        this.app           = app;
+        this.getTokenScope = this.getTokenScope.bind(this);
+    }
 
-<article>
-    <div class="container-overview">
-    
-        
-<div class="section-method">
+    /**
+     * Get the authorization scope (role) for a user in the system through the issued token
+     * @param {string} token - Authorization Token Issued
+     * @returns {Promise&lt;any>} - Role of the user in the system
+     */
+    getTokenScope(token) {
+        let queryString = `
+            query {
+                auth_token_scope(token: "${token}")
+            }
+        `;
+        return new Promise((resolve, reject) => {
+            return this.app.getAdaptor().query(queryString).then(data => {
+                resolve(data.auth_token_scope);
+            }).catch(e => {
+                reject(e);
+            });
+        });
 
-    
+    }
 
-    <h4 class="name" id="User"><span class="type-signature"></span>new User<span class="signature">()</span><span class="type-signature"></span></h4>
+}
 
-    
-
-
-
-<div class="description">
-    <p>Construct a user object</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="models_user_User.js.html">models/user/User.js</a>, <a href="models_user_User.js.html#line13">line 13</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+module.exports = AuthorizationController;
+</code></pre>
+        </article>
+    </section>
 
 
 

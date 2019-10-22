@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>User - Documentation</title>
+    <title>util/formatPrice.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,133 +29,30 @@
 
 <div id="main">
     
-    <h1 class="page-title">User</h1>
+    <h1 class="page-title">util/formatPrice.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        User
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="User"><span class="type-signature"></span>new User<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Construct a user object</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="models_user_User.js.html">models/user/User.js</a>, <a href="models_user_User.js.html#line13">line 13</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Takes in a number and formats it with consistent price formatting.
+ * @param {number} price
+ * @param {boolean} showZero
+ * @returns {string}
+ */
+export function formatPrice(price, showZero = true) {
+    if (price !== 0 || showZero) {
+        return "$" + (price / 100).toFixed(2);
+    }
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
