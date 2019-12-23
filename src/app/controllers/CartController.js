@@ -2,6 +2,7 @@ class CartController {
     constructor(app) {
         this.app = app;
         // ADD BINDINGS BELOW
+        this.updateNote = this.updateNote.bind(this);
         this.removeCoupon = this.removeCoupon.bind(this);
         this.applyCoupon = this.applyCoupon.bind(this);
         this.delete = this.delete.bind(this);
@@ -9,9 +10,28 @@ class CartController {
         this.addItem = this.addItem.bind(this);
         this.create = this.create.bind(this);
     }
-    
+
     // ADD MUTATION METHODS BELOW
-    
+
+    updateNote(cartId, note){
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                mutation ($cartId: String!, $note: String!) {
+                    updateNoteForCart(cart_id: $cartId, note: $note) {
+                        _id
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                cartId, note
+            }).then((result) => {
+                resolve(result.updateNoteForCart);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
+
     removeCoupon(cartId, cartCouponId){
         return new Promise((resolve, reject) => {
             let mutationString = `
@@ -30,7 +50,7 @@ class CartController {
             });
         });
     }
-    
+
     applyCoupon(cartId, couponCode){
         return new Promise((resolve, reject) => {
             let mutationString = `
@@ -155,6 +175,6 @@ class CartController {
             });
         });
     }
-    
+
 }
 module.exports = CartController;

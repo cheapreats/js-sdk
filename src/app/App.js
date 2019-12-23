@@ -87,6 +87,7 @@ class App {
 
     get Cart() {
         return {
+            updateNote: this._cartController.updateNote,
             removeCoupon: this._cartController.removeCoupon,
             applyCoupon: this._cartController.applyCoupon,
             delete: this._cartController.delete,
