@@ -26,7 +26,7 @@ class RemoteConfigurationController {
             this.app.getAdaptor().mutate(mutationString, {
                 name, version,
             }).then((result) => {
-                resolve(result.merged_configuration);
+                resolve(JSON.parse(result.merged_configuration.data));
             }).catch(e => {
                 reject(e);
             });
