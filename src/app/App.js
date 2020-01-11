@@ -3,31 +3,32 @@ const CheaprEatsGraphQLAdaptor = require('./adaptors/CheaprEatsGraphQLAdaptor');
 const packageDotJson           = require('../../package.json');
 
 // ADD CONTROLLER IMPORTS BELOW
-const AuthorizationController  = require('./controllers/AuthorizationController');
-const CartController           = require('./controllers/CartController');
-const CategoryController       = require('./controllers/CategoryController');
-const CustomerController       = require('./controllers/CustomerController');
-const CustomerTokenController  = require('./controllers/CustomerTokenController');
-const CouponController         = require('./controllers/CouponController');
-const EmployeeController       = require('./controllers/EmployeeController');
-const EmployeeTokenController  = require('./controllers/EmployeeTokenController');
-const GraphController          = require('./controllers/GraphController');
-const HeadOfficeController     = require('./controllers/HeadOfficeController');
-const MenuItemController       = require('./controllers/MenuItemController');
-const ModifierController       = require('./controllers/ModifierController');
-const VendorController         = require('./controllers/VendorController');
-const VerificationController   = require('./controllers/VerificationController');
-const ValidationController     = require('./controllers/ValidationController');
-const SurveyController         = require('./controllers/SurveyController');
-const OrderController          = require('./controllers/OrderController');
-const ImageController          = require('./controllers/ImageController');
-const PayoutController         = require('./controllers/PayoutController');
-const ExplorePageController    = require('./controllers/ExplorePageController');
-const FlashSaleController      = require('./controllers/FlashSaleController');
-const TipController            = require('./controllers/TipController');
-const LoyaltyProgramController = require('./controllers/LoyaltyProgramController');
-const LoyaltyCardController    = require('./controllers/LoyaltyCardController');
-const RedeemableItemController = require('./controllers/RedeemableItemController');
+const AuthorizationController       = require('./controllers/AuthorizationController');
+const CartController                = require('./controllers/CartController');
+const CategoryController            = require('./controllers/CategoryController');
+const CustomerController            = require('./controllers/CustomerController');
+const CustomerTokenController       = require('./controllers/CustomerTokenController');
+const CouponController              = require('./controllers/CouponController');
+const EmployeeController            = require('./controllers/EmployeeController');
+const EmployeeTokenController       = require('./controllers/EmployeeTokenController');
+const GraphController               = require('./controllers/GraphController');
+const HeadOfficeController          = require('./controllers/HeadOfficeController');
+const MenuItemController            = require('./controllers/MenuItemController');
+const ModifierController            = require('./controllers/ModifierController');
+const VendorController              = require('./controllers/VendorController');
+const VerificationController        = require('./controllers/VerificationController');
+const ValidationController          = require('./controllers/ValidationController');
+const SurveyController              = require('./controllers/SurveyController');
+const OrderController               = require('./controllers/OrderController');
+const ImageController               = require('./controllers/ImageController');
+const PayoutController              = require('./controllers/PayoutController');
+const ExplorePageController         = require('./controllers/ExplorePageController');
+const FlashSaleController           = require('./controllers/FlashSaleController');
+const TipController                 = require('./controllers/TipController');
+const LoyaltyProgramController      = require('./controllers/LoyaltyProgramController');
+const LoyaltyCardController         = require('./controllers/LoyaltyCardController');
+const RedeemableItemController      = require('./controllers/RedeemableItemController');
+const RemoteConfigurationController = require('./controllers/RemoteConfigurationController');
 
 
 let config = {
@@ -46,35 +47,36 @@ class App {
     constructor() {
         this._token = null;
 
-        this._adaptor                  = new CheaprEatsGraphQLAdaptor({
+        this._adaptor                       = new CheaprEatsGraphQLAdaptor({
             graphQLEndpoint: this.getConfiguration().endpoints.graphQLEndpoint.production
         });
         // ADD CONTROLLERS BELOW
-        this._authorizationController  = new AuthorizationController(this);
-        this._cartController           = new CartController(this);
-        this._categoryController       = new CategoryController(this);
-        this._customerController       = new CustomerController(this);
-        this._customerTokenController  = new CustomerTokenController(this);
-        this._couponController         = new CouponController(this);
-        this._employeeController       = new EmployeeController(this);
-        this._employeeTokenController  = new EmployeeTokenController(this);
-        this._graphController          = new GraphController(this);
-        this._headOfficeController     = new HeadOfficeController(this);
-        this._menuItemController       = new MenuItemController(this);
-        this._modifierController       = new ModifierController(this);
-        this._vendorController         = new VendorController(this);
-        this._verificationController   = new VerificationController(this);
-        this._validationController     = new ValidationController(this);
-        this._surveyController         = new SurveyController(this);
-        this._orderController          = new OrderController(this);
-        this._imageController          = new ImageController(this);
-        this._payoutController         = new PayoutController(this);
-        this._explorePageController    = new ExplorePageController(this);
-        this._flashSaleController      = new FlashSaleController(this);
-        this._tipController            = new TipController(this);
-        this._loyaltyProgramController = new LoyaltyProgramController(this);
-        this._loyaltyCardController    = new LoyaltyCardController(this);
-        this._redeemableItemController = new RedeemableItemController(this);
+        this._authorizationController       = new AuthorizationController(this);
+        this._cartController                = new CartController(this);
+        this._categoryController            = new CategoryController(this);
+        this._customerController            = new CustomerController(this);
+        this._customerTokenController       = new CustomerTokenController(this);
+        this._couponController              = new CouponController(this);
+        this._employeeController            = new EmployeeController(this);
+        this._employeeTokenController       = new EmployeeTokenController(this);
+        this._graphController               = new GraphController(this);
+        this._headOfficeController          = new HeadOfficeController(this);
+        this._menuItemController            = new MenuItemController(this);
+        this._modifierController            = new ModifierController(this);
+        this._vendorController              = new VendorController(this);
+        this._verificationController        = new VerificationController(this);
+        this._validationController          = new ValidationController(this);
+        this._surveyController              = new SurveyController(this);
+        this._orderController               = new OrderController(this);
+        this._imageController               = new ImageController(this);
+        this._payoutController              = new PayoutController(this);
+        this._explorePageController         = new ExplorePageController(this);
+        this._flashSaleController           = new FlashSaleController(this);
+        this._tipController                 = new TipController(this);
+        this._loyaltyProgramController      = new LoyaltyProgramController(this);
+        this._loyaltyCardController         = new LoyaltyCardController(this);
+        this._redeemableItemController      = new RedeemableItemController(this);
+        this._remoteConfigurationController = new RemoteConfigurationController(this);
     }
 
     // ADD GETTERS BELOW
@@ -395,6 +397,15 @@ class App {
             create: this._redeemableItemController.create,
             update: this._redeemableItemController.update,
             delete: this._redeemableItemController.delete,
+        };
+    }
+
+    get RemoteConfiguration() {
+        return {
+            fetch: this._remoteConfigurationController.fetch,
+            deleteRawConfiguration: this._remoteConfigurationController.deleteRawConfiguration,
+            updateRawConfiguration: this._remoteConfigurationController.updateRawConfiguration,
+            createRawConfiguration: this._remoteConfigurationController.createRawConfiguration,
         };
     }
 
