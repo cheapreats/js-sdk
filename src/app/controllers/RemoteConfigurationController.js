@@ -5,12 +5,33 @@ class RemoteConfigurationController {
     constructor(app) {
         this.app                    = app;
         // ADD BINDINGS BELOW
+        this.fetch                  = this.fetch.bind(this);
         this.deleteRawConfiguration = this.deleteRawConfiguration.bind(this);
         this.updateRawConfiguration = this.updateRawConfiguration.bind(this);
         this.createRawConfiguration = this.createRawConfiguration.bind(this);
     }
 
     // ADD MUTATION METHODS BELOW
+
+    fetch(name, version) {
+        return new Promise((resolve, reject) => {
+            let mutationString = `
+                query ($name: String!, $version: String!) {
+                    merged_configuration(name: $name, version: $version) {
+                        name
+                        data
+                    }
+                }
+            `;
+            this.app.getAdaptor().mutate(mutationString, {
+                name, version,
+            }).then((result) => {
+                resolve(result.merged_configuration);
+            }).catch(e => {
+                reject(e);
+            });
+        });
+    }
 
     deleteRawConfiguration(id) {
         return new Promise((resolve, reject) => {

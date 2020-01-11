@@ -402,6 +402,7 @@ class App {
 
     get RemoteConfiguration() {
         return {
+            fetch: this._remoteconfigurationController.fetch,
             deleteRawConfiguration: this._remoteconfigurationController.deleteRawConfiguration,
             updateRawConfiguration: this._remoteconfigurationController.updateRawConfiguration,
             createRawConfiguration: this._remoteconfigurationController.createRawConfiguration,
