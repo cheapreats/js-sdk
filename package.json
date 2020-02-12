@@ -1,10 +1,10 @@
 {
   "name": "@cheapreats/sdk",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "CheaprEats JavaScript SDK",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npm -v",
+    "test": "mocha -r ts-node/register",
     "gulp": "gulp",
     "add:mutation": "node ./src/scripts/addMutation.js",
     "build": "./package-sdk.sh",
@@ -31,15 +31,19 @@
     "jsdoc": "^3.6.3",
     "minami": "^1.2.3",
     "mocha": "5.0.5",
+    "typescript": "^3.7.5",
     "vinyl-buffer": "1.0.1",
     "vinyl-source-stream": "2.0.0",
     "watchify": "^3.11.1"
   },
   "dependencies": {
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.1",
     "axios": "0.19.0",
     "colors": "1.3.1",
     "cross-fetch": "2.2.2",
     "es6-promise": "4.2.4",
+    "extend": "3.0.2",
     "graphql": "0.13.2",
     "graphql-anywhere": "4.1.23",
     "graphql-request": "1.8.2",
@@ -49,6 +53,6 @@
     "node-fetch": "2.1.2",
     "readline-sync": "^1.4.9",
     "stripe": "5.8.0",
-    "extend": "3.0.2"
+    "ts-node": "^8.6.2"
   }
 }
