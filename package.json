@@ -1,13 +1,16 @@
 {
   "name": "@cheapreats/sdk",
-  "version": "1.10.1",
+  "version": "1.10.7",
   "description": "CheaprEats JavaScript SDK",
-  "main": "lib/index.js",
+  "main": "dist/app/App.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "mocha -r ts-node/register",
     "gulp": "gulp",
     "add:mutation": "node ./src/scripts/addMutation.js",
-    "build": "./package-sdk.sh",
+    "build": "rm -rf dist && tsc && babel dist -d dist",
     "generate-docs": "./deploy-doc.sh"
   },
   "repository": {

@@ -1,9 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "./built",
+    "outDir": "dist",
     "allowJs": true,
-    "target": "es2017"
+    "target": "es2017",
+    "rootDirs": ["src"],
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2017", "dom"],
+    "module": "commonjs"
   },
   "include": ["./src/**/*"],
-  "exclude": ["node_modules", "scripts", "dist"]
+  "exclude": ["node_modules", "scripts", "dist", "dist"]
 }
