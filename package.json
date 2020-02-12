@@ -1,8 +1,8 @@
 {
   "name": "@cheapreats/sdk",
-  "version": "1.10.7",
+  "version": "1.10.8",
   "description": "CheaprEats JavaScript SDK",
-  "main": "dist/app/App.js",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],

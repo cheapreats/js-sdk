@@ -4,12 +4,12 @@
  * License: UNLICENSED
  */
 
-const App = require('./src/app/App');
+const App = require("./app/App");
 
 let app = new App();
 // Export a App instance
 module.exports = app;
 
-if(typeof window !== "undefined"){
-    window.CE = app
+if (typeof window !== "undefined") {
+  window.CE = app;
 }
