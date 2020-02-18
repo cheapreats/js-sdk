@@ -1,5 +1,5 @@
-import { HttpLink } from "../links/synchronouslinks/HttpLink";
-
+const HttpLink = require("../links/synchronouslinks/HttpLink");
+//PR same issue where ts is saying HttpLink has already been declared elsewhere
 // This is special, not really a model
 class Verify {
   _getVerificationCodeLink: any;

@@ -18,7 +18,6 @@ enum Method {
   EMAIL = "EMAIL",
   SMS = "SMS"
 }
-//PR same issue with doublee issuing even though enum not imported from different file
 /**
  * Controller for employees.
  */
