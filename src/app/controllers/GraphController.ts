@@ -11,7 +11,7 @@ class GraphController {
 
   // ADD MUTATION METHODS BELOW
 
-  query(query: string, variables: object = {}) {
+  query(query: string, variables: any = {}) {
     return this.app.getAdaptor().query(query, variables);
   }
 }
