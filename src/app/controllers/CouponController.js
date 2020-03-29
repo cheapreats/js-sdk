@@ -33,6 +33,32 @@ class CouponController {
             });
         });
     }
+
+    /**
+     * Update a coupon
+     * @param {string} id - The id of the Coupon Object
+     * @param {Object} updateFields - Coupon fields to update
+     * @returns {Promise<*>} - The id of the Coupon Object
+     */
+    async update(id, updateFields) {
+        const mutationString = `
+            mutation updateCouponMutation ($id: String!, $coupon: UpdateCouponInput!) {
+                updateCoupon(id: $id, coupon: $coupon) {
+                    _id
+                }
+            }
+        `;
+
+        try {
+            let result = await this.app.getAdaptor().mutate(mutationString, {
+                id,
+                coupon: updateFields
+            });
+            return result.updateCoupon._id;
+        } catch(e) {
+            throw new Error(e);
+        }
+    }
 }
 
 module.exports = CouponController;
