@@ -9,8 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+        # Existing Github action to checkout repository
       - name: Checkout repository
         uses: actions/checkout@v2
+        # Existing Github action to setup NodeJS
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
