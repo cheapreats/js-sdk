@@ -43,6 +43,16 @@ For example - `npm run add:mutation Category.batchArchive`
 
 ## Publishing to NPM
 
+*Ensure that package version in feature branch is ahead of master branch, otherwise publish will fail*
+
+### Automatic:
+
+By default package is automatically published anytime a change is made on master
+
+### Manual:
+
+If package is to be published manually, execute following commands:
+
 * `npm run build`
 * `npm publish`
 * `npm run generate-docs` (Publishes docs)
